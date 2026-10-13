@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PFM Ads Report 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;
+--font-anthropic-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--font-anthropic-serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+--cds-font-size-caption:12.5px;--cds-font-size-body:14.5px;--cds-font-size-heading:16px;--cds-font-size-title:28px;--cds-font-weight-medium:550;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:16px;--cds-gap-lg:24px;--cds-gap-xl:36px;--cds-pad-xs:6px;--cds-pad-sm:10px;--cds-pad-md:14px;--cds-pad-lg:18px;--cds-radius:10px;--cds-dur-slow:.3s;
+--color-bg:#f8f7f4;--color-panel:#ffffff;--color-fg:#1f1e1c;--color-fg-muted:#6b6a64;--color-border-line:#e4e2dc;--color-ok:#1b7f3b;--color-warn:#a15c00;--color-bad:#c0392b;
+--cds-chart-grid:#ecebe6;--cds-chart-axis:#c9c7bf;--cds-chart-reference:#a9a79f;--cds-surface-popover:#ffffff;--cds-border:#dddbd4;--cds-shadow-popover:0 4px 16px rgba(0,0,0,.12);--cds-text-secondary:#6b6a64;
+--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#8a63d2;--s8:#6b6a64}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--color-bg:#1a1a19;--color-panel:#232321;--color-fg:#f0efec;--color-fg-muted:#a9a89f;--color-border-line:#383733;--color-ok:#5cc47e;--color-warn:#e0a63a;--color-bad:#ef7b6e;
+--cds-chart-grid:#2f2e2b;--cds-chart-axis:#4a4944;--cds-chart-reference:#6b6a64;--cds-surface-popover:#2b2b29;--cds-border:#44433f;--cds-shadow-popover:0 4px 16px rgba(0,0,0,.5);--cds-text-secondary:#c3c2b7;
+--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181}}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);-webkit-text-size-adjust:100%}
+#dash-root{padding:20px var(--dash-gutter,16px) 48px}
+.ar svg text{font-family:var(--font-anthropic-sans)}
+.foot{max-width:1280px;margin:24px auto 0;font-size:12px;color:var(--color-fg-muted)}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head><body><div id="dash-root">
+<style>
+#dash-root { --dash-gutter: clamp(16px, 3vw, 32px); }
+.ar { font-family: var(--font-anthropic-sans); color: var(--color-fg); max-width: 1280px; margin-inline: auto; font-variant-numeric: tabular-nums; }
+.ar h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0 0 var(--cds-gap-xs); }
+.ar .sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0 0 var(--cds-gap-sm); line-height: 1.5; }
+.ar .take { font-size: var(--cds-font-size-body); line-height: 1.6; margin: 0 0 var(--cds-gap-lg); }
+.ar .take b, .ar .sub b { font-weight: 600; }
+.ar h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: var(--cds-gap-xl) 0 var(--cds-gap-sm); }
+.ar .head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--cds-gap-sm); }
+.ar .asof { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); white-space: nowrap; }
+.ar .asof b { color: var(--color-fg); font-weight: 600; }
+.ar .tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); border-bottom: 1px solid var(--color-border-line); margin-bottom: var(--cds-gap-lg); }
+.ar .tabs button { font: inherit; font-size: var(--cds-font-size-body); background: none; border: 0; border-bottom: 2px solid transparent; padding: var(--cds-pad-sm) var(--cds-pad-md); color: var(--color-fg-muted); cursor: pointer; margin-bottom: -1px; }
+.ar .tabs button[aria-selected=true] { color: var(--color-fg); border-bottom-color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.ar .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: var(--cds-gap-md); }
+.ar .tile, .ar .card, .ar .ch { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.ar .lb { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ar .tile .v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: var(--cds-gap-xs) 0; min-height: 1.3em; }
+.ar .tile .n { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ar .chs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--cds-gap-md); margin-top: var(--cds-gap-md); }
+.ar .ch .nm { display: flex; align-items: center; gap: 8px; font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-body); }
+.ar .ch .nm i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.ar .ch .big { display: flex; align-items: baseline; gap: 8px; margin: var(--cds-gap-sm) 0 var(--cds-gap-xs); }
+.ar .ch .big .v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); min-width: 2ch; }
+.ar .ch dl { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--cds-gap-xs) var(--cds-gap-sm); margin: var(--cds-gap-sm) 0 0; }
+.ar .ch dt { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ar .ch dd { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+.ar .spark { position: relative; height: 44px; margin-top: var(--cds-gap-sm); }
+.ar .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: var(--cds-gap-md); margin-top: var(--cds-gap-md); }
+.ar .card h3 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.ar .card .note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 var(--cds-gap-sm); line-height: 1.5; }
+.ar .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--cds-gap-sm); }
+.ar .seg { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+.ar .seg button { font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 0; padding: 6px 12px; color: var(--color-fg-muted); cursor: pointer; }
+.ar .seg button + button { border-left: 1px solid var(--color-border-line); }
+.ar .seg button[aria-pressed=true] { background: var(--color-fg); color: var(--color-bg); }
+.ar input.search { font: inherit; font-size: var(--cds-font-size-caption); padding: 6px 10px; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); min-width: 12rem; }
+.ar .chart { position: relative; min-height: 240px; margin-top: var(--cds-gap-sm); }
+.ar .chart.tall { min-height: 300px; }
+.ar .chart.mix { min-height: 100px; }
+.ar .legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top: var(--cds-gap-sm); }
+.ar .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.ar .legend i.ln { height: 0; border-top: 2px solid; border-radius: 0; width: 14px; vertical-align: 3px; }
+.ar .tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; display: none; z-index: 5; }
+.ar .tip .h { color: var(--cds-text-secondary); margin-bottom: 2px; }
+.ar .tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
+.ar details.more { margin-top: var(--cds-gap-sm); }
+.ar details.more summary { cursor: pointer; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ar .tbl { overflow: auto; max-height: 520px; margin-top: var(--cds-gap-sm); }
+.ar table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); }
+.ar th, .ar td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.ar th:first-child, .ar td:first-child { text-align: left; }
+.ar td.l, .ar th.l { text-align: left; }
+.ar td.wrap { white-space: normal; min-width: 14rem; }
+.ar th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); position: sticky; top: 0; background: var(--color-panel); }
+.ar tr.total td { font-weight: 600; }
+.ar td.ok, .ar .ok { color: var(--color-ok); } .ar td.warn, .ar .warn { color: var(--color-warn); } .ar td.bad, .ar .bad { color: var(--color-bad); }
+.ar ul.notes { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.6; padding-left: 1.2em; margin: 0; }
+.ar ul.notes b { color: var(--color-fg); font-weight: 600; }
+.ar .fail { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 200px; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ar .fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.ar [data-dash-source-state=empty] { color: transparent; }
+.ar [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+<div class="ar">
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-overall" data-page="overall" aria-selected="true">Tổng quan YTD</button>
+    <button role="tab" id="tab-ngay" data-page="theo-ngay" aria-selected="false">Theo ngày</button>
+    <button role="tab" id="tab-campaign" data-page="campaign" aria-selected="false">Campaign</button>
+    <button role="tab" id="tab-dd" data-page="ngay-doi" aria-selected="false">Ngày đôi</button>
+  </div>
+
+  <div class="page" id="overall">
+    <div class="head">
+      <h1>PFM Ads · YTD 2026</h1>
+      <div class="asof">Số đến hết <b class="dash-skeleton" data-source="as_of" data-field="label" data-row="0">—</b></div>
+    </div>
+    <p class="take">
+      Tổng chi <b class="dash-skeleton" data-source="ads_overall" data-field="spend" data-where="channel=T%E1%BB%95ng">—</b> mang về <b class="dash-skeleton" data-source="ads_overall" data-field="ads_gmv" data-where="channel=T%E1%BB%95ng">—</b> AdsGMV, ROAS <b class="dash-skeleton" data-source="ads_overall" data-field="roas" data-where="channel=T%E1%BB%95ng">—</b>.
+      Shopee Live ads hiệu quả nhất (ROAS <b class="dash-skeleton" data-source="ads_overall" data-field="roas" data-where="channel=Shopee%20Live">—</b>); TikTok chi nhiều nhất (<b class="dash-skeleton" data-source="ads_overall" data-field="spend" data-where="channel=TikTok">—</b>, ROI GMV Max <b class="dash-skeleton" data-source="ads_overall" data-field="ratio" data-where="channel=TikTok">—</b>).
+    </p>
+    <div class="tiles" id="kpi">
+      <div class="tile"><div class="lb">AdsSpent</div><div class="v dash-skeleton" data-source="ads_overall" data-field="spend" data-where="channel=T%E1%BB%95ng">—</div><div class="n">3 kênh, YTD</div></div>
+      <div class="tile"><div class="lb">AdsGMV</div><div class="v dash-skeleton" data-source="ads_overall" data-field="ads_gmv" data-where="channel=T%E1%BB%95ng">—</div><div class="n">Doanh thu ads ghi nhận</div></div>
+      <div class="tile"><div class="lb">ROAS</div><div class="v dash-skeleton" data-source="ads_overall" data-field="roas" data-where="channel=T%E1%BB%95ng">—</div><div class="n">AdsGMV ÷ AdsSpent</div></div>
+      <div class="tile"><div class="lb">% Contribute</div><div class="v dash-skeleton" data-source="ads_overall" data-field="contrib" data-where="channel=T%E1%BB%95ng">—</div><div class="n">AdsGMV ÷ TotalGMV</div></div>
+      <div class="tile"><div class="lb">AdsSpent ÷ TotalGMV</div><div class="v dash-skeleton" data-source="ads_overall" data-field="cost_ratio" data-where="channel=T%E1%BB%95ng">—</div><div class="n">Chi phí ads trên GMV</div></div>
+    </div>
+
+    <div class="chs" id="channel-cards">
+      <div class="ch" id="card-shopee">
+        <div class="nm"><i data-ch="Shopee Live"></i>Shopee Live</div>
+        <div class="big"><span class="v dash-skeleton" data-source="ads_overall" data-field="ratio" data-where="channel=Shopee%20Live">—</span><span class="lb">ROAS YTD</span></div>
+        <dl>
+          <div><dt>AdsSpent</dt><dd data-source="ads_overall" data-field="spend" data-where="channel=Shopee%20Live">—</dd></div>
+          <div><dt>AdsGMV</dt><dd data-source="ads_overall" data-field="ads_gmv" data-where="channel=Shopee%20Live">—</dd></div>
+          <div><dt>% Contribute</dt><dd data-source="ads_overall" data-field="contrib" data-where="channel=Shopee%20Live">—</dd></div>
+        </dl>
+        <div class="spark" data-spark="Shopee Live" data-source="ads_month"></div>
+        <div class="lb">ROAS theo tháng (ads từ T5)</div>
+      </div>
+      <div class="ch" id="card-meta">
+        <div class="nm"><i data-ch="Meta"></i>Meta</div>
+        <div class="big"><span class="v dash-skeleton" data-source="ads_overall" data-field="ratio" data-where="channel=Meta">—</span><span class="lb">ROAS YTD</span></div>
+        <dl>
+          <div><dt>AdsSpent</dt><dd data-source="ads_overall" data-field="spend" data-where="channel=Meta">—</dd></div>
+          <div><dt>AdsGMV</dt><dd data-source="ads_overall" data-field="ads_gmv" data-where="channel=Meta">—</dd></div>
+          <div><dt>% Contribute</dt><dd data-source="ads_overall" data-field="contrib" data-where="channel=Meta">—</dd></div>
+        </dl>
+        <div class="spark" data-spark="Meta" data-source="ads_month"></div>
+        <div class="lb">ROAS theo tháng</div>
+      </div>
+      <div class="ch" id="card-tiktok">
+        <div class="nm"><i data-ch="TikTok"></i>TikTok</div>
+        <div class="big"><span class="v dash-skeleton" data-source="ads_overall" data-field="ratio" data-where="channel=TikTok">—</span><span class="lb">ROI GMV Max YTD</span></div>
+        <dl>
+          <div><dt>AdsSpent</dt><dd data-source="ads_overall" data-field="spend" data-where="channel=TikTok">—</dd></div>
+          <div><dt>AdsGMV</dt><dd data-source="ads_overall" data-field="ads_gmv" data-where="channel=TikTok">—</dd></div>
+          <div><dt>% Contribute</dt><dd data-source="ads_overall" data-field="contrib" data-where="channel=TikTok">—</dd></div>
+        </dl>
+        <div class="spark" data-spark="TikTok" data-source="ads_month"></div>
+        <div class="lb">ROI GMV Max theo tháng</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card" id="card-spend-month">
+        <h3>AdsSpent theo tháng</h3>
+        <p class="note">Chồng theo kênh; rê chuột để xem từng kênh.</p>
+        <div class="chart" id="ch-spend-month" data-source="ads_month"></div>
+        <div class="legend" id="lg-spend-month"></div>
+      </div>
+      <div class="card" id="card-roas-month">
+        <h3>ROAS / ROI theo tháng</h3>
+        <p class="note">Shopee Live và Meta: ROAS. TikTok: ROI GMV Max (doanh thu gộp ÷ chi phí GMV Max).</p>
+        <div class="chart" id="ch-roas-month" data-source="ads_month"></div>
+        <div class="legend" id="lg-roas-month"></div>
+      </div>
+    </div>
+
+    <div class="card" id="card-mix" style="margin-top:var(--cds-gap-md)">
+      <h3>Cơ cấu chi phí và doanh thu ads YTD</h3>
+      <p class="note">Tỷ trọng mỗi kênh trong tổng AdsSpent và tổng AdsGMV: kênh có phần doanh thu lớn hơn phần chi phí đang kéo ROAS chung lên.</p>
+      <div class="chart mix" id="ch-mix" data-source="ads_overall"></div>
+    </div>
+
+    <h2 id="overall-performance">Overall performance</h2>
+    <div class="card">
+      <p class="note">TotalGMV chỉ tính các tháng kênh đó có số ads (Shopee Live ads từ T5), để % Contribute so cùng kỳ. *TikTok dùng ROI = doanh thu gộp GMV Max ÷ chi phí GMV Max (cách TikTok tính). Doanh thu gộp LIVE GMV Max là toàn bộ doanh thu phiên live TikTok ghi nhận cho campaign (tất cả shop trong live), nên từ T7 % Contribute TikTok có thể vượt 100% so với GMV kênh trong sheet.</p>
+      <div class="tbl"><table id="tbl-overall" data-source="ads_overall" data-row-key="channel">
+        <thead><tr><th data-field="channel">Kênh</th><th data-field="spend">AdsSpent</th><th data-field="ads_gmv">AdsGMV</th><th data-field="total_gmv">TotalGMV</th><th data-field="contrib">% Contribute</th><th data-field="ratio">ROAS / ROI*</th><th data-field="cost_ratio">AdsSpent ÷ TotalGMV</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+
+    <h2 id="theo-thang">Chi tiết theo tháng</h2>
+    <div class="card">
+      <div class="bar"><div class="seg" id="seg-month"></div></div>
+      <div class="tbl" id="wrap-month-ch"><table id="tbl-month-ch" data-source="ads_month" data-row-key="month,channel">
+        <thead><tr><th data-field="month">Tháng</th><th data-field="channel" class="l">Kênh</th><th data-field="spend">AdsSpent</th><th data-field="ads_gmv">AdsGMV</th><th data-field="total_gmv">TotalGMV</th><th data-field="contrib">% Contribute</th><th data-field="ratio">ROAS / ROI*</th></tr></thead>
+        <tbody></tbody></table></div>
+      <div class="tbl" id="wrap-month-all"><table id="tbl-month-all" data-source="ads_month_total" data-row-key="month">
+        <thead><tr><th data-field="month">Tháng</th><th data-field="spend">AdsSpent</th><th data-field="ads_gmv">AdsGMV</th><th data-field="total_gmv">TotalGMV</th><th data-field="contrib">% Contribute</th><th data-field="ratio">ROAS</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+
+    <h2 id="ghi-chu">Định nghĩa &amp; lưu ý</h2>
+    <div class="card"><ul class="notes">
+      <li><b>Shopee Live:</b> AdsSpent/AdsGMV = Dịch vụ Hiển thị Livestream (Seller Center), chỉ có từ T5 — Seller Center không trả số T1–T4. TotalGMV = placed GMV live của tài khoản trên Creator Center.</li>
+      <li><b>Meta:</b> 3 tài khoản BM Olala (HO.com, HO4D, X1); AdsGMV = giá trị purchase Meta ghi nhận. TotalGMV = GMV kênh Facebook (sheet GMV_Historical).</li>
+      <li><b>TikTok:</b> AdsSpent = ads đấu giá + GMV Max (Product &amp; LIVE, khớp báo cáo TT_SHOP; LIVE GMV Max chạy từ T1 ở HANNAHOLALA, từ T4 ở Affiliate). Chỉ số hiệu quả là <b>ROI</b> = doanh thu gộp GMV Max ÷ chi phí GMV Max; doanh thu LIVE GMV Max theo chỉ số gross revenue (tất cả shop) của TikTok. TotalGMV = GMV kênh TikTok (sheet).</li>
+      <li>Bản web này là ảnh chụp số liệu tại thời điểm xuất; số mới nhất xem trên bản dashboard gốc.</li>
+    </ul></div>
+  </div>
+
+  <div class="page" id="theo-ngay" hidden>
+    <div class="head">
+      <h1>Theo ngày · <span class="dash-skeleton" data-source="as_of" data-field="month_label" data-row="0">—</span></h1>
+      <div class="asof">Số đến hết <b data-source="as_of" data-field="label" data-row="0">—</b></div>
+    </div>
+    <p class="sub">Từng ngày trong tháng hiện tại. TotalGMV Facebook theo ngày chưa có nguồn tin cậy nên để trống. TikTok: ROI GMV Max (Product + LIVE); chi phí TikTok gồm ads đấu giá + GMV Max.</p>
+    <div class="tiles">
+      <div class="tile"><div class="lb">AdsSpent tháng này</div><div class="v dash-skeleton" data-source="ads_day_sum" data-field="spend" data-row="0">—</div><div class="n">3 kênh</div></div>
+      <div class="tile"><div class="lb">AdsGMV tháng này</div><div class="v dash-skeleton" data-source="ads_day_sum" data-field="ads_gmv" data-row="0">—</div><div class="n">3 kênh</div></div>
+      <div class="tile"><div class="lb">ROAS tháng này</div><div class="v dash-skeleton" data-source="ads_day_sum" data-field="roas" data-row="0">—</div><div class="n">AdsGMV ÷ AdsSpent</div></div>
+      <div class="tile"><div class="lb">Ngày chi nhiều nhất</div><div class="v dash-skeleton" data-source="ads_day_sum" data-field="top_day" data-row="0">—</div><div class="n">Chi <span data-source="ads_day_sum" data-field="top_spend" data-row="0">—</span></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card" id="card-spend-day">
+        <h3>AdsSpent theo ngày</h3>
+        <p class="note">Chồng theo kênh.</p>
+        <div class="chart" id="ch-spend-day" data-source="ads_day"></div>
+        <div class="legend" id="lg-spend-day"></div>
+      </div>
+      <div class="card" id="card-roas-day">
+        <h3>ROAS / ROI theo ngày</h3>
+        <p class="note">TikTok: ROI GMV Max.</p>
+        <div class="chart" id="ch-roas-day" data-source="ads_day"></div>
+        <div class="legend" id="lg-roas-day"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:var(--cds-gap-md)">
+      <div class="bar"><h3>Chi tiết theo ngày</h3><div class="seg" id="seg-day"></div></div>
+      <div class="tbl" id="wrap-day-ch"><table id="tbl-day-ch" data-source="ads_day" data-row-key="date,channel">
+        <thead><tr><th data-field="date">Ngày</th><th data-field="channel" class="l">Kênh</th><th data-field="spend">AdsSpent</th><th data-field="ads_gmv">AdsGMV</th><th data-field="total_gmv">TotalGMV</th><th data-field="contrib">% Contribute</th><th data-field="ratio">ROAS / ROI*</th></tr></thead>
+        <tbody></tbody></table></div>
+      <div class="tbl" id="wrap-day-all"><table id="tbl-day-all" data-source="ads_day_total" data-row-key="date">
+        <thead><tr><th data-field="date">Ngày</th><th data-field="spend">AdsSpent</th><th data-field="ads_gmv">AdsGMV</th><th data-field="roas">ROAS</th><th data-field="spend_sp">Shopee Live</th><th data-field="spend_meta">Meta</th><th data-field="spend_tt">TikTok</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="page" id="campaign" hidden>
+    <h1>Campaign · YTD 2026</h1>
+    <p class="sub">Campaign Meta và TikTok có chi phí lớn nhất từ 1/1 (Meta: top 40 HO.com, top 15 HO4D, X1; TikTok: campaign ≥ 5 triệu, Product GMV Max và top 15 LIVE GMV Max mỗi tài khoản). Shopee Live ads tạo campaign tự động theo từng phiên live nên không liệt kê. TikTok: ROI chỉ cho campaign bán hàng (GMV Max, Product Sales).</p>
+    <div class="card" id="card-top-camp">
+      <div class="bar"><h3>Top 12 campaign theo chi phí</h3><div class="seg" id="seg-camp"></div></div>
+      <p class="note">Thanh = Ads Cost, số bên phải = ROAS / ROI. Bộ lọc kênh áp dụng cho cả biểu đồ và bảng.</p>
+      <div class="chart tall" id="ch-camp" data-source="campaign_rows"></div>
+    </div>
+    <div class="card" style="margin-top:var(--cds-gap-md)">
+      <div class="bar"><h3>Tất cả campaign</h3><input class="search" id="q-camp" type="search" placeholder="Tìm campaign…" aria-label="Tìm campaign"></div>
+      <div class="tbl"><table id="tbl-camp" data-source="campaign_rows" data-row-key="campaign,account">
+        <thead><tr><th data-field="campaign">Campaign</th><th data-field="channel" class="l">Kênh</th><th data-field="account" class="l">Tài khoản</th><th data-field="objective" class="l">Mục tiêu</th><th data-field="cost">Ads Cost</th><th data-field="ads_revenue">Ads Revenue</th><th data-field="ratio">ROAS / ROI*</th><th data-field="status" class="l">Status</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="page" id="ngay-doi" hidden>
+    <h1>Ngày đôi · 2026</h1>
+    <p class="take">Các ngày đôi chi <b class="dash-skeleton" data-source="dd_sum" data-field="spend" data-row="0">—</b> ads, AdsGMV <b class="dash-skeleton" data-source="dd_sum" data-field="ads_gmv" data-row="0">—</b>, ROAS <b class="dash-skeleton" data-source="dd_sum" data-field="roas" data-row="0">—</b>. Shopee Live ads đóng góp <b class="dash-skeleton" data-source="dd_sum" data-field="sp_contrib" data-row="0">—</b> GMV live các ngày đôi có số ads.</p>
+    <div class="grid2">
+      <div class="card" id="card-spend-dd">
+        <h3>AdsSpent mỗi ngày đôi</h3>
+        <p class="note">Chồng theo kênh.</p>
+        <div class="chart" id="ch-spend-dd" data-source="dd_ads"></div>
+        <div class="legend" id="lg-spend-dd"></div>
+      </div>
+      <div class="card" id="card-roas-dd">
+        <h3>ROAS / ROI mỗi ngày đôi</h3>
+        <p class="note">TikTok: ROI GMV Max (Product + LIVE).</p>
+        <div class="chart" id="ch-roas-dd" data-source="dd_ads"></div>
+        <div class="legend" id="lg-roas-dd"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:var(--cds-gap-md)">
+      <h3>Chi tiết ngày đôi</h3>
+      <p class="note">% Contribute tính cho Shopee Live (AdsGMV Shopee ÷ GMV live ngày đó).</p>
+      <div class="tbl"><table id="tbl-dd" data-source="dd_ads" data-row-key="date">
+        <thead><tr><th data-field="date">Ngày</th><th data-field="spend">AdsSpent</th><th data-field="ads_gmv">AdsGMV</th><th data-field="roas">ROAS</th><th data-field="spend_sp">Shopee spend</th><th data-field="roas_sp">ROAS Shopee</th><th data-field="contrib_sp">% Contribute Shopee</th><th data-field="spend_meta">Meta spend</th><th data-field="roas_meta">ROAS Meta</th><th data-field="spend_tt">TikTok spend</th><th data-field="roi_tt">ROI TikTok (GMV Max)</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="foot">HannahOlala · PFM Ads Report 2026 · bản web xuất ngày 13/10/2026</div>
+</div>
+<script>
+(function(){
+  function parse(t){t=t.trim();const rows=[];let row=[],cell='',q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){cell+='"';i++;}else q=false;}else cell+=c;}else if(c=='"')q=true;else if(c==','){row.push(cell);cell='';}else if(c=='\n'){row.push(cell);rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell);rows.push(row);
+    const h=rows[0];return {columns:h,data:rows.slice(1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]])))};}
+  const RAW={"gmv": "month,fb_plan,fb_actual,tt_plan,tt_actual,sp_plan,sp_actual,total_actual\n2026-01,56550000000,67551791350,33750000000,43158056509,108600000000,197531216503,308241064362\n2026-02,78300000000,57833998000,22500000000,37065984167,111000000000,151012803065,245912785232\n2026-03,69600000000,58463580200,56250000000,74674075961,159000000000,178583210056,311720866217\n2026-04,69600000000,50768141398,31500000000,38549797701,114700000000,165667803069,254985742168\n2026-05,150000000000,133499851847,42000000000,36058720704,220000000000,194800978060,364359550611\n2026-06,55000000000,36204491364,55000000000,50110887835,280000000000,205922223272,292237602471\n2026-07,55000000000,27176118100,55000000000,25686421567,280000000000,165342796986,218205336653\n2026-08,36000000000,29782706980,41700000000,48214704339,260500000000,112920023976,190917435295\n2026-09,36000000000,21799947371,119600000000,48037247847,87306957158,60920687409,130757882627\n2026-10,30000000000,9878517140,55000000000,23367810266,65000000000,32433857425,65680184831\n", "meta_ads": "account,month,spend,impressions,clicks,purchases,purchase_value\nHO.com,2026-01,53407358,3593803,123722,191,57406000\nHO.com,2026-02,56571223,4211646,152295,505,236576000\nHO.com,2026-03,25000000,1439360,115982,38,13570000\nHO.com,2026-04,49993588,3898845,150437,34,8071057\nHO.com,2026-05,1665736113,37647926,2110447,38397,45576668302\nHO.com,2026-06,502923208,8990540,671787,10552,9524991560\nHO.com,2026-07,440503189,8886679,482290,8124,8473099384\nHO.com,2026-08,845394157,14193635,886134,17833,18866264023\nHO.com,2026-09,609844248,11051575,654402,13148,12714206057\nHO.com,2026-10,585789400,8126690,555064,6870,7850802690\nHO4D,2026-01,2713294,97375,981,0,0\nHO4D,2026-02,8508336,289920,5035,35,3798000\nHO4D,2026-05,227535887,11107471,180757,329,41884986\nHO4D,2026-06,140519079,6660628,275090,200,54880000\nHO4D,2026-07,106088534,4715677,73208,199,74355000\nHO4D,2026-08,62896827,3028852,45241,396,558212300\nHO4D,2026-09,275709190,4000990,255370,4893,5164581919\nHO4D,2026-10,76221788,2715465,68903,279,309609500\nX1,2026-08,13596984,961555,11879,12,6973000\nX1,2026-09,34178843,2339873,34448,23,2604000\nX1,2026-10,7391247,374212,4167,20,19207000\n", "tiktok_ads": "account,month,spend,impressions,clicks,shop_orders,shop_value\nHANNAHOLALA,2026-01,1473796,59454,1516,5,4680896\nHANNAHOLALA,2026-02,366536,10550,399,22,19024167\nHANNAHOLALA,2026-03,40197230,1468335,26115,3,1838999\nHANNAHOLALA,2026-04,25173204,1595149,33709,0,0\nHANNAHOLALA,2026-05,5008830,627141,8955,0,0\nHANNAHOLALA,2026-06,17341808,1257610,24206,0,0\nHANNAHOLALA,2026-07,1188,86,0,0,0\nHANNAHOLALA,2026-08,283415381,10538127,201375,0,0\nHANNAHOLALA,2026-09,93168122,4117035,92427,0,0\nHANNAHOLALA,2026-10,13000000,1023800,25677,0,0\nAffiliate,2026-01,30404575,2836272,3773,37,25961723\nAffiliate,2026-02,10168121,1661345,1079,276,167116547\nAffiliate,2026-03,4305381,929470,0,0,0\nAffiliate,2026-04,75085994,2163888,13774,510,339981347\nAffiliate,2026-05,16461985,1258422,40153,0,0\nAffiliate,2026-06,108823833,5816093,13207,20,7075964\nAffiliate,2026-07,48258247,1618001,46490,504,348461171\nAffiliate,2026-08,131372591,11227387,42163,368,322890598\nAffiliate,2026-09,27281136,1481553,4851,64,56106292\nAffiliate,2026-10,53853902,2799126,1389,0,0\n", "shopee_ads": "month,views,orders,cvr_pct,ads_gmv,spend,roas\n2026-05,12600000,52100,0.41,32786320233,873523526,37.53\n2026-06,10700000,38500,0.36,26621772582,564575199,47.15\n2026-07,15000000,111100,0.74,58013278512,1313803619,44.16\n2026-08,9200000,22600,0.25,17880204955,478732599,37.35\n2026-09,7100000,21100,0.30,17688849442,425706522,41.55\n2026-10,3893500,16215,0.42,11506916288,280014157,41.09\n", "dd_gmv": "date,channel,gmv,source\n2026-01-01,Shopee,236083733805,PFM_YTD_AllChannel Spike row (placed GMV)\n2026-02-02,Shopee,192648388146,Shopee Creator Center Live overview (placed GMV)\n2026-03-03,Shopee,204731581610,Shopee Creator Center Live overview (placed GMV)\n2026-04-04,Shopee,179500530137,Shopee Creator Center Live overview (placed GMV)\n2026-05-05,Shopee,168236335676,Shopee Creator Center Live overview (placed GMV)\n2026-06-06,Shopee,212549285178,Shopee Creator Center Live overview (placed GMV)\n2026-07-07,Shopee,172587240938,Shopee Creator Center Live overview (placed GMV)\n2026-08-08,Shopee,84844150142,Shopee Creator Center Live overview (placed GMV)\n2026-09-09,Shopee,24621849613,Shopee Creator Center Live overview (placed GMV)\n2026-10-10,Shopee,20451965857,Shopee Creator Center Live overview (placed GMV)\n2026-05-05,TikTok,5366329671,tiktok-daily-creator (creator-attributed GMV)\n2026-06-06,TikTok,9028492602,tiktok-daily-creator (creator-attributed GMV)\n2026-07-07,TikTok,3248553258,tiktok-daily-creator (creator-attributed GMV)\n2026-08-08,TikTok,15349788423,tiktok-daily-creator (creator-attributed GMV)\n2026-09-09,TikTok,16838966869,tiktok-daily-creator (creator-attributed GMV)\n2026-10-10,TikTok,12717695311,tiktok-daily-creator (creator-attributed GMV)\n2026-08-08,Facebook,990721320,Daily_History (fb)\n2026-09-09,Facebook,1004353860,Daily_History (fb)\n2026-10-10,Facebook,874601100,Daily_History (fb)\n", "dd_meta": "date,account,spend,purchases,purchase_value\n2026-01-01,HO.com,1748825,2,0\n2026-02-02,HO.com,1427750,7,719000\n2026-03-03,HO.com,0,5,1009000\n2026-04-04,HO.com,0,2,0\n2026-05-05,HO.com,52146842,1055,1191230125\n2026-06-06,HO.com,17937485,431,405631635\n2026-07-07,HO.com,8143117,196,210032000\n2026-08-08,HO.com,24493182,702,785839220\n2026-09-09,HO.com,19980467,476,420119700\n2026-10-10,HO.com,41510463,594,663057560\n2026-01-01,HO4D,0,0,0\n2026-02-02,HO4D,0,1,450000\n2026-05-05,HO4D,0,0,0\n2026-06-06,HO4D,1372175,6,0\n2026-07-07,HO4D,6709663,22,4938000\n2026-08-08,HO4D,0,1,680000\n2026-09-09,HO4D,15438698,276,293549580\n2026-10-10,HO4D,8694079,24,25552000\n2026-08-08,X1,0,0,0\n2026-09-09,X1,0,2,640000\n2026-10-10,X1,0,0,0\n", "dd_tiktok": "date,account,type,spend,orders,value\n2026-01-01,HANNAHOLALA,ads,0,0,0\n2026-01-01,Affiliate,ads,0,0,0\n2026-02-02,HANNAHOLALA,ads,0,0,0\n2026-02-02,Affiliate,ads,4743280,0,0\n2026-03-03,HANNAHOLALA,ads,0,0,0\n2026-03-03,Affiliate,ads,0,0,0\n2026-04-04,HANNAHOLALA,ads,0,0,0\n2026-04-04,Affiliate,ads,747139,0,0\n2026-05-05,Affiliate,ads,11421419,0,0\n2026-06-06,HANNAHOLALA,ads,0,0,0\n2026-06-06,Affiliate,ads,682813,0,0\n2026-07-07,Affiliate,ads,97148,0,0\n2026-08-08,HANNAHOLALA,ads,244001561,0,0\n2026-08-08,Affiliate,ads,208870,1,509999\n2026-09-09,HANNAHOLALA,ads,35910195,0,0\n2026-09-09,Affiliate,ads,0,0,0\n2026-10-10,HANNAHOLALA,ads,10000000,0,0\n2026-10-10,Affiliate,ads,7055533,0,0\n2026-10-10,Affiliate,gmv_max,21751344,224,406017950\n2026-02-02,HANNAHOLALA,gmv_max_live,66691298,11697,3532869226\n2026-03-03,HANNAHOLALA,gmv_max_live,150000000,24411,6284343980\n2026-04-04,HANNAHOLALA,gmv_max_live,0,79,15375366\n2026-05-05,HANNAHOLALA,gmv_max_live,200460801,7696,5991779130\n2026-06-06,HANNAHOLALA,gmv_max_live,8575317,1066,252009704\n2026-07-07,HANNAHOLALA,gmv_max_live,11784424,504,254844541\n2026-08-08,HANNAHOLALA,gmv_max_live,0,0,0\n2026-09-09,HANNAHOLALA,gmv_max_live,12984059,923,300839763\n2026-10-10,HANNAHOLALA,gmv_max_live,0,0,0\n2026-04-04,Affiliate,gmv_max_live,146695184,24890,6214940594\n2026-05-05,Affiliate,gmv_max_live,7113806,288,177867170\n2026-06-06,Affiliate,gmv_max_live,132842464,18670,7756790235\n2026-07-07,Affiliate,gmv_max_live,99781494,7768,3650336914\n2026-08-08,Affiliate,gmv_max_live,763128891,48725,18918443127\n2026-09-09,Affiliate,gmv_max_live,745760466,46194,19944239151\n2026-10-10,Affiliate,gmv_max_live,641736672,30623,14742450041\n", "dd_shopee_ads": "date,views,orders,ads_gmv,spend,roas\n2026-05-05,1500000,19300,11573624015,325000000,35.61\n2026-06-06,1700000,21900,14163846784,282247206,50.18\n2026-07-07,5000000,94400,47888369086,930051688,51.49\n2026-08-08,329000,5100,3591090667,71104000,50.50\n2026-09-09,1100000,9500,7224059880,153942106,46.93\n2026-10-10,1500000,12100,8567984651,195663173,43.79\n", "shopee_live_gmv": "period,grain,placed_gmv,confirmed_gmv,placed_orders\n2026-01,month,253789765076,222116246238,434507\n2026-02,month,192932317505,169081102920,359939\n2026-03,month,228283313510,200198761647,377786\n2026-04,month,208354175781,183686257837,330952\n2026-05,month,242150601183,215451353588,374661\n2026-06,month,254641960055,224543467387,358722\n2026-07,month,211650846485,187014320076,375190\n2026-08,month,131158310501,116799533818,181279\n2026-09,month,61442969841,54408225704,72770\n2026-10-01,day,1186140703,1052405026,1523\n2026-10-02,day,543722102,485240206,713\n2026-10-03,day,474859444,435358017,735\n2026-10-04,day,753094212,671016539,888\n2026-10-05,day,669341394,609847532,802\n2026-10-06,day,551782061,507705073,761\n2026-10-07,day,532941186,497141516,699\n2026-10-08,day,767123698,678021650,898\n2026-10-09,day,6221998550,5303559039,8258\n2026-10-10,day,20451965857,18654626395,29539\n2026-10-11,day,992555528,902085926,1227\n2026-10-12,day,502926780,450839911,689\n", "tiktok_gmvmax_m": "month,account,type,cost,orders,gross_revenue\n2026-09,Affiliate,product,3772227,70,82407954\n2026-09,HANNAHOLALA,product,7695201,135,172014942\n2026-10,Affiliate,product,58443425,695,1015104951\n2026-01,HANNAHOLALA,live,916376057,150847,39382505438\n2026-02,HANNAHOLALA,live,503122005,87394,24112851742\n2026-03,HANNAHOLALA,live,1674344106,248817,63023118441\n2026-04,HANNAHOLALA,live,165958469,19544,4899810447\n2026-05,HANNAHOLALA,live,617198468,44251,17790111126\n2026-06,HANNAHOLALA,live,101526976,8726,2850213242\n2026-07,HANNAHOLALA,live,94156954,5425,2606541086\n2026-08,HANNAHOLALA,live,13465055,801,280661039\n2026-09,HANNAHOLALA,live,49167011,4017,1208693333\n2026-04,Affiliate,live,697405009,95072,23034937478\n2026-05,Affiliate,live,489027744,44121,13365076777\n2026-06,Affiliate,live,1229608216,124029,45970489400\n2026-07,Affiliate,live,852675438,58672,23690373977\n2026-08,Affiliate,live,1903347709,130851,49511069640\n2026-09,Affiliate,live,2109470457,128723,54359757872\n2026-10,Affiliate,live,1199577201,59312,26396409549\n", "tiktok_ttshop_m": "month,account,ttshop_spend\n2026-01,HANNAHOLALA,916376057\n2026-02,HANNAHOLALA,503122005\n2026-03,HANNAHOLALA,1674344106\n2026-04,HANNAHOLALA,165958469\n2026-05,HANNAHOLALA,617198468\n2026-06,HANNAHOLALA,101526976\n2026-07,HANNAHOLALA,94156954\n2026-08,HANNAHOLALA,13465055\n2026-09,HANNAHOLALA,56862212\n2026-10,HANNAHOLALA,0\n2026-01,Affiliate,0\n2026-02,Affiliate,0\n2026-03,Affiliate,0\n2026-04,Affiliate,697405009\n2026-05,Affiliate,489027744\n2026-06,Affiliate,1229608216\n2026-07,Affiliate,852675438\n2026-08,Affiliate,1903347709\n2026-09,Affiliate,2113242684\n2026-10,Affiliate,1258020626\n", "meta_daily": "date,account,spend,impressions,clicks,purchases,purchase_value\n2026-10-01,HO.com,37426373,612591,42076,527,653689260\n2026-10-02,HO.com,31277891,542837,37246,474,530048700\n2026-10-03,HO.com,53710262,816748,57817,735,874607520\n2026-10-04,HO.com,65586698,866995,70912,678,798282500\n2026-10-05,HO.com,60902349,852960,65240,612,688756800\n2026-10-06,HO.com,57788197,806463,52740,543,646769020\n2026-10-07,HO.com,48183042,644010,42567,583,628830360\n2026-10-08,HO.com,51097313,677653,41388,497,588386200\n2026-10-09,HO.com,55240498,649589,42110,559,645718870\n2026-10-10,HO.com,41510463,494123,28819,594,663057560\n2026-10-11,HO.com,44291431,593070,38009,607,649615400\n2026-10-12,HO.com,38774883,569651,36140,461,483040500\n2026-10-01,HO4D,2901520,48840,4306,30,35911000\n2026-10-02,HO4D,8791910,334684,8209,32,40045000\n2026-10-03,HO4D,17583273,738622,12633,37,25608600\n2026-10-04,HO4D,16577025,716509,12232,25,15907000\n2026-10-05,HO4D,7747468,285705,5795,20,20414000\n2026-10-06,HO4D,1650129,25892,2737,19,16226000\n2026-10-07,HO4D,1814918,28389,2953,10,13462000\n2026-10-08,HO4D,4253725,135019,4301,22,21664400\n2026-10-09,HO4D,1638335,23695,2610,15,17962000\n2026-10-10,HO4D,8694079,306086,6080,24,25552000\n2026-10-11,HO4D,1915528,35224,3895,16,45876500\n2026-10-12,HO4D,2653878,36800,3152,29,30981000\n2026-10-01,X1,5296467,272259,2990,10,10804000\n2026-10-02,X1,2094780,101953,1177,9,8403000\n2026-10-03,X1,0,0,0,1,0\n", "tiktok_daily": "date,account,type,spend,ads_gmv\n2026-10-01,Affiliate,ads,1112999,0\n2026-10-02,Affiliate,ads,8261399,0\n2026-10-03,Affiliate,ads,2653033,0\n2026-10-04,Affiliate,ads,2485978,0\n2026-10-05,Affiliate,ads,5800611,0\n2026-10-06,Affiliate,ads,3367278,0\n2026-10-07,Affiliate,ads,1633947,0\n2026-10-08,Affiliate,ads,5126216,0\n2026-10-09,Affiliate,ads,8568035,0\n2026-10-10,Affiliate,ads,7055533,0\n2026-10-11,Affiliate,ads,5337829,0\n2026-10-09,HANNAHOLALA,ads,3000000,0\n2026-10-10,HANNAHOLALA,ads,10000000,0\n2026-10-01,Affiliate,gmv_max,1780440,40003357\n2026-10-02,Affiliate,gmv_max,1585505,29073233\n2026-10-03,Affiliate,gmv_max,1715244,30472111\n2026-10-04,Affiliate,gmv_max,1771392,30125987\n2026-10-05,Affiliate,gmv_max,2036506,28051561\n2026-10-06,Affiliate,gmv_max,942496,10921016\n2026-10-07,Affiliate,gmv_max,2074087,34984142\n2026-10-08,Affiliate,gmv_max,2463618,47136392\n2026-10-09,Affiliate,gmv_max,13108622,201411441\n2026-10-10,Affiliate,gmv_max,21751344,406017950\n2026-10-11,Affiliate,gmv_max,6300694,107763181\n2026-10-12,Affiliate,ads,2451044,0\n2026-10-12,Affiliate,gmv_max,2913477,49144580\n2026-10-01,Affiliate,gmv_max_live,23639107,461952206\n2026-10-02,Affiliate,gmv_max_live,18023218,359723688\n2026-10-03,Affiliate,gmv_max_live,19373230,426100393\n2026-10-04,Affiliate,gmv_max_live,36347336,822920947\n2026-10-05,Affiliate,gmv_max_live,33647120,778181476\n2026-10-06,Affiliate,gmv_max_live,28516000,644656134\n2026-10-07,Affiliate,gmv_max_live,33275246,735934548\n2026-10-08,Affiliate,gmv_max_live,34038792,690549171\n2026-10-09,Affiliate,gmv_max_live,252354935,4865658763\n2026-10-10,Affiliate,gmv_max_live,641736672,14742450041\n2026-10-11,Affiliate,gmv_max_live,48614754,1232939230\n2026-10-12,Affiliate,gmv_max_live,30010791,635342885\n", "shopee_ads_daily": "date,views,orders,ads_gmv,spend,roas\n2026-10-01,296800,408,286425226,7430197,38.55\n2026-10-02,170500,222,128465315,3307193,38.84\n2026-10-03,166400,219,154705449,3810138,40.60\n2026-10-04,179300,261,197061145,5123885,38.46\n2026-10-05,141400,189,139235005,3503826,39.74\n2026-10-06,122200,179,135928910,3161941,42.99\n2026-10-07,97400,153,125390684,3006464,41.71\n2026-10-08,141200,227,168454796,3997440,42.14\n2026-10-09,734800,1600,1090658551,29059968,37.53\n2026-10-10,1500000,12100,8567984651,195663173,43.79\n2026-10-11,196100,547,439663414,19907015,22.09\n2026-10-12,93500,115,72943142,2042918,35.71\n", "tiktok_gmv_daily": "date,gmv\n2026-10-01,444182396\n2026-10-02,332268687\n2026-10-03,402698220\n2026-10-04,710654981\n2026-10-05,701156642\n2026-10-06,582807707\n2026-10-07,705090413\n2026-10-08,643260816\n2026-10-09,4261865902\n2026-10-10,12717695311\n2026-10-11,1251979157\n2026-10-12,614150034\n", "campaigns": "channel,account,campaign,objective,status,cost,ads_revenue\nMeta,HO.com,MIX - 08/2026_SALE_Outside - Backup,OUTCOME_SALES,PAUSED,257487019,6056784884\nMeta,HO.com,MIX FOOD - 06/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,171158673,3606858754\nMeta,HO.com,BDAY 2026_SALE_D4,OUTCOME_SALES,PAUSED,135732937,3653501938\nMeta,HO.com,HARNN - 06/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,118617620,2429850358\nMeta,HO.com,MIX - 07/2026_SALE_Re-MKT - FOOD,OUTCOME_SALES,PAUSED,117541406,2855388616\nMeta,HO.com,BDAY 2026_Carousel_LG VINA,OUTCOME_SALES,PAUSED,114732133,4205202479\nMeta,HO.com,BDAY 2026_SALE_Re-MKT_D2 (1),OUTCOME_SALES,PAUSED,107490096,3664633785\nMeta,HO.com,MIX - 10/2026_SALE_TA_GMV_vy,OUTCOME_SALES,ACTIVE,106788825,1475475300\nMeta,HO.com,MIX - 10/2026_SALE_TA_Purchase_vy,OUTCOME_SALES,ACTIVE,96777887,1307706650\nMeta,HO.com,MIX - 09/2026_SALE - CRS,OUTCOME_SALES,PAUSED,86619422,1835832000\nMeta,HO.com,MIX - 09/2026_SALE - WHOO,OUTCOME_SALES,PAUSED,85011448,1774029190\nMeta,HO.com,MIX FOOD - 08/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,81230085,1985406695\nMeta,HO.com,MIX - 10/2026_SALE_ReMKT_Purchase_vy,OUTCOME_SALES,ACTIVE,79242303,1051249234\nMeta,HO.com,MIX - 10/2026_SALE_ReMKT_GMV_vy,OUTCOME_SALES,PAUSED,78540353,1046006900\nMeta,HO.com,BDAY 2026_SALE_Outside_D4,OUTCOME_SALES,PAUSED,74636414,1858016590\nMeta,HO.com,MIX - 04/2026_SALE_Outside,OUTCOME_SALES,PAUSED,73021107,2516174870\nMeta,HO.com,MIX - 08/2026_SALE_Outside - L'OREAL,OUTCOME_SALES,PAUSED,71914743,1468699960\nMeta,HO.com,NARCISO - 05/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,71900613,4008975771\nMeta,HO.com,WELLNESS - 08/2026_SALE,OUTCOME_SALES,PAUSED,66069075,1453631199\nMeta,HO.com,MIX - 09/2026_SALE - Post Phụ,OUTCOME_SALES,PAUSED,64769167,1288385299\nMeta,HO.com,MIX - 10/2026_SALE - CRS,OUTCOME_SALES,ACTIVE,63688310,924916940\nMeta,HO.com,SULWHASOO - 08/2026_SALE,OUTCOME_SALES,PAUSED,62925270,1610139964\nMeta,HO.com,BDAY 2026_SALE_Re-MKT_D2 (2),OUTCOME_SALES,PAUSED,58833068,1741196904\nMeta,HO.com,LA ROCHE POSAY - 08/2026_SALE,OUTCOME_SALES,PAUSED,57978197,1108270267\nMeta,HO.com,WELLNESS - 06/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,56921295,897046733\nMeta,HO.com,MIX FOOD - 09/2026_SALE - Re-MKT,OUTCOME_SALES,PAUSED,53133683,1308222260\nMeta,HO.com,ABBOTT - 05/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,51044086,3138531517\nMeta,HO.com,HOMELIVING - 06/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,50718718,1166148047\nMeta,HO.com,HSV - 04/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,50293867,1447446110\nMeta,HO.com,DU LỊCH - 08/2026_SALE,OUTCOME_SALES,PAUSED,49782475,914692946\nMeta,HO.com,LUXE - 07/2026_SALE_TA,OUTCOME_SALES,PAUSED,49350260,775490639\nMeta,HO.com,HOMELIVING - 05/2026_SALE_ReMKT,OUTCOME_SALES,PAUSED,46941971,1982969676\nMeta,HO.com,MIX - 04/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,44146083,1472964231\nMeta,HO.com,BDAY 2026_LSA_View_22.05,OUTCOME_ENGAGEMENT,PAUSED,43783018,1046000\nMeta,HO.com,MIX DERMA - 04/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,41833954,1087249354\nMeta,HO.com,MIX FOOD - 04/2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,41144348,1144433490\nMeta,HO.com,MIX - 07/2026_SALE_Re-MKT - HOME,OUTCOME_SALES,PAUSED,40702284,843108997\nMeta,HO.com,BDAY 2026_SALE_Outside,OUTCOME_SALES,PAUSED,40197963,1084151832\nMeta,HO.com,SCV - 09/2026_SALE - Post,OUTCOME_SALES,PAUSED,39128310,805396701\nMeta,HO.com,BDAY 2026_SALE_Re-MKT,OUTCOME_SALES,PAUSED,38650343,895191803\nMeta,HO4D,MIX - 09/2026_SALE_CRS,OUTCOME_SALES,PAUSED,82226964,1643567260\nMeta,HO4D,MIX - 09/2026_SALE_Phụ,OUTCOME_SALES,PAUSED,44229507,979503300\nMeta,HO4D,MAKEUP - 09/2026_SALE - POST,OUTCOME_SALES,PAUSED,34376314,640725260\nMeta,HO4D,PPD - 09/2026 - Post,OUTCOME_SALES,PAUSED,32969234,652215080\nMeta,HO4D,BDAY 2026_LSA_View_18.05,OUTCOME_ENGAGEMENT,PAUSED,31164558,0\nMeta,HO4D,SVR - 09/2026_SALE,OUTCOME_SALES,ACTIVE,30478789,508619780\nMeta,HO4D,BDAY 2026_LSA_View_21.05 + 22.05,OUTCOME_ENGAGEMENT,PAUSED,29216608,1050000\nMeta,HO4D,MIX - 09/2026_SALE - LOREAL,OUTCOME_SALES,PAUSED,27376047,530761700\nMeta,HO4D,PPD - 09/2026 - CRS,OUTCOME_SALES,PAUSED,26859548,448434160\nMeta,HO4D,05.2026_ENG_Diyou,OUTCOME_ENGAGEMENT,PAUSED,24915813,0\nMeta,HO4D,MAKEUP - 09/2026_SALE - CRS,OUTCOME_SALES,PAUSED,22655883,377721740\nMeta,HO4D,BDAY 2026_LSA_Engaga_18.05,OUTCOME_ENGAGEMENT,PAUSED,22029516,0\nMeta,HO4D,BDAY 2026_LSA_View_ 22.05,OUTCOME_ENGAGEMENT,PAUSED,21925495,2735000\nMeta,HO4D,06.2026_ENG_Diyou triệt lông,OUTCOME_ENGAGEMENT,PAUSED,14999715,1824000\nMeta,HO4D,06.2026_ENG_Diyou Na có vết nám to to,OUTCOME_ENGAGEMENT,PAUSED,14991848,2289000\nMeta,X1,MIX - 09/2026_LSA - 29/08,OUTCOME_ENGAGEMENT,PAUSED,5799073,4515000\nMeta,X1,MIX - 09/2026_LSA - 30/08,OUTCOME_ENGAGEMENT,PAUSED,5797911,2458000\nMeta,X1,09/26 - DIYOU - Giảm 35% - ENG,OUTCOME_ENGAGEMENT,ACTIVE,5000000,0\nMeta,X1,09/26 - DIYOU - Giảm 35% - REACH,OUTCOME_AWARENESS,ACTIVE,4999989,0\nTikTok,HANNAHOLALA,TT LIVE 8.8,ENGAGEMENT,,158001484,0\nTikTok,HANNAHOLALA,8.8,ENGAGEMENT,,76500000,0\nTikTok,HANNAHOLALA,Live 8.9_realtime,ENGAGEMENT,,36477145,0\nTikTok,HANNAHOLALA,Live 8.9_Video cut live,ENGAGEMENT,,18150074,0\nTikTok,HANNAHOLALA,LIVE 8.8,ENGAGEMENT,,16500000,0\nTikTok,HANNAHOLALA,SBD LRP,ENGAGEMENT,,15000000,0\nTikTok,HANNAHOLALA,ADS LIVE_17/4/26,ENGAGEMENT,,15000000,0\nTikTok,HANNAHOLALA,Community interaction20260318195318,ENGAGEMENT,,15000000,0\nTikTok,HANNAHOLALA,lvn 22/8,ENGAGEMENT,,13330784,0\nTikTok,HANNAHOLALA,Live 8.9_Teaser live,ENGAGEMENT,,11334025,0\nTikTok,HANNAHOLALA,HO 10/10,ENGAGEMENT,,10000000,0\nTikTok,Affiliate,View_c Na,VIDEO_VIEWS,,71992804,0\nTikTok,Affiliate,PR_Community 8.8,VIDEO_VIEWS,,55044562,0\nTikTok,Affiliate,FL-TEAM CHANNEL,ENGAGEMENT,,54151031,0\nTikTok,Affiliate,SHP02.02 - VideoView,VIDEO_VIEWS,,19965940,0\nTikTok,Affiliate,PR KOC View,VIDEO_VIEWS,,19596584,0\nTikTok,Affiliate,Follower_Teaser10.10,ENGAGEMENT,,17517778,0\nTikTok,Affiliate,PR_KOC 9.9,VIDEO_VIEWS,,16721975,0\nTikTok,Affiliate,Follower T10,ENGAGEMENT,,15115725,0\nTikTok,Affiliate,PR 5.5 View,VIDEO_VIEWS,,11992956,0\nTikTok,Affiliate,SHP15.01 - VideoView,VIDEO_VIEWS,,11991735,0\nTikTok,Affiliate,PR 6.6 View,VIDEO_VIEWS,,10531836,0\nTikTok,Affiliate,LSA_HO_Realtime_1707,PRODUCT_SALES,,10227205,82999742\nTikTok,Affiliate,LSA_HO_Realtime_2404,PRODUCT_SALES,,8442102,47914351\nTikTok,Affiliate,LSA_HO_Video_1707,PRODUCT_SALES,,8076878,74521029\nTikTok,Affiliate,LSA_HO_Realtime_0804,PRODUCT_SALES,,7964082,131644801\nTikTok,Affiliate,LSA_HO_Realtime_1508,PRODUCT_SALES,,7449255,61075087\nTikTok,Affiliate,LSA_HO_Vid2live_2404,PRODUCT_SALES,,7282710,35550476\nTikTok,Affiliate,LSA_HO_Video_1508,PRODUCT_SALES,,6590551,65209819\nTikTok,Affiliate,LSA_HO_Vid2live_0804,PRODUCT_SALES,,5246883,90852895\nTikTok,Affiliate (GMV Max),Product GMV Max_Tu test D10,GMV_MAX,ENABLE,20781441,288292245\nTikTok,Affiliate (GMV Max),Product GMV Max_0610_ROI 18_mid lv,GMV_MAX,ENABLE,14007346,264713465\nTikTok,Affiliate (GMV Max),Product GMV Max_0710_top,GMV_MAX,ENABLE,11878580,269460492\nTikTok,Affiliate (GMV Max),Product GMV Max_best seller_ROI 18,GMV_MAX,DISABLE,9282445,185187902\nTikTok,Affiliate (GMV Max),Product GMV Max_ROI 18,GMV_MAX,DISABLE,4172552,65867319\nTikTok,Affiliate (GMV Max),Product GMV Max_0710_bot,GMV_MAX,ENABLE,2087350,23991486\nTikTok,HANNAHOLALA (GMV Max),Product GMV Max_ROI 18 (HO),GMV_MAX,DISABLE,3390999,87868974\nTikTok,HANNAHOLALA (GMV Max),Product GMV Max_Doanh thu gộp_HannahOlala_20260923191733,GMV_MAX,DISABLE,1600000,29501830\nTikTok,HANNAHOLALA (GMV Max),Product GMV Max_Doanh thu gộp_HannahOlala_20260926002934,GMV_MAX,DISABLE,1151855,29595208\nTikTok,HANNAHOLALA (GMV Max),Product GMV Max_ROI 12,GMV_MAX,DISABLE,1139614,10740516\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO_8/8_2,GMV_MAX,DISABLE,490884756,11019026710\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO 8/9,GMV_MAX,DISABLE,472265210,12403080248\nTikTok,Affiliate (LIVE GMV Max),LIVE · 1/6,GMV_MAX,DISABLE,428029897,17239178027\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO 9.9 - 1,GMV_MAX,DISABLE,377512894,9282658365\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO 9.9 - 2,GMV_MAX,DISABLE,370994375,10067139270\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO 10/10,GMV_MAX,DISABLE,368554978,8848212562\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO 10/10 l2,GMV_MAX,DISABLE,249413921,5523557309\nTikTok,Affiliate (LIVE GMV Max),LIVE · HO 8/8,GMV_MAX,DISABLE,241978506,7025694581\nTikTok,Affiliate (LIVE GMV Max),LIVE · 17/5,GMV_MAX,DISABLE,230313379,6695172956\nTikTok,Affiliate (LIVE GMV Max),LIVE · Campaign 2 tháng từ 16/9,GMV_MAX,DISABLE,174510976,3943483369\nTikTok,Affiliate (LIVE GMV Max),LIVE · camp 16/6,GMV_MAX,DISABLE,167613771,4952441068\nTikTok,Affiliate (LIVE GMV Max),LIVE · camp_3/8 21h,GMV_MAX,DISABLE,163240403,4348144698\nTikTok,Affiliate (LIVE GMV Max),LIVE · camp_25/6,GMV_MAX,DISABLE,142409667,3966920605\nTikTok,Affiliate (LIVE GMV Max),LIVE · 9/10 l2,GMV_MAX,DISABLE,136904256,2932030251\nTikTok,Affiliate (LIVE GMV Max),LIVE · SBD_PLC_12/6,GMV_MAX,DISABLE,131233930,5678698429\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 1803,GMV_MAX,DISABLE,465087079,16531463817\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · campaign_28/4_1,GMV_MAX,DISABLE,402567951,12044533626\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · GVM Max 1601 06,GMV_MAX,DISABLE,247646396,11153999927\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 0203-2,GMV_MAX,DISABLE,243025698,9141757383\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 0203,GMV_MAX,DISABLE,200977002,8438385493\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · GMV Max C Na,GMV_MAX,DISABLE,200723567,10839996298\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 0802,GMV_MAX,DISABLE,182004943,8454210224\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · GMV Max 0612,GMV_MAX,DISABLE,152227591,5926928414\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 1303,GMV_MAX,DISABLE,101610177,6550851509\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 2803,GMV_MAX,DISABLE,100356006,3705403721\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · MCN_8/6,GMV_MAX,DISABLE,80591886,2200008418\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 2404-1,GMV_MAX,DISABLE,70995775,1740147808\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · 0202,GMV_MAX,DISABLE,67691916,3652122939\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · GMV_11/5,GMV_MAX,DISABLE,63833931,1887602690\nTikTok,HANNAHOLALA (LIVE GMV Max),LIVE · campaign_05,GMV_MAX,DISABLE,59231104,2415322479\n"}, parsed={}, calcs={}, cache={}, subs=[];
+  for(const k in RAW) parsed[k]=parse(RAW[k]);
+  window.dash={
+    colors:['var(--s1)','var(--s2)','var(--s3)','var(--s4)','var(--s5)','var(--s6)','var(--s7)','var(--s8)'],
+    calc:(id,o)=>{calcs[id]=o;},
+    data:(id)=>{ if(parsed[id]) return {status:'ok',data:parsed[id].data,columns:parsed[id].columns,meta:[]};
+      if(calcs[id]){ if(!(id in cache)){ const o=calcs[id]; cache[id]=o.fn(...o.inputs.map(i=>window.dash.data(i).data)); } return {status:'ok',data:cache[id],meta:[]}; }
+      return {status:'missing',data:[]}; },
+    onData:(fn)=>{subs.push(fn);fn();},
+    setLink:(n)=>{try{history.replaceState(null,'','#'+n);}catch(e){}},
+    params:()=>({}),setParams:()=>{},resetParams:()=>{},refresh:()=>{},loader:()=>{}
+  };
+  let t;window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>subs.forEach(f=>f()),150);});
+})();
+</script>
+<script>const CHS = ['Shopee Live', 'Meta', 'TikTok'];
+
+dash.calc('ads_month', {
+  inputs: ['meta_ads', 'tiktok_ads', 'tiktok_gmvmax_m', 'tiktok_ttshop_m', 'shopee_ads', 'shopee_live_gmv', 'gmv'],
+  title: 'Ads theo tháng & kênh',
+  description: 'AdsSpent, AdsGMV từng nền tảng (TikTok = ads đấu giá + GMV Max theo báo cáo TT_SHOP) ghép với TotalGMV kênh (Shopee = GMV live Creator Center, Meta = GMV Facebook, TikTok = GMV TikTok); % Contribute = AdsGMV ÷ TotalGMV; ROAS = AdsGMV ÷ AdsSpent; riêng TikTok dùng ROI = doanh thu gộp GMV Max (Product + LIVE) ÷ chi phí GMV Max, đúng cách TikTok tính.',
+  fn: (meta_ads, tiktok_ads, tiktok_gmvmax_m, tiktok_ttshop_m, shopee_ads, shopee_live_gmv, gmv) => {
+    const sum = (rows, m, f) => rows.filter(r => r.month === m).reduce((s, r) => s + Number(r[f] || 0), 0);
+    const out = [];
+    gmv.forEach(g => {
+      const m = g.month;
+      const sp = shopee_ads.find(r => r.month === m);
+      const live = shopee_live_gmv.find(r => r.grain === 'month' && r.period === m);
+      const liveTotal = live ? Number(live.placed_gmv) : shopee_live_gmv.filter(r => r.grain === 'day' && r.period.slice(0, 7) === m).reduce((s, r) => s + Number(r.placed_gmv), 0);
+      const rows = [
+        { channel: 'Shopee Live', spend: sp ? Number(sp.spend) : null, ads_gmv: sp ? Number(sp.ads_gmv) : null, total_gmv: liveTotal },
+        { channel: 'Meta', spend: sum(meta_ads, m, 'spend'), ads_gmv: sum(meta_ads, m, 'purchase_value'), total_gmv: Number(g.fb_actual) },
+        { channel: 'TikTok', spend: sum(tiktok_ads, m, 'spend') + sum(tiktok_ttshop_m, m, 'ttshop_spend'), ads_gmv: sum(tiktok_ads, m, 'shop_value') + sum(tiktok_gmvmax_m, m, 'gross_revenue'), total_gmv: Number(g.tt_actual),
+          gm_cost: sum(tiktok_ttshop_m, m, 'ttshop_spend'), gm_rev: sum(tiktok_gmvmax_m, m, 'gross_revenue') }
+      ];
+      rows.forEach(r => { const roas = r.spend ? r.ads_gmv / r.spend : null;
+        out.push({ month: m, channel: r.channel, spend: r.spend, ads_gmv: r.ads_gmv, total_gmv: r.total_gmv,
+        contrib: r.ads_gmv != null && r.total_gmv ? r.ads_gmv / r.total_gmv : null, roas,
+        gm_cost: r.gm_cost || 0, gm_rev: r.gm_rev, ratio: r.channel === 'TikTok' ? (r.gm_rev != null && r.gm_cost ? r.gm_rev / r.gm_cost : null) : roas }); });
+    });
+    return out;
+  }
+});
+
+dash.calc('ads_month_total', {
+  inputs: ['ads_month'],
+  title: 'Ads theo tháng, tổng 3 kênh',
+  description: 'Cộng 3 kênh mỗi tháng; TotalGMV chỉ cộng kênh có số ads trong tháng đó.',
+  fn: (ads_month) => [...new Set(ads_month.map(r => r.month))].map(m => {
+    const rs = ads_month.filter(r => r.month === m && r.spend != null);
+    const spend = rs.reduce((s, r) => s + r.spend, 0), ads_gmv = rs.reduce((s, r) => s + r.ads_gmv, 0), total_gmv = rs.reduce((s, r) => s + r.total_gmv, 0);
+    const roas = spend ? ads_gmv / spend : null; return { month: m, spend, ads_gmv, total_gmv, contrib: total_gmv ? ads_gmv / total_gmv : null, roas, ratio: roas };
+  })
+});
+
+dash.calc('ads_overall', {
+  inputs: ['ads_month'],
+  title: 'Overall performance YTD',
+  description: 'Cộng YTD theo kênh và tổng; TotalGMV chỉ gồm các tháng kênh đó có số ads. Cột ROAS/ROI: TikTok = ROI GMV Max (doanh thu ÷ chi phí GMV Max), các kênh khác = ROAS.',
+  fn: (ads_month) => {
+    const agg = (rs, name) => { const w = rs.filter(r => r.spend != null);
+      const spend = w.reduce((s, r) => s + r.spend, 0), ads_gmv = w.reduce((s, r) => s + r.ads_gmv, 0), total_gmv = w.reduce((s, r) => s + r.total_gmv, 0);
+      const roas = spend ? ads_gmv / spend : null, gc = w.reduce((s, r) => s + (r.gm_cost || 0), 0), gr = w.some(r => r.gm_cost && r.gm_rev == null) ? null : w.reduce((s, r) => s + (r.gm_rev || 0), 0);
+      return { channel: name, spend, ads_gmv, total_gmv, contrib: total_gmv ? ads_gmv / total_gmv : null, roas, ratio: name === 'TikTok' ? (gc && gr != null ? gr / gc : null) : roas, cost_ratio: total_gmv ? spend / total_gmv : null }; };
+    return [...['Shopee Live', 'Meta', 'TikTok'].map(c => agg(ads_month.filter(r => r.channel === c), c)), agg(ads_month, 'Tổng')];
+  }
+});
+
+dash.calc('as_of', {
+  inputs: ['meta_daily', 'tiktok_daily', 'shopee_ads_daily'],
+  title: 'Số đến ngày',
+  description: 'Ngày mới nhất mà cả Meta, TikTok và Shopee đều đã có số (ngày nhỏ nhất trong 3 ngày mới nhất).',
+  fn: (meta_daily, tiktok_daily, shopee_ads_daily) => {
+    const last = [meta_daily, tiktok_daily, shopee_ads_daily].map(rs => rs.reduce((m, r) => r.date > m ? r.date : m, '')).sort()[0];
+    return [{ date: last, month: last.slice(0, 7), label: Number(last.slice(8)) + '/' + Number(last.slice(5, 7)) + '/' + last.slice(0, 4), month_label: 'Tháng ' + Number(last.slice(5, 7)) + '/' + last.slice(0, 4) }];
+  }
+});
+
+dash.calc('ads_day', {
+  inputs: ['meta_daily', 'tiktok_daily', 'shopee_ads_daily', 'shopee_live_gmv', 'tiktok_gmv_daily', 'as_of'],
+  title: 'Ads theo ngày & kênh',
+  description: 'AdsSpent, AdsGMV từng ngày trong tháng hiện tại theo kênh, TotalGMV Shopee = GMV live Creator Center, TikTok = tab tiktok-daily-creator; Facebook chưa có GMV theo ngày tin cậy. TikTok dùng ROI GMV Max (doanh thu ÷ chi phí GMV Max).',
+  fn: (meta_daily, tiktok_daily, shopee_ads_daily, shopee_live_gmv, tiktok_gmv_daily, as_of) => {
+    const days = shopee_ads_daily.map(r => r.date).filter(d => d.slice(0, 7) === as_of[0].month && d <= as_of[0].date).sort();
+    const out = [];
+    days.forEach(d => {
+      const sp = shopee_ads_daily.find(r => r.date === d), live = shopee_live_gmv.find(r => r.grain === 'day' && r.period === d), tg = tiktok_gmv_daily.find(r => r.date === d);
+      const ms = meta_daily.filter(r => r.date === d), ts = tiktok_daily.filter(r => r.date === d);
+      const rows = [
+        { channel: 'Shopee Live', spend: Number(sp.spend), ads_gmv: Number(sp.ads_gmv), total_gmv: live ? Number(live.placed_gmv) : null },
+        { channel: 'Meta', spend: ms.reduce((s, r) => s + Number(r.spend), 0), ads_gmv: ms.reduce((s, r) => s + Number(r.purchase_value), 0), total_gmv: null },
+        { channel: 'TikTok', spend: ts.reduce((s, r) => s + Number(r.spend), 0), ads_gmv: ts.reduce((s, r) => s + Number(r.ads_gmv), 0), total_gmv: tg ? Number(tg.gmv) : null }
+      ];
+      const gm = ts.filter(r => r.type.startsWith('gmv_max')), gc = gm.reduce((s, r) => s + Number(r.spend), 0), gr = gm.reduce((s, r) => s + Number(r.ads_gmv), 0);
+      rows.forEach(r => { const roas = r.spend ? r.ads_gmv / r.spend : null;
+        out.push({ date: d, channel: r.channel, spend: r.spend, ads_gmv: r.ads_gmv, total_gmv: r.total_gmv,
+        contrib: r.total_gmv ? r.ads_gmv / r.total_gmv : null, roas, ratio: r.channel === 'TikTok' ? (gc ? gr / gc : null) : roas }); });
+    });
+    return out;
+  }
+});
+
+dash.calc('ads_day_total', {
+  inputs: ['ads_day'],
+  title: 'Ads theo ngày, tổng 3 kênh',
+  description: 'Cộng AdsSpent, AdsGMV 3 kênh mỗi ngày; ROAS = AdsGMV ÷ AdsSpent; kèm AdsSpent từng kênh.',
+  fn: (ads_day) => [...new Set(ads_day.map(r => r.date))].map(d => {
+    const rs = ads_day.filter(r => r.date === d), g = c => rs.find(r => r.channel === c).spend;
+    const spend = rs.reduce((s, r) => s + r.spend, 0), ads_gmv = rs.reduce((s, r) => s + r.ads_gmv, 0);
+    return { date: d, spend, ads_gmv, roas: spend ? ads_gmv / spend : null, spend_sp: g('Shopee Live'), spend_meta: g('Meta'), spend_tt: g('TikTok') };
+  })
+});
+
+dash.calc('ads_day_sum', {
+  inputs: ['ads_day_total'],
+  title: 'Tổng tháng hiện tại',
+  description: 'Cộng các ngày trong tháng hiện tại; ngày có AdsSpent lớn nhất.',
+  fn: (ads_day_total) => {
+    const spend = ads_day_total.reduce((s, r) => s + r.spend, 0), ads_gmv = ads_day_total.reduce((s, r) => s + r.ads_gmv, 0);
+    const top = ads_day_total.reduce((a, r) => r.spend > a.spend ? r : a);
+    return [{ spend, ads_gmv, roas: ads_gmv / spend, top_day: Number(top.date.slice(8)) + '/' + Number(top.date.slice(5, 7)), top_spend: top.spend }];
+  }
+});
+
+dash.calc('campaign_rows', {
+  inputs: ['campaigns'],
+  title: 'Campaign YTD',
+  description: 'Meta: ROAS = Ads Revenue ÷ Ads Cost. TikTok: ROI = doanh thu ÷ chi phí, chỉ cho campaign bán hàng (GMV Max, Product Sales); campaign xem/tương tác để trống. Sắp xếp theo chi phí.',
+  fn: (campaigns) => campaigns.map(r => ({ campaign: r.campaign, channel: r.channel, account: r.account, objective: r.objective, status: r.status || null,
+    cost: Number(r.cost), ads_revenue: Number(r.ads_revenue),
+    ratio: !Number(r.cost) ? null : (r.channel === 'TikTok' && !['GMV_MAX', 'PRODUCT_SALES'].includes(r.objective)) ? null : Number(r.ads_revenue) / Number(r.cost) })).sort((a, b) => b.cost - a.cost)
+});
+
+dash.calc('dd_ads', {
+  inputs: ['dd_gmv', 'dd_meta', 'dd_tiktok', 'dd_shopee_ads'],
+  title: 'Ads ngày đôi',
+  description: 'AdsSpent, AdsGMV, ROAS từng kênh mỗi ngày đôi; TikTok dùng ROI GMV Max; % Contribute Shopee = AdsGMV Shopee Live ÷ GMV live ngày đó.',
+  fn: (dd_gmv, dd_meta, dd_tiktok, dd_shopee_ads) => [...new Set([...dd_meta, ...dd_tiktok, ...dd_shopee_ads].map(r => r.date))].sort().map(d => {
+    const ms = dd_meta.filter(r => r.date === d), ts = dd_tiktok.filter(r => r.date === d), sp = dd_shopee_ads.find(r => r.date === d);
+    const live = dd_gmv.find(r => r.date === d && r.channel === 'Shopee');
+    const spend_meta = ms.reduce((s, r) => s + Number(r.spend), 0), gmv_meta = ms.reduce((s, r) => s + Number(r.purchase_value), 0);
+    const spend_tt = ts.reduce((s, r) => s + Number(r.spend), 0), gmv_tt = ts.reduce((s, r) => s + Number(r.value), 0);
+    const gm = ts.filter(r => r.type.startsWith('gmv_max')), gm_cost = gm.reduce((s, r) => s + Number(r.spend), 0), gm_rev = gm.reduce((s, r) => s + Number(r.value), 0);
+    const spend_sp = sp ? Number(sp.spend) : null, gmv_sp = sp ? Number(sp.ads_gmv) : null;
+    const spend = spend_meta + spend_tt + (spend_sp || 0), ads_gmv = gmv_meta + gmv_tt + (gmv_sp || 0);
+    return { date: d, spend, ads_gmv, roas: spend ? ads_gmv / spend : null,
+      spend_sp, roas_sp: spend_sp ? gmv_sp / spend_sp : null, gmv_sp, live_sp: live ? Number(live.gmv) : null, contrib_sp: sp && live ? gmv_sp / Number(live.gmv) : null,
+      spend_meta, roas_meta: spend_meta ? gmv_meta / spend_meta : null, spend_tt, roi_tt: gm_cost ? gm_rev / gm_cost : null };
+  })
+});
+
+dash.calc('dd_sum', {
+  inputs: ['dd_ads'],
+  title: 'Tổng các ngày đôi',
+  description: 'Cộng AdsSpent, AdsGMV qua các ngày đôi; % Contribute Shopee trên các ngày có số Shopee ads.',
+  fn: (dd_ads) => {
+    const spend = dd_ads.reduce((s, r) => s + r.spend, 0), ads_gmv = dd_ads.reduce((s, r) => s + r.ads_gmv, 0);
+    const w = dd_ads.filter(r => r.spend_sp != null);
+    return [{ spend, ads_gmv, roas: ads_gmv / spend, sp_contrib: w.reduce((s, r) => s + r.gmv_sp, 0) / w.reduce((s, r) => s + r.live_sp, 0) }];
+  }
+});
+
+(function () {
+  const vnd = v => v == null || isNaN(v) ? '—' : Math.abs(v) >= 1e9 ? (v / 1e9).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) + ' tỷ' : (v / 1e6).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + ' tr';
+  const vshort = v => v == null || isNaN(v) ? '—' : Math.abs(v) >= 1e9 ? (v / 1e9).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + ' tỷ' : Math.round(v / 1e6).toLocaleString('vi-VN') + ' tr';
+  const pct = v => v == null || isNaN(v) ? '—' : (v * 100).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + '%';
+  const pct2 = v => v == null || isNaN(v) ? '—' : (v * 100).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) + '%';
+  const rx = v => v == null || isNaN(v) ? '—' : v.toLocaleString('vi-VN', { maximumFractionDigits: 1 });
+  const mlabel = m => 'T' + Number(m.slice(5, 7));
+  const dlabel = d => Number(d.slice(8)) + '/' + Number(d.slice(5, 7));
+  const fmt = { ratio: rx, spend: vnd, ads_gmv: vnd, total_gmv: vnd, contrib: pct, roas: rx, cost_ratio: pct2, top_spend: vnd, sp_contrib: pct, top_day: String, label: String, month_label: String };
+  const color = c => dash.colors[CHS.indexOf(c)];
+  const roasCls = v => v == null ? '' : v >= 20 ? 'ok' : v >= 5 ? 'warn' : 'bad';
+  const enc = s => encodeURIComponent(s);
+  const FS = 11;
+
+  function fillMarks() {
+    document.querySelectorAll('.ar [data-field][data-source]').forEach(el => {
+      if (el.tagName === 'TH') return;
+      const d = dash.data(el.getAttribute('data-source'));
+      if (d.status !== 'ok') { el.textContent = '—'; return; }
+      let row;
+      if (el.hasAttribute('data-row')) row = d.data[Number(el.getAttribute('data-row'))];
+      else { const conds = el.getAttribute('data-where').split('&').map(p => p.split('=').map(decodeURIComponent)); row = d.data.find(r => conds.every(([k, v]) => String(r[k]) === v)); }
+      const f = el.getAttribute('data-field');
+      el.textContent = row ? (fmt[f] || vnd)(row[f]) : '—';
+      el.classList.remove('dash-skeleton');
+    });
+    document.querySelectorAll('.ar .nm i[data-ch]').forEach(i => { i.style.background = color(i.dataset.ch); });
+  }
+
+  function seg(id, opts, get, set) {
+    const box = document.getElementById(id);
+    if (!box.childElementCount) opts.forEach(o => { const b = document.createElement('button'); b.textContent = o; b.addEventListener('click', () => { set(o); draw(); }); box.appendChild(b); });
+    [...box.children].forEach(b => b.setAttribute('aria-pressed', String(b.textContent === get())));
+  }
+
+  function legend(id, items) {
+    const lg = d3.select(id); lg.selectAll('*').remove();
+    items.forEach(it => { const s = lg.append('span'); const i = s.append('i'); if (it.line) i.attr('class', 'ln').style('border-color', it.color); else i.style('background', it.color); s.append('span').text(it.name); });
+  }
+
+  function prep(el, d) {
+    el.innerHTML = ''; el.classList.remove('dash-skeleton');
+    if (d && d.status !== 'ok') { if (d.status === 'error' || d.status === 'connect') d3.select(el).append('div').attr('class', 'fail').text('Failed to load'); return false; }
+    return true;
+  }
+
+  function textW(svg, s) { const t = svg.append('text').attr('font-size', FS).text(s); const w = t.node().getComputedTextLength(); t.remove(); return w; }
+
+  function frame(el, H) {
+    const W = Math.max(280, el.clientWidth);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img');
+    const tip = d3.select(el).append('div').attr('class', 'tip');
+    return { W, H, svg, tip };
+  }
+
+  function showTip(el, tip, ev, head, lines) {
+    const [px, py] = d3.pointer(ev, el);
+    tip.html(''); tip.append('div').attr('class', 'h').text(head);
+    lines.forEach(l => { const r = tip.append('div'); if (l.color) r.append('i').style('background', l.color); r.append('span').text(l.text); });
+    tip.style('display', 'block');
+    const tw = tip.node().offsetWidth, th = tip.node().offsetHeight;
+    tip.style('left', Math.min(Math.max(0, px + 14), el.clientWidth - tw) + 'px').style('top', Math.max(0, Math.min(py - th - 8, el.clientHeight - th)) + 'px');
+  }
+
+  function xAxis(svg, keys, x, label, H, m, W) {
+    const lw = d3.max(keys, k => textW(svg, label(k))) + 8;
+    const every = Math.max(1, Math.ceil(keys.length / Math.max(1, Math.floor((W - m.l - m.r) / lw))));
+    svg.append('g').selectAll('text').data(keys.filter((k, i) => i % every === 0)).join('text')
+      .attr('x', k => x(k) + (x.bandwidth ? x.bandwidth() / 2 : 0)).attr('y', H - 8).attr('text-anchor', 'middle').attr('font-size', FS).attr('fill', 'var(--color-fg-muted)').text(label);
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', H - m.b).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)');
+  }
+
+  function yGrid(svg, y, fmtY, m, W) {
+    const ticks = y.ticks(4);
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', d => y(d)).attr('y2', d => y(d)).attr('stroke', 'var(--cds-chart-grid)');
+    svg.append('g').selectAll('text').data(ticks).join('text').attr('x', m.l - 6).attr('y', d => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').attr('font-size', FS).attr('fill', 'var(--color-fg-muted)').text(fmtY);
+  }
+
+  // Stacked bars: series [{name, color, get(key)}]
+  function stacked(el, keys, label, series, H = 240) {
+    const { W, svg, tip } = frame(el, H);
+    const tot = keys.map(k => d3.sum(series, s => s.get(k) || 0));
+    const y = d3.scaleLinear([0, d3.max(tot) || 1], [H - 26, 10]).nice();
+    const m = { t: 10, r: 8, b: 26, l: d3.max(y.ticks(4), t => textW(svg, vshort(t))) + 12 };
+    const x = d3.scaleBand(keys, [m.l, W - m.r]).paddingInner(0.28).paddingOuter(0.1);
+    yGrid(svg, y, vshort, m, W);
+    const g = svg.append('g');
+    keys.forEach(k => {
+      let acc = 0; const parts = series.map(s => ({ s, v: s.get(k) || 0 })).filter(p => p.v > 0);
+      parts.forEach((p, i) => {
+        const top = i === parts.length - 1, y0 = y(acc), y1 = y(acc + p.v), h = Math.max(0, y0 - y1 - (i ? 2 : 0));
+        if (top && h > 4) {
+          const r = Math.min(4, x.bandwidth() / 2), bw = x.bandwidth(), x0 = x(k);
+          g.append('path').attr('fill', p.s.color).attr('d', `M${x0},${y1 + h}V${y1 + r}Q${x0},${y1} ${x0 + r},${y1}H${x0 + bw - r}Q${x0 + bw},${y1} ${x0 + bw},${y1 + r}V${y1 + h}Z`);
+        } else g.append('rect').attr('x', x(k)).attr('width', x.bandwidth()).attr('y', y1).attr('height', h).attr('fill', p.s.color);
+        acc += p.v;
+      });
+    });
+    xAxis(svg, keys, x, label, H, m, W);
+    svg.append('g').selectAll('rect').data(keys).join('rect').attr('x', k => x(k) - x.step() * x.paddingInner() / 2).attr('width', x.step()).attr('y', m.t).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+      .on('mousemove', (ev, k) => showTip(el, tip, ev, label(k) + ' · tổng ' + vnd(d3.sum(series, s => s.get(k) || 0)), series.map(s => ({ color: s.color, text: s.name + ': ' + vnd(s.get(k)) }))))
+      .on('mouseleave', () => tip.style('display', 'none'));
+  }
+
+  // Lines on one axis: series [{name, color, get(key)}], values may be null
+  function lines(el, keys, label, series, H = 240) {
+    const { W, svg, tip } = frame(el, H);
+    const vals = series.flatMap(s => keys.map(s.get)).filter(v => v != null && !isNaN(v));
+    const y = d3.scaleLinear([0, d3.max(vals) || 1], [H - 26, 12]).nice();
+    const m = { t: 12, r: 12, b: 26, l: d3.max(y.ticks(4), t => textW(svg, rx(t))) + 12 };
+    const x = d3.scalePoint(keys, [m.l + 8, W - m.r - 8]);
+    yGrid(svg, y, rx, m, W);
+    xAxis(svg, keys, x, label, H, m, W);
+    const line = d3.line().defined(d => d.v != null && !isNaN(d.v)).x(d => x(d.k)).y(d => y(d.v));
+    series.forEach(s => {
+      const pts = keys.map(k => ({ k, v: s.get(k) }));
+      svg.append('path').attr('d', line(pts)).attr('fill', 'none').attr('stroke', s.color).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+      const ok = pts.filter(p => p.v != null && !isNaN(p.v));
+      if (ok.length <= 16) svg.append('g').selectAll('circle').data(ok).join('circle').attr('cx', p => x(p.k)).attr('cy', p => y(p.v)).attr('r', 3).attr('fill', s.color).attr('stroke', 'var(--color-panel)').attr('stroke-width', 1.5);
+    });
+    const rule = svg.append('line').attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-reference)').style('display', 'none');
+    svg.append('rect').attr('x', m.l).attr('width', W - m.l - m.r).attr('y', m.t).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+      .on('mousemove', ev => {
+        const [px] = d3.pointer(ev); const k = keys[d3.minIndex(keys, kk => Math.abs(x(kk) - px))];
+        rule.attr('x1', x(k)).attr('x2', x(k)).style('display', null);
+        showTip(el, tip, ev, label(k), series.map(s => ({ color: s.color, text: s.name + ': ' + rx(s.get(k)) })));
+      })
+      .on('mouseleave', () => { tip.style('display', 'none'); rule.style('display', 'none'); });
+  }
+
+  function spark(el, vals, c) {
+    el.innerHTML = ''; el.classList.remove('dash-skeleton');
+    const W = Math.max(120, el.clientWidth), H = 44, ok = vals.filter(v => v.v != null);
+    if (!ok.length) return;
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const last0 = ok[ok.length - 1], lab = mlabel(last0.k) + ' ' + rx(last0.v), tw = lab.length * 6.6 + 10;
+    const x = d3.scalePoint(vals.map(v => v.k), [4, W - tw]), y = d3.scaleLinear([0, d3.max(ok, v => v.v)], [H - 4, 6]);
+    svg.append('path').attr('d', d3.line().defined(d => d.v != null).x(d => x(d.k)).y(d => y(d.v))(vals)).attr('fill', 'none').attr('stroke', c).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+    const last = ok[ok.length - 1];
+    svg.append('circle').attr('cx', x(last.k)).attr('cy', y(last.v)).attr('r', 3).attr('fill', c);
+    svg.append('text').attr('x', x(last.k) + 6).attr('y', y(last.v)).attr('dy', '0.32em').attr('font-size', FS).attr('fill', 'var(--color-fg-muted)').text(mlabel(last.k) + ' ' + rx(last.v));
+  }
+
+  // 100% horizontal bars: rows [{label, parts:[{name,color,v}]}]
+  function mix(el, rows) {
+    const H = rows.length * 46 + 8;
+    const { W, svg, tip } = frame(el, H);
+    const lw = d3.max(rows, r => textW(svg, r.label)) + 12;
+    const x = d3.scaleLinear([0, 1], [lw, W - 4]);
+    rows.forEach((r, i) => {
+      const tot = d3.sum(r.parts, p => p.v) || 1, yy = 8 + i * 46;
+      svg.append('text').attr('x', 0).attr('y', yy + 14).attr('dy', '0.32em').attr('font-size', FS + 1).attr('fill', 'var(--color-fg)').text(r.label);
+      let acc = 0;
+      r.parts.forEach((p, j) => {
+        const sh = p.v / tot, x0 = x(acc), w = Math.max(0, x(acc + sh) - x0 - (j < r.parts.length - 1 ? 2 : 0));
+        svg.append('rect').attr('x', x0).attr('y', yy).attr('width', w).attr('height', 28).attr('rx', 4).attr('fill', p.color)
+          .on('mousemove', ev => showTip(el, tip, ev, r.label, [{ color: p.color, text: p.name + ': ' + vnd(p.v) + ' · ' + pct(sh) }]))
+          .on('mouseleave', () => tip.style('display', 'none'));
+        const t = pct(sh);
+        if (w > textW(svg, p.name + ' ' + t) + 12) svg.append('text').attr('x', x0 + 8).attr('y', yy + 14).attr('dy', '0.32em').attr('font-size', FS).attr('fill', 'var(--color-bg)').attr('pointer-events', 'none').text(p.name + ' ' + t);
+        else if (w > textW(svg, t) + 10) svg.append('text').attr('x', x0 + 5).attr('y', yy + 14).attr('dy', '0.32em').attr('font-size', FS).attr('fill', 'var(--color-bg)').attr('pointer-events', 'none').text(t);
+        acc += sh;
+      });
+    });
+  }
+
+  // Horizontal bars for campaigns
+  function hbars(el, rows) {
+    const H = Math.max(120, rows.length * 30 + 10);
+    const { W, svg, tip } = frame(el, H);
+    const maxL = Math.min(W * 0.42, 260);
+    const cut = s => { let t = s; while (t.length > 4 && textW(svg, t) > maxL) t = t.slice(0, -2); return t === s ? s : t + '…'; };
+    const labels = rows.map(r => cut(r.campaign));
+    const lw = d3.max(labels, l => textW(svg, l)) + 10, rw = d3.max(rows, r => textW(svg, vnd(r.cost) + ' · ' + rx(r.ratio))) + 10;
+    const x = d3.scaleLinear([0, d3.max(rows, r => r.cost) || 1], [lw, W - rw]);
+    rows.forEach((r, i) => {
+      const yy = 6 + i * 30;
+      svg.append('text').attr('x', 0).attr('y', yy + 10).attr('dy', '0.32em').attr('font-size', FS).attr('fill', 'var(--color-fg)').text(labels[i]);
+      svg.append('rect').attr('x', lw).attr('y', yy).attr('width', Math.max(2, x(r.cost) - lw)).attr('height', 20).attr('rx', 4).attr('fill', color(r.channel))
+        .on('mousemove', ev => showTip(el, tip, ev, r.campaign, [{ color: color(r.channel), text: r.channel + ' · ' + r.account }, { text: 'Ads Cost: ' + vnd(r.cost) }, { text: 'Ads Revenue: ' + vnd(r.ads_revenue) }, { text: (r.channel === 'TikTok' ? 'ROI: ' : 'ROAS: ') + rx(r.ratio) }]))
+        .on('mouseleave', () => tip.style('display', 'none'));
+      svg.append('text').attr('x', x(r.cost) + 6).attr('y', yy + 10).attr('dy', '0.32em').attr('font-size', FS).attr('fill', 'var(--color-fg-muted)').text(vnd(r.cost) + ' · ' + rx(r.ratio));
+    });
+  }
+
+  function fillTable(sel, rows, cols, keyOf, rowCls) {
+    const tb = d3.select(sel).select('tbody'); tb.selectAll('*').remove();
+    rows.forEach(r => { const tr = tb.append('tr').attr('data-key', keyOf(r)); if (rowCls) tr.attr('class', rowCls(r));
+      cols.forEach(c => { const td = tr.append('td').text(c.f ? c.f(r[c.k]) : (r[c.k] == null ? '—' : r[c.k])); if (c.cls) td.attr('class', c.cls(r[c.k])); }); });
+  }
+
+  const tplCols = [{ k: 'spend', f: vnd }, { k: 'ads_gmv', f: vnd }, { k: 'total_gmv', f: vnd }, { k: 'contrib', f: pct }, { k: 'ratio', f: rx, cls: roasCls }];
+  let monthCh = 'Tất cả', dayCh = 'Tất cả', campCh = 'Tất cả', q = '';
+  document.getElementById('q-camp').addEventListener('input', e => { q = e.target.value.toLowerCase(); draw(); });
+  const chLegend = (id, line) => legend(id, CHS.map(c => ({ name: c, color: color(c), line })));
+
+  function drawOverall() {
+    const ov = dash.data('ads_overall'), am = dash.data('ads_month'), at = dash.data('ads_month_total');
+    if (ov.status === 'ok') fillTable('#tbl-overall', ov.data, [{ k: 'channel' }, ...tplCols, { k: 'cost_ratio', f: pct2 }], r => r.channel, r => r.channel === 'Tổng' ? 'total' : '');
+    const elMix = document.getElementById('ch-mix');
+    if (prep(elMix, ov)) {
+      const chs = ov.data.filter(r => r.channel !== 'Tổng');
+      mix(elMix, [{ label: 'AdsSpent', parts: chs.map(r => ({ name: r.channel, color: color(r.channel), v: r.spend })) }, { label: 'AdsGMV', parts: chs.map(r => ({ name: r.channel, color: color(r.channel), v: r.ads_gmv })) }]);
+    }
+    const elS = document.getElementById('ch-spend-month'), elR = document.getElementById('ch-roas-month');
+    const okS = prep(elS, am), okR = prep(elR, am);
+    document.querySelectorAll('.ar .spark').forEach(el => { if (am.status === 'ok') { const c = el.dataset.spark; spark(el, am.data.filter(r => r.channel === c).map(r => ({ k: r.month, v: r.spend ? r.ratio : null })), color(c)); } else el.innerHTML = ''; });
+    if (okS && okR) {
+      const months = [...new Set(am.data.map(r => r.month))];
+      const get = (c, f) => k => { const r = am.data.find(x => x.month === k && x.channel === c); return r && r.spend ? r[f] : null; };
+      stacked(elS, months, mlabel, CHS.map(c => ({ name: c, color: color(c), get: get(c, 'spend') })));
+      lines(elR, months, mlabel, CHS.map(c => ({ name: c === 'TikTok' ? 'TikTok (ROI)' : c, color: color(c), get: get(c, 'ratio') })));
+      chLegend('#lg-spend-month'); legend('#lg-roas-month', CHS.map(c => ({ name: c === 'TikTok' ? 'TikTok (ROI GMV Max)' : c + ' (ROAS)', color: color(c), line: true })));
+    }
+    seg('seg-month', ['Tất cả', ...CHS], () => monthCh, v => { monthCh = v; });
+    document.getElementById('wrap-month-ch').hidden = monthCh === 'Tất cả';
+    document.getElementById('wrap-month-all').hidden = monthCh !== 'Tất cả';
+    if (monthCh === 'Tất cả') { if (at.status === 'ok') fillTable('#tbl-month-all', at.data, [{ k: 'month', f: mlabel }, ...tplCols], r => r.month); }
+    else if (am.status === 'ok') fillTable('#tbl-month-ch', am.data.filter(r => r.channel === monthCh), [{ k: 'month', f: mlabel }, { k: 'channel' }, ...tplCols], r => enc(r.month) + ',' + enc(r.channel));
+  }
+
+  function drawDay() {
+    const ad = dash.data('ads_day'), at = dash.data('ads_day_total');
+    const elS = document.getElementById('ch-spend-day'), elR = document.getElementById('ch-roas-day');
+    if (prep(elS, ad) && prep(elR, ad)) {
+      const days = [...new Set(ad.data.map(r => r.date))];
+      const get = (c, f) => k => { const r = ad.data.find(x => x.date === k && x.channel === c); return r ? r[f] : null; };
+      stacked(elS, days, dlabel, CHS.map(c => ({ name: c, color: color(c), get: get(c, 'spend') })));
+      lines(elR, days, dlabel, CHS.map(c => ({ name: c === 'TikTok' ? 'TikTok (ROI)' : c, color: color(c), get: get(c, 'ratio') })));
+      chLegend('#lg-spend-day'); legend('#lg-roas-day', CHS.map(c => ({ name: c === 'TikTok' ? 'TikTok (ROI GMV Max)' : c + ' (ROAS)', color: color(c), line: true })));
+    }
+    seg('seg-day', ['Tất cả', ...CHS], () => dayCh, v => { dayCh = v; });
+    document.getElementById('wrap-day-ch').hidden = dayCh === 'Tất cả';
+    document.getElementById('wrap-day-all').hidden = dayCh !== 'Tất cả';
+    if (dayCh === 'Tất cả') { if (at.status === 'ok') fillTable('#tbl-day-all', at.data, [{ k: 'date', f: dlabel }, { k: 'spend', f: vnd }, { k: 'ads_gmv', f: vnd }, { k: 'roas', f: rx, cls: roasCls }, { k: 'spend_sp', f: vnd }, { k: 'spend_meta', f: vnd }, { k: 'spend_tt', f: vnd }], r => r.date); }
+    else if (ad.status === 'ok') fillTable('#tbl-day-ch', ad.data.filter(r => r.channel === dayCh), [{ k: 'date', f: dlabel }, { k: 'channel' }, ...tplCols], r => enc(r.date) + ',' + enc(r.channel));
+  }
+
+  function drawCamp() {
+    seg('seg-camp', ['Tất cả', 'Meta', 'TikTok'], () => campCh, v => { campCh = v; });
+    const c = dash.data('campaign_rows'), el = document.getElementById('ch-camp');
+    if (!prep(el, c)) return;
+    const byCh = c.data.filter(r => campCh === 'Tất cả' || r.channel === campCh);
+    hbars(el, byCh.slice(0, 12));
+    const rs = byCh.filter(r => !q || (r.campaign + ' ' + r.account).toLowerCase().includes(q));
+    fillTable('#tbl-camp', rs, [{ k: 'campaign' }, { k: 'channel' }, { k: 'account' }, { k: 'objective' }, { k: 'cost', f: vnd }, { k: 'ads_revenue', f: vnd }, { k: 'ratio', f: rx, cls: roasCls }, { k: 'status' }], r => enc(r.campaign) + ',' + enc(r.account));
+    d3.selectAll('#tbl-camp tbody tr').each(function () { const tds = this.children; tds[0].className = 'wrap'; [1, 2, 3, 7].forEach(i => { tds[i].classList.add('l'); }); });
+  }
+
+  function drawDD() {
+    const d = dash.data('dd_ads');
+    const elS = document.getElementById('ch-spend-dd'), elR = document.getElementById('ch-roas-dd');
+    if (prep(elS, d) && prep(elR, d)) {
+      const keys = d.data.map(r => r.date), row = k => d.data.find(r => r.date === k);
+      stacked(elS, keys, dlabel, [{ name: 'Shopee Live', color: color('Shopee Live'), get: k => row(k).spend_sp }, { name: 'Meta', color: color('Meta'), get: k => row(k).spend_meta }, { name: 'TikTok', color: color('TikTok'), get: k => row(k).spend_tt }]);
+      lines(elR, keys, dlabel, [{ name: 'Shopee Live', color: color('Shopee Live'), get: k => row(k).roas_sp }, { name: 'Meta', color: color('Meta'), get: k => row(k).roas_meta }, { name: 'TikTok (ROI)', color: color('TikTok'), get: k => row(k).roi_tt }]);
+      chLegend('#lg-spend-dd'); legend('#lg-roas-dd', CHS.map(c => ({ name: c === 'TikTok' ? 'TikTok (ROI GMV Max)' : c + ' (ROAS)', color: color(c), line: true })));
+    }
+    if (d.status === 'ok') fillTable('#tbl-dd', d.data, [{ k: 'date', f: dlabel }, { k: 'spend', f: vnd }, { k: 'ads_gmv', f: vnd }, { k: 'roas', f: rx, cls: roasCls }, { k: 'spend_sp', f: vnd }, { k: 'roas_sp', f: rx, cls: roasCls }, { k: 'contrib_sp', f: pct }, { k: 'spend_meta', f: vnd }, { k: 'roas_meta', f: rx, cls: roasCls }, { k: 'spend_tt', f: vnd }, { k: 'roi_tt', f: rx, cls: roasCls }], r => r.date);
+  }
+
+  let current = 'overall';
+  function draw() {
+    fillMarks();
+    if (current === 'overall') drawOverall();
+    if (current === 'theo-ngay') drawDay();
+    if (current === 'campaign') drawCamp();
+    if (current === 'ngay-doi') drawDD();
+  }
+  function show(page) {
+    current = page;
+    document.querySelectorAll('.ar .page').forEach(p => { p.hidden = p.id !== page; });
+    document.querySelectorAll('.ar .tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.page === page)));
+    dash.setLink(page);
+    draw();
+  }
+  document.querySelectorAll('.ar .tabs button').forEach(b => b.addEventListener('click', () => show(b.dataset.page)));
+  dash.onData(draw);
+  const named = location.hash.slice(1);
+  if (['theo-ngay', 'campaign', 'ngay-doi'].includes(named)) show(named);
+})();
+</script>
+</body></html>

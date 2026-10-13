@@ -213,6 +213,19 @@ function bindCampaign(ch){
 }
 function rerenderCamp(ch){const box=$('#campbox');const pos=$('#cq')&&document.activeElement===$('#cq');box.innerHTML=campaignTable(ch,periods());bindCampaign(ch);if(pos){const q=$('#cq');q.focus();q.setSelectionRange(q.value.length,q.value.length)}}
 
+
+/* ---------- daily detail table ---------- */
+function dailyTable(fn,gch){
+  const n=nDays(S.from,S.to);const cf=n<14?addD(S.to,-13):S.from;
+  const M=byKey(addD(cf,-1),S.to,fn,r=>r.date);
+  const days=[];for(let d=S.to;d>=cf;d=addD(d,-1))days.push(d);
+  const g=d=>{if(!gch)return null;let s=0,k=0;gch.forEach(c=>{const v=(D.gd[c]||{})[d];if(v!=null){s+=v;k++}});return k?s:null};
+  const z=derive({spend:0,imp:0,clk:0,ord:0,rev:0,views:0});
+  const rows=days.map(d=>{const o=M.get(d)||z,p=M.get(addD(d,-1))||z;const gv=g(d);const inR=d>=S.from&&d<=S.to;
+    return `<tr${inR&&n<14?' style="font-weight:600"':''}><td>${fd(d)}${dt(d)%(7*864e5)===2*864e5?'':''}</td><td>${money(o.spend)}</td><td>${p.spend?pill(chg(o.spend,p.spend),0):'–'}</td><td>${money(o.rev)}</td><td>${p.rev?pill(chg(o.rev,p.rev),1):'–'}</td>${gch?`<td>${money(gv)}</td><td>${gv?pct(o.rev/gv,0):'–'}</td>`:''}<td><b>${dec(o.roas)}</b></td><td>${p.roas?pill(chg(o.roas,p.roas),1):'–'}</td><td>${num(o.ord)}</td><td>${money(o.cpo)}</td></tr>`}).join('');
+  return `<div class="tw" style="max-height:440px;overflow-y:auto"><table><thead><tr><th>Ngày</th><th>Chi phí</th><th>vs hôm trước</th><th>Doanh thu ads</th><th>vs hôm trước</th>${gch?'<th>GMV</th><th>% đóng góp ads</th>':''}<th>ROAS</th><th>ΔROAS</th><th>Đơn</th><th>CPO</th></tr></thead><tbody>${rows}</tbody></table></div>${n<14?'<div class="note">Hiển thị 14 ngày gần nhất; ngày trong kỳ chọn in đậm.</div>':''}`;
+}
+
 /* ---------- views ---------- */
 function viewOverview(P){
   const cur=agg(S.from,S.to),a=agg(P.p1.from,P.p1.to),b=agg(P.p2.from,P.p2.to);
@@ -231,6 +244,7 @@ function viewOverview(P){
   <section><h2>Theo kênh</h2><div class="grid3">${cards}</div></section>
   <section class="grid2"><div class="card"><h2>Chi phí theo ngày & doanh thu ads <small>${nDays(S.from,S.to)<14?'hiển thị 14 ngày gần nhất, kỳ đang chọn đậm màu':''}</small></h2><div class="chartbox"><canvas id="c1"></canvas></div></div>
   <div class="card">${insights('overview',cur,a,b,P,null)}</div></section>
+  <section class="card"><h2>Chi tiết theo ngày — 3 kênh <small>GMV = TikTok creator + Shopee Live (chưa gồm Facebook)</small></h2>${dailyTable(null,['TikTok','Shopee'])}</section>
   <section class="card"><h2>So sánh theo kênh & tài khoản</h2>${breakdown(null,r=>CHNAME[r.ch],'Kênh',P)}
   <div style="height:10px"></div>${breakdown(null,r=>CHNAME[r.ch]+' · '+r.acc+(r.ch==='TikTok'?' · '+(TYPENAME[r.type]||r.type):''),'Kênh · tài khoản',P)}</section>
   <section class="card"><h2>PFM theo tháng YTD <small>chi phí & doanh thu ads từ nền tảng; GMV & kế hoạch từ sheet GMV_Data</small></h2>${monthlyTable('overview')}</section>`;
@@ -251,6 +265,7 @@ function viewChannel(ch,P){
   <section><h2>${CHNAME[ch]} <small>${fr(S.from,S.to)} · so với ${P.l1} (${fr(P.p1.from,P.p1.to)}) và ${P.l2} (${fr(P.p2.from,P.p2.to)})</small></h2><div class="kpis">${tiles.join('')}</div></section>
   <section class="grid2"><div class="card"><h2>Theo ngày <small>chi phí (cột) theo ${ch==='TikTok'?'loại chiến dịch':'tài khoản'} · doanh thu ads (đường)</small></h2><div class="chartbox"><canvas id="c1"></canvas></div></div>
   <div class="card">${insights(ch,cur,a,b,P,[...byKey(S.from,S.to,fn,r=>r.key).values()])}</div></section>
+  <section class="card"><h2>Chi tiết theo ngày <small>${ch==='Meta'?'GMV Facebook theo ngày chưa có nguồn tin cậy':ch==='TikTok'?'GMV = Creator-attributed GMV (sheet); % đóng góp có thể >100% vì LIVE tính all-shops':'GMV = Shopee Live placed GMV'}</small></h2>${dailyTable(fn,ch==='Meta'?null:[ch])}</section>
   <section class="card"><h2>Theo ${ch==='TikTok'?'tài khoản & loại':'tài khoản'}</h2>${breakdown(fn,bkey,ch==='TikTok'?'Tài khoản · loại':'Tài khoản',P)}</section>
   <section class="card"><h2>Chiến dịch <small>${fr(S.from,S.to)}</small></h2><div id="campbox">${campaignTable(ch,P)}</div></section>
   <section class="card"><h2>PFM theo tháng YTD — ${CHNAME[ch]}</h2>${monthlyTable(ch)}

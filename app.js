@@ -40,7 +40,7 @@ async function load(){
   const C={};camps.forEach(c=>C[c.key]=c);
   const rows=daily.map(r=>{const c=C[r.key]||{channel:'?',account:'?',type:'?',name:r.key,objective:''};return {date:r.date,key:r.key,ch:c.channel,acc:c.account,type:c.type,name:c.name,obj:c.objective,spend:+r.spend,imp:+r.impressions,clk:+r.clicks,ord:+r.orders,rev:+r.revenue,views:+r.views}});
   const last={};rows.forEach(r=>{if(r.spend>0&&(!last[r.ch]||r.date>last[r.ch]))last[r.ch]=r.date});
-  const maxDate=CH.map(c=>last[c]).filter(Boolean).sort()[0];
+  const maxDate=CH.map(c=>last[c]).filter(Boolean).sort().pop();
   const gd={};gmvd.forEach(r=>{(gd[r.channel]=gd[r.channel]||{})[r.date]=+r.gmv});
   D={C,rows,last,maxDate,gd,gmvm};
 }
@@ -292,7 +292,7 @@ async function init(){
   theme();
   try{await load()}catch(e){$('#main').innerHTML=`<div class="empty">Không tải được dữ liệu (${esc(e.message)}). Thử tải lại trang.</div>`;return}
   const lastTxt=CH.map(c=>`${CHNAME[c]} ${D.last[c]?fd(D.last[c]):'–'}`).join(' · ');
-  $('#asof').textContent=`Số liệu đến ${fdy(D.maxDate)} · ${lastTxt}`;
+  $('#asof').textContent=`Số liệu đến ${fdy(D.maxDate)} · ${lastTxt}`+(CH.some(c=>D.last[c]&&D.last[c]<D.maxDate)?' · kênh nào chưa có số ngày gần nhất sẽ hiện 0 cho ngày đó':'');
   $('#foot').innerHTML=`Nguồn: Meta Ads, TikTok Ads (BASIC + GMV Max), Shopee Seller Center (Dịch vụ Hiển thị Livestream), sheet GMV_Historical_HannahOlala. Ngày theo giờ Việt Nam. Doanh thu ads là doanh thu do nền tảng ghi nhận cho quảng cáo, không phải GMV toàn shop.`;
   readHash();
   document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>go(b.dataset.tab));

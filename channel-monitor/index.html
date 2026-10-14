@@ -75,6 +75,12 @@ button,input,select{font:inherit;color:inherit}
 .st-a{background:var(--ok-soft);color:var(--ok)}.st-w{background:var(--warn-soft);color:var(--warn)}.st-i{background:var(--bad-soft);color:var(--bad)}.st-r{background:var(--surface2);color:var(--ink3)}
 .tier{display:inline-block;min-width:34px;text-align:center;font-weight:800;font-size:12px;padding:3px 8px;border-radius:8px;background:var(--surface2);color:var(--ink2)}.tier.t8,.tier.t7{background:var(--ok-soft);color:var(--ok)}.tier.t5,.tier.t6,.tier.t4{background:var(--accent-soft);color:var(--accent)}.tier.t0,.tier.t1{background:var(--warn-soft);color:var(--warn)}
 .stg{display:inline-block;font-weight:800;font-size:12px;padding:3px 9px;border-radius:8px}.stg.st1{background:var(--surface2);color:var(--ink2)}.stg.st2{background:var(--accent-soft);color:var(--accent)}.stg.st3{background:var(--ok-soft);color:var(--ok)}
+.legend2{margin-top:14px;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--ink2);display:grid;gap:7px}
+.legend2>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.legend2>div>b{min-width:150px;color:var(--ink)}
+.legend2 .stg{min-width:30px;text-align:center}
+.legend2 .sts b{min-width:auto;margin-right:4px}
+.legend2 p{margin:4px 0 0;color:var(--ink3);font-size:11px}
 .why{display:block;font-size:11px;color:var(--ink3);margin-top:3px;white-space:normal;max-width:220px}
 /* race */
 .race{display:grid;gap:10px}
@@ -196,7 +202,13 @@ select.btn{padding-right:6px}
     <h2>Danh sách kênh <small>bấm tiêu đề cột để sắp xếp · số tương tác tính trên video đăng 08–14/10</small></h2>
     <div class="tabs" id="ttabs"><button class="on" data-t="ov">Tổng quan</button><button data-t="eng">Nội dung &amp; tương tác</button><button data-t="rev">Doanh thu</button></div>
     <div class="tw"><table id="tbl"><thead><tr id="thr"></tr></thead><tbody></tbody></table></div>
-    <div class="legend" style="margin-top:10px;flex-wrap:wrap"><span class="st st-a">Active</span> đăng trong 24h, ≥7 video/7 ngày, không có cảnh báo · <span class="st st-w">Warning</span> có việc cần xử lý, followers giảm, hoặc đăng thưa · <span class="st st-i">Inactive</span> không đăng quá 72 giờ<br>Stage: <b>S1 Audience Building</b> chưa mở TikTok Shop/chưa gắn giỏ (KPI: follower tăng ròng, view/video) · <b>S2 Commerce Activation</b> đã gắn giỏ, GMV &lt;500 triệu/tháng (KPI: product click, CTR, đơn, GMV) · <b>S3 Commerce Scaling</b> GMV &gt;500 triệu/tháng, chạy quảng cáo GMV (KPI: NMV, commission, ROAS). L0–L8 = hạng creator TikTok Shop. GMV kênh = GMV quy cho creator; GMV live/video = GMV trực tiếp từ live/video, phần còn lại đến từ showcase và nguồn khác. Violation = link sản phẩm bị từ chối, video bị gỡ/ẩn trong 7 ngày.</div>
+    <div class="legend2">
+      <div><span class="stg st3">S3</span><b>Commerce Scaling</b><span>GMV &gt;500 triệu/tháng, chạy quảng cáo GMV · KPI: NMV, commission, ROAS</span></div>
+      <div><span class="stg st2">S2</span><b>Commerce Activation</b><span>Đã gắn giỏ hoặc bắt đầu affiliate, GMV &lt;500 triệu/tháng · KPI: product click, CTR, đơn, GMV</span></div>
+      <div><span class="stg st1">S1</span><b>Audience Building</b><span>Chưa mở TikTok Shop / chưa gắn giỏ · KPI: follower tăng ròng, view/video</span></div>
+      <div class="sts"><b>Trạng thái</b><span class="st st-a">Active</span><span>đăng trong 24h, ≥7 video/7 ngày, không có cảnh báo</span><span class="st st-w">Warning</span><span>có việc cần xử lý, followers giảm hoặc đăng thưa</span><span class="st st-i">Inactive</span><span>không đăng quá 72 giờ</span></div>
+      <p>L0–L8 = hạng creator TikTok Shop. GMV kênh = GMV quy cho creator; GMV live/video = GMV trực tiếp từ live/video, phần còn lại từ showcase và nguồn khác. Violation = link sản phẩm bị từ chối, video bị gỡ/ẩn trong 7 ngày.</p>
+    </div>
   </div>
 
   <div class="row2 h1">
@@ -336,7 +348,8 @@ function trow(c){return `<tr class="${c.main?"main":""}">`+COLS[tab].map(([k,,cl
 function renderT(){
   $("#thr").innerHTML=COLS[tab].map(([k,l,cls])=>`<th data-k="${k}" class="${["name","tier","vio","sti"].includes(k)?"":"r"}">${l}</th>`).join("");
   document.querySelectorAll("#tbl th").forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:(k==="name"?1:-1);sortK=k;renderT()});
-  let L=CH.filter(c=>!c.main),M=CH.filter(c=>c.main);
+  let L=[...CH],M=[];
+  if(!sortK)L.sort((a,b)=>(Math.floor(b.tierN/10)-Math.floor(a.tierN/10))||((b.gmv||0)-(a.gmv||0))||(b.f-a.f));
   if(sortK){const k=sortK==="name"?"h":sortK==="tier"?"tierN":sortK==="vio"?"vioN":sortK;L.sort((a,b)=>{const x=a[k]??-1e12,y=b[k]??-1e12;return (typeof x==="string"?x.localeCompare(y):x-y)*dir})}
   $("#tbl tbody").innerHTML=L.map(trow).join("")+M.map(trow).join("");
 }

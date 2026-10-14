@@ -58,10 +58,11 @@ GMV={'hannaholala':dict(gmv=21718942001,live=18707413667,video=722418193,gmv7=18
 'hannahteam.dep':dict(gmv=158240955,live=116208376,video=4433856,gmv7=141577248,live7=110338070,video7=1347486),
 'hannahteam.medep':dict(gmv=0,live=0,video=0,gmv7=0,live7=0,video7=0)}
 TIER={'hannaholala':'L8','hannahteam.review':'L7','hannah.team.chot.don':'L5','hannahteam.dep':'L5','hannahteam.medep':'L0'}
+STAGE={'hannaholala':'S3','hannahteam.review':'S3','hannah.team.chot.don':'S2','hannahteam.dep':'S2','hannaholala.mall':'S2','hannahteam.medep':'S1','hannahteam.dangmua':'S1'}
 VIO={'hannaholala':[dict(label='1 link SP bị từ chối',detail='11/10: link Bình giữ nhiệt Chako Lab trạng thái CHECK_FAILED')]}
 for c in chans:
     g=GMV.get(c['h'],{});[c.__setitem__(k,g.get(k)) for k in ['gmv','live','video','gmv7','live7','video7']]
-    c['tier']=TIER.get(c['h']);c['vio']=VIO.get(c['h'],[])
+    c['tier']=TIER.get(c['h']);c['stage']=STAGE.get(c['h']);c['vio']=VIO.get(c['h'],[])
 data=dict(asof="00:00 15/10/2026",kpi=5000,dayLabels=[d.strftime('%d/%m') for d in days],channels=chans,videos24=[{k:v for k,v in x.items() if k!='ts'} for x in v24],top=top,alerts=alerts)
 s=open('template_v4.html').read().replace('/*DATA*/null',json.dumps(data,ensure_ascii=False))
 open('hannah_monitor_demo.html','w').write(s)

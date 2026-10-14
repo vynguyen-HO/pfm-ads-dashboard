@@ -73,6 +73,7 @@ button,input,select{font:inherit;color:inherit}
 .st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .st-a{background:var(--ok-soft);color:var(--ok)}.st-w{background:var(--warn-soft);color:var(--warn)}.st-i{background:var(--bad-soft);color:var(--bad)}.st-r{background:var(--surface2);color:var(--ink3)}
 .tier{display:inline-block;min-width:34px;text-align:center;font-weight:800;font-size:12px;padding:3px 8px;border-radius:8px;background:var(--surface2);color:var(--ink2)}.tier.t8,.tier.t7{background:var(--ok-soft);color:var(--ok)}.tier.t5,.tier.t6,.tier.t4{background:var(--accent-soft);color:var(--accent)}.tier.t0,.tier.t1{background:var(--warn-soft);color:var(--warn)}
+.stg{display:inline-block;font-weight:800;font-size:12px;padding:3px 9px;border-radius:8px}.stg.st1{background:var(--surface2);color:var(--ink2)}.stg.st2{background:var(--accent-soft);color:var(--accent)}.stg.st3{background:var(--ok-soft);color:var(--ok)}
 .why{display:block;font-size:11px;color:var(--ink3);margin-top:3px;white-space:normal;max-width:220px}
 /* race */
 .race{display:grid;gap:10px}
@@ -194,7 +195,7 @@ select.btn{padding-right:6px}
     <h2>Danh sách kênh <small>bấm tiêu đề cột để sắp xếp · số tương tác tính trên video đăng 08–14/10</small></h2>
     <div class="tabs" id="ttabs"><button class="on" data-t="ov">Tổng quan</button><button data-t="eng">Nội dung &amp; tương tác</button><button data-t="rev">Doanh thu</button></div>
     <div class="tw"><table id="tbl"><thead><tr id="thr"></tr></thead><tbody></tbody></table></div>
-    <div class="legend" style="margin-top:10px;flex-wrap:wrap"><span class="st st-a">Active</span> đăng trong 24h, ≥7 video/7 ngày, không có cảnh báo · <span class="st st-w">Warning</span> có việc cần xử lý, followers giảm, hoặc đăng thưa · <span class="st st-i">Inactive</span> không đăng quá 72 giờ<br>Stage = hạng creator TikTok Shop (L0–L8, Partner Center). GMV kênh = GMV quy cho creator; GMV live/video = GMV trực tiếp từ live/video, phần còn lại đến từ showcase và nguồn khác. Violation = link sản phẩm bị từ chối, video bị gỡ/ẩn trong 7 ngày.</div>
+    <div class="legend" style="margin-top:10px;flex-wrap:wrap"><span class="st st-a">Active</span> đăng trong 24h, ≥7 video/7 ngày, không có cảnh báo · <span class="st st-w">Warning</span> có việc cần xử lý, followers giảm, hoặc đăng thưa · <span class="st st-i">Inactive</span> không đăng quá 72 giờ<br>Stage: <b>S1 Audience Building</b> chưa mở TikTok Shop/chưa gắn giỏ (KPI: follower tăng ròng, view/video) · <b>S2 Commerce Activation</b> đã gắn giỏ, GMV &lt;500 triệu/tháng (KPI: product click, CTR, đơn, GMV) · <b>S3 Commerce Scaling</b> GMV &gt;500 triệu/tháng, chạy quảng cáo GMV (KPI: NMV, commission, ROAS). L0–L8 = hạng creator TikTok Shop. GMV kênh = GMV quy cho creator; GMV live/video = GMV trực tiếp từ live/video, phần còn lại đến từ showcase và nguồn khác. Violation = link sản phẩm bị từ chối, video bị gỡ/ẩn trong 7 ngày.</div>
   </div>
 
   <div class="row2 h1">
@@ -318,7 +319,7 @@ const money=n=>n==null?'<span class="mute" style="font-size:11px">ngoài MCN</sp
 function cell(c,k){
   switch(k){
   case"name":return `<div class="who"><span class="av" style="background:${colorOf[c.h]}">${initials(c.h)}</span><div><b>@${esc(c.h)}</b><small>${esc(c.d)}</small></div></div>`;
-  case"tier":return c.tier?`<span class="tier t${c.tier.slice(1)}" title="Hạng creator TikTok Shop (L0–L8)">${c.tier}</span>`:'<span class="mute" style="font-size:11px">ngoài MCN</span>';
+  case"tier":{const S={S1:["Audience Building","st1"],S2:["Commerce Activation","st2"],S3:["Commerce Scaling","st3"]}[c.stage]||["–",""];return `<span class="stg ${S[1]}" title="${c.stage} — ${S[0]}">${c.stage||"–"}</span><small style="display:block;font-size:10px;color:var(--ink3);margin-top:3px">${S[0]}${c.tier?" · "+c.tier:""}</small>`}
   case"f":return `<b>${nf(c.f)}</b>`;
   case"df":return c.df==null?'<span class="mute">bắt đầu đo</span>':`<span class="delta ${c.df>0?"up":c.df<0?"down":"mute"}">${c.df>0?"+":""}${nf(c.df)}<small>${c.df>0?"▲":c.df<0?"▼":""} ${(c.df/c.f0*100).toLocaleString("vi-VN",{maximumFractionDigits:2})}%</small></span>`;
   case"views":return kfmt(c.views)+`<small style="display:block;font-size:10px;color:var(--ink3)">${c.cov} video</small>`;
@@ -338,7 +339,7 @@ function renderT(){
   if(sortK){const k=sortK==="name"?"h":sortK==="tier"?"tierN":sortK==="vio"?"vioN":sortK;L.sort((a,b)=>{const x=a[k]??-1e12,y=b[k]??-1e12;return (typeof x==="string"?x.localeCompare(y):x-y)*dir})}
   $("#tbl tbody").innerHTML=L.map(trow).join("")+M.map(trow).join("");
 }
-CH.forEach(c=>{c.tierN=c.tier?+c.tier.slice(1):-1;c.vioN=(c.vio||[]).length});
+CH.forEach(c=>{c.tierN=c.stage?+c.stage.slice(1)*10+(c.tier?+c.tier.slice(1):0):-1;c.vioN=(c.vio||[]).length});
 document.querySelectorAll("#ttabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#ttabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");tab=b.dataset.t;sortK=null;renderT()});
 renderT();
 

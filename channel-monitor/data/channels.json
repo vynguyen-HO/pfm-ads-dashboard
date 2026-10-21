@@ -1,0 +1,92 @@
+[
+ {
+  "h": "hannahteam.review",
+  "d": "hannahteam.review",
+  "identity_id": "4d241b07-e5d6-57f1-b4fb-338ad536baca",
+  "main": false,
+  "studio": false,
+  "nobc": false,
+  "mcn": true
+ },
+ {
+  "h": "hannah.team.chot.don",
+  "d": "Hannah Team Chốt Đơn",
+  "identity_id": "66424b6e-e3e6-5a7d-a95f-6a96a94bc1ee",
+  "main": false,
+  "studio": true,
+  "nobc": false,
+  "mcn": true
+ },
+ {
+  "h": "hannahteam.dep",
+  "d": "Đẹp cùng Hannah Team",
+  "identity_id": "70da636b-a8f3-504b-8665-0e27a33408ce",
+  "main": false,
+  "studio": false,
+  "nobc": false,
+  "mcn": true
+ },
+ {
+  "h": "hannahteam.medep",
+  "d": "hannahteam.medep",
+  "identity_id": "b7a2672f-513a-5033-b27d-a88a36fc3645",
+  "main": false,
+  "studio": true,
+  "nobc": false,
+  "mcn": true
+ },
+ {
+  "h": "hannahteam.dangmua",
+  "d": "Hannah Team Đáng Mua",
+  "identity_id": "84d20ebf-b549-5f34-a2c5-5abea2536507",
+  "main": false,
+  "studio": false,
+  "nobc": false,
+  "mcn": false
+ },
+ {
+  "h": "hannaholala.mall",
+  "d": "HannahOlala Mall",
+  "identity_id": "796f157d-f683-5903-94e9-42b35a8712c6",
+  "main": false,
+  "studio": false,
+  "nobc": false,
+  "mcn": false
+ },
+ {
+  "h": "hannaholala",
+  "d": "Kênh chính · tham chiếu",
+  "identity_id": "1d76ba88-f59b-42ce-a32b-17fb5f4971d3",
+  "main": true,
+  "studio": false,
+  "nobc": false,
+  "mcn": true
+ },
+ {
+  "h": "its.hannah.team",
+  "d": "It's Hannah Team",
+  "identity_id": "cadd13c6-a882-59bf-9ff2-7725ca016672",
+  "main": false,
+  "studio": false,
+  "nobc": false,
+  "mcn": false
+ },
+ {
+  "h": "hannahteam.cogu",
+  "d": "Hannah Team Gu Xịn",
+  "identity_id": "17dead6b-a4ae-5671-915b-15e48bf1f856",
+  "main": false,
+  "studio": false,
+  "nobc": false,
+  "mcn": false
+ },
+ {
+  "h": "hannah.mega.live",
+  "d": "Hannah Mega Live",
+  "identity_id": null,
+  "main": false,
+  "studio": false,
+  "nobc": true,
+  "mcn": false
+ }
+]

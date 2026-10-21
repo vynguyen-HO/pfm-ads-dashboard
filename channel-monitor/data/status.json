@@ -1,0 +1,123 @@
+{
+ "alerts": [
+  {
+   "id": "dep_links_failed2",
+   "sev": "bad",
+   "ch": "hannahteam.dep",
+   "short": "6 link SP bị từ chối · ngừng gắn giỏ",
+   "title": "dep: 6 link sản phẩm vẫn bị từ chối, 15 video 7 ngày qua không video nào gắn giỏ",
+   "detail": "Link La Roche-Posay, Vichy, YSL, Lancôme (video 13–15/10) vẫn CHECK_FAILED. Từ 16/10 không gắn giỏ nữa; GMV ngày 19/10 là 1,6 tr, ngày 20/10 còn 237 nghìn. Kiểm tra quyền bán sản phẩm của kênh rồi gắn lại."
+  },
+  {
+   "id": "chako_chotdon2",
+   "sev": "warn",
+   "ch": "hannah.team.chot.don",
+   "short": "video viral không gắn giỏ",
+   "title": "chốt đơn: video Chako 15/10 đã 77.374 view nhưng vẫn không gắn giỏ",
+   "detail": "Tăng thêm ~11.000 view từ 20/10. Link Chako đang bị từ chối ở kênh chính và review. Ghim comment dẫn sang sản phẩm thay thế hoặc làm lại video với sản phẩm gắn được."
+  },
+  {
+   "id": "hannaholala_links",
+   "sev": "warn",
+   "ch": "hannaholala",
+   "short": "2 link SP bị từ chối",
+   "title": "Kênh chính: 2 link sản phẩm bị từ chối",
+   "detail": "Bình giữ nhiệt Chako Lab và set phấn nước + son dưỡng The Whoo (độc quyền HO) trạng thái CHECK_FAILED. Gỡ link hoặc thay sản phẩm."
+  },
+  {
+   "id": "chako_review",
+   "sev": "warn",
+   "ch": "hannahteam.review",
+   "short": "link Chako bị từ chối",
+   "title": "review: link Chako Lab vẫn bị từ chối",
+   "detail": "Video 15/10 link CHECK_FAILED. Dừng gắn Chako ở mọi kênh tới khi xử lý xong."
+  },
+  {
+   "id": "obagi_dup",
+   "sev": "warn",
+   "ch": "",
+   "title": "21/10: 7 kênh cùng đăng Obagi và Neutrogena",
+   "detail": "review, dep, dangmua, chốt đơn, medep, mega.live, its đều đăng Obagi (Retinol, toner BHA, Vitamin C, Nu-gen) hoặc kem Neutrogena trong 24 giờ. Nội dung trùng dễ bị TikTok giảm phân phối; chia sản phẩm riêng cho từng kênh."
+  },
+  {
+   "id": "low_comment",
+   "sev": "warn",
+   "ch": "",
+   "title": "9 kênh build chỉ có 13 comment trên ~336.000 view trong 7 ngày",
+   "detail": "Riêng chốt đơn và its có comment (6 mỗi kênh). Thêm câu hỏi kêu gọi comment cuối video và ghim comment hỏi đáp."
+  },
+  {
+   "id": "new3_setup",
+   "sev": "warn",
+   "ch": "hannah.mega.live",
+   "short": "chưa liên kết BC, chưa vào MCN",
+   "title": "3 kênh mới (its, cogu, mega.live) chưa vào MCN Olala; mega.live chưa liên kết Business Center",
+   "detail": "Không có GMV/tier trong Partner Center cho its.hannah.team, hannahteam.cogu, hannah.mega.live. mega.live chưa ủy quyền vào Business Center 7199957727395741697 nên không đọc được trạng thái link sản phẩm."
+  },
+  {
+   "id": "new3_nocart",
+   "sev": "warn",
+   "ch": "its.hannah.team",
+   "short": "0 video gắn giỏ",
+   "title": "its và cogu vẫn chưa gắn giỏ video nào",
+   "detail": "its.hannah.team: 13 video 7 ngày, 7.952 view, 0 gắn giỏ (nhưng tăng 148 followers từ 20/10). hannahteam.cogu: 9 video, 1.595 view, followers đứng ở 58."
+  },
+  {
+   "id": "medep_nogmv",
+   "sev": "info",
+   "ch": "hannahteam.medep",
+   "title": "medep: 17 video 7 ngày, tổng 3.232 view, GMV vẫn 0",
+   "detail": "Trung bình ~190 view/video, chỉ 1 video gắn giỏ. Thử hook 3 giây đầu mạnh hơn và gắn giỏ sản phẩm đang chạy deal."
+  },
+  {
+   "id": "review_growth",
+   "sev": "info",
+   "ch": "hannahteam.review",
+   "title": "review +761 followers so với 20/10, video serum PDRN 54.500 view",
+   "detail": "Đợt săn sale L'Oréal 19–21/10 kéo follower và GMV (162 tr ngày 20/10). dangmua cũng tăng 128 followers lên 1.288."
+  }
+ ],
+ "vio": {
+  "hannahteam.review": [
+   {
+    "label": "1 link SP bị từ chối",
+    "detail": "Video bình giữ nhiệt Chako Lab 15/10: link sản phẩm CHECK_FAILED"
+   }
+  ],
+  "hannahteam.dep": [
+   {
+    "label": "6 link SP bị từ chối",
+    "detail": "TikTok for Business 20/10: link sản phẩm của 6 video 13–15/10 (KCN La Roche-Posay, dầu gội Vichy, son YSL, nước hoa Lancôme, cushion YSL, serum Lancôme Longevity) vẫn CHECK_FAILED"
+   }
+  ],
+  "hannaholala": [
+   {
+    "label": "2 link SP bị từ chối",
+    "detail": "Bình giữ nhiệt Chako Lab và set The Whoo độc quyền HO: CHECK_FAILED"
+   }
+  ]
+ },
+ "vioOk": {
+  "hannah.team.chot.don": "TikTok Studio 14h 20/10: 17 video đăng 14–19/10 đều công khai bình thường, không video nào đang xét duyệt hay bị hạn chế. Chưa có video đăng 20/10.",
+  "hannahteam.medep": "TikTok Studio 14h 20/10: 15 video đăng 14–20/10 đều công khai bình thường, không video nào đang xét duyệt hay bị hạn chế; thêm 1 video hẹn giờ 14:30."
+ },
+ "tier": {
+  "hannahteam.review": "L7",
+  "hannah.team.chot.don": "L5",
+  "hannahteam.dep": "L5",
+  "hannahteam.medep": "L0",
+  "hannaholala": "L8"
+ },
+ "stage": {
+  "hannahteam.review": "S3",
+  "hannah.team.chot.don": "S2",
+  "hannahteam.dep": "S2",
+  "hannahteam.medep": "S2",
+  "hannahteam.dangmua": "S1",
+  "hannaholala.mall": "S2",
+  "hannaholala": "S3",
+  "its.hannah.team": "S1",
+  "hannahteam.cogu": "S1",
+  "hannah.mega.live": "S2"
+ }
+}

@@ -1,4 +1,6 @@
-# Cập nhật dữ liệu PFM Shopee (trang /shopee/ và dashboard claude.ai)
+# Cập nhật dữ liệu PFM Shopee (dashboard claude.ai)
+
+Trang công khai `/shopee/` đã tắt (22/10/2026): dữ liệu chỉ nằm trong dashboard claude.ai, KHÔNG đưa CSV dữ liệu vào repo này.
 
 Chạy mỗi sáng sau 10h (sheet GMV_Historical tự cập nhật lúc ~10h01).
 
@@ -19,11 +21,11 @@ Sheet: `GMV_Historical_HannahOlala` (id `1tQYA095MUFr8uRLVg2mt-F2EDqdzDV1IE2vIDk
    - Mở tab conversion_report, dán `pull_affiliate.js`, gọi `shpPullAffiliate({acc, from: FROM, to: TO})`, chờ `window.__shpa.done === 1`, gọi `shpDownloadAffiliate()` → `~/Downloads/<acc>_aff_<TO>.csv`. Kiểm tra `user` đúng kênh và `errors` = 0.
    - Nếu trang chuyển về trang đăng nhập: dừng, báo người dùng đăng nhập lại (không tự đăng nhập).
 3. Đọc 2 range của sheet, lưu nguyên câu trả lời JSON thành `gmv_data.json` và `daily.json`.
-4. Đưa 4 file CSV từ Downloads vào máy chạy (device_stage_files), rồi:
-   `python3 tools/shopee/update.py --data shopee/data --lv HO=... --lv HT=... --aff HO=... --aff HT=... --sheet-gmv gmv_data.json --sheet-daily daily.json`
+4. Lấy 7 file dữ liệu hiện tại từ dashboard vào một thư mục tạm `data/` (ngoài repo): ArtifactData list `datasets` → `source.url` = `/_blob/<id>` → Artifact `read` với `path: <id>` và `out_dir`, đổi tên về `source.name`. Đưa 4 file CSV từ Downloads vào máy chạy (device_stage_files), rồi:
+   `python3 tools/shopee/update.py --data <thư mục tạm> --lv HO=... --lv HT=... --aff HO=... --aff HT=... --sheet-gmv gmv_data.json --sheet-daily daily.json`
    Đọc kỹ phần in ra: tổng 5 sub-channel phải khớp số Shopee trong sheet, không có dòng CẢNH BÁO.
-5. Đặt `window.SHP_VERSION` trong `shopee/index.html` thành ngày chạy, commit `shopee/data`, `shopee/index.html`, `tools/shopee/shop_brand.csv`, push lên `main`.
-6. Dashboard claude.ai (https://claude.ai/artifact/5fsWr4NtQDfiREVsJJBb7L): tải từng file trong `shopee/data` lên làm asset (Artifact publish `asset: true`, mỗi CSV một lần gọi), rồi ArtifactData `update` datasets tương ứng (`sku_daily` ← sku_daily.csv, `items`, `aff_brand_daily`, `shp_monthly`, `shp_month_plan`, `shp_daily`, `shp_mtd`) với `source.url` mới, `source.name`, `updated {at, by}` và ngày trong `description`.
+5. Chỉ commit `tools/shopee/shop_brand.csv` (nếu đổi) và push lên `main`. Không tạo lại thư mục `shopee/`.
+6. Dashboard claude.ai (https://claude.ai/artifact/5fsWr4NtQDfiREVsJJBb7L): tải từng file trong thư mục tạm lên làm asset (Artifact publish `asset: true`, mỗi CSV một lần gọi), rồi ArtifactData `update` datasets tương ứng (`sku_daily` ← sku_daily.csv, `items`, `aff_brand_daily`, `shp_monthly`, `shp_month_plan`, `shp_daily`, `shp_mtd`) với `source.url` mới, `source.name`, `updated {at, by}` và ngày trong `description`.
 
 ## Lưu ý
 - Creator Center trả tối đa 1.000 SKU/ngày; script lấy theo GMV giảm dần.

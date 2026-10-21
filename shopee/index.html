@@ -278,7 +278,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
         <div class="seg" id="seg-range"></div>
         <label class="lb">Từ <input class="date" type="date" id="f-from" aria-label="Từ ngày"></label>
         <label class="lb">Đến <input class="date" type="date" id="f-to" aria-label="Đến ngày"></label>
-        <label class="lb">Brand <select class="sel" id="f-brand" aria-label="Brand" data-source="items sku_daily"></select></label>
+        <label class="lb">Brand <input class="sel" id="f-brand" type="search" list="brand-list" placeholder="Tất cả brand · gõ để tìm" autocomplete="off" aria-label="Tìm và chọn brand" data-source="items sku_daily"><datalist id="brand-list"></datalist></label>
+        <button class="picked" id="f-brand-clear" hidden>×</button>
         <div class="seg" id="seg-acc"></div>
         <div class="seg" id="seg-ch"></div>
         <button class="picked" id="f-reset">Đặt lại</button>
@@ -343,7 +344,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 </div>
 </div>
 <script src="d3.min.js"></script>
-<script>window.SHP_VERSION="20261021";</script>
+<script>window.SHP_VERSION="2026102101";</script>
 <script src="shim.js"></script>
 <script src="app.js"></script>
 <script src="brand.js"></script>

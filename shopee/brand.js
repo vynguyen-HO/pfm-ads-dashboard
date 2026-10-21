@@ -127,7 +127,17 @@
   fFrom.addEventListener('change', () => { if (fFrom.value && fFrom.validity.valid) { st.range = 'custom'; st.from = fFrom.value; st.to = st.to || fTo.value; draw(); } });
   fTo.addEventListener('change', () => { if (fTo.value && fTo.validity.valid) { st.range = 'custom'; st.to = fTo.value; st.from = st.from || fFrom.value; draw(); } });
   [fFrom, fTo].forEach(i => i.addEventListener('blur', () => { if (st.from) { fFrom.value = st.from; fTo.value = st.to; } }));
-  fBrand.addEventListener('change', () => { st.brand = fBrand.value; st.sku = null; draw(); });
+  const fList = document.getElementById('brand-list'), fClear = document.getElementById('f-brand-clear');
+  const pickFromInput = () => {
+    const v = fBrand.value.trim(); if (!M) return;
+    if (!v) { if (st.brand) { st.brand = ''; st.sku = null; draw(); } return; }
+    const hit = M.brands.find(b => b.toLowerCase() === v.toLowerCase());
+    if (hit && hit !== st.brand) { st.brand = hit; st.sku = null; draw(); }
+  };
+  fBrand.addEventListener('input', pickFromInput);
+  fBrand.addEventListener('change', pickFromInput);
+  fBrand.addEventListener('blur', () => { fBrand.value = st.brand; });
+  fClear.addEventListener('click', () => { st.brand = ''; st.sku = null; fBrand.value = ''; draw(); });
   document.getElementById('f-reset').addEventListener('click', () => { Object.assign(st, { range: '30', from: null, to: null, brand: '', ch: 'all', acc: 'all', sku: null, qb: '', qs: '' }); document.getElementById('q-brand').value = ''; document.getElementById('q-sku').value = ''; draw(); });
   document.getElementById('q-brand').addEventListener('input', e => { st.qb = e.target.value.toLowerCase(); draw(); });
   document.getElementById('q-sku').addEventListener('input', e => { st.qs = e.target.value.toLowerCase(); draw(); });
@@ -147,8 +157,9 @@
     fFrom.min = fTo.min = m.min; fFrom.max = fTo.max = m.max;
     if (document.activeElement !== fFrom) fFrom.value = F; if (document.activeElement !== fTo) fTo.value = T;
     const bs = document.getElementById('b-span'); bs.textContent = dl(m.min) + ' – ' + dl(m.max); bs.classList.remove('dash-skeleton');
-    if (fBrand.dataset.n !== String(m.brands.length)) { fBrand.dataset.n = m.brands.length; fBrand.replaceChildren(new Option('Tất cả brand', ''), ...m.brands.map(b => new Option(b, b))); }
-    fBrand.value = st.brand;
+    if (fList.dataset.n !== String(m.brands.length)) { fList.dataset.n = m.brands.length; fList.replaceChildren(...m.brands.slice().sort((a, b) => a.localeCompare(b, 'vi', { sensitivity: 'base' })).map(b => new Option(b, b))); }
+    if (document.activeElement !== fBrand) fBrand.value = st.brand;
+    fClear.hidden = !st.brand;
 
     const accOk = r => st.acc === 'all' || r.a === st.acc;
     const cur = m.rows.filter(r => inRange(r, F, T) && accOk(r)), prev = m.rows.filter(r => inRange(r, PF, PT) && accOk(r));

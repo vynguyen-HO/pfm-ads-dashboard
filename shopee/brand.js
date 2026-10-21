@@ -227,9 +227,9 @@
 
     // brand table
     sortHeads('#tbl-brand', () => st.bSort, v => { st.bSort = v; });
-    const bt = brandRows.filter(r => (r.placed > 0 || r.aff_gmv > 0) && (!st.qb || r.brand.toLowerCase().includes(st.qb))).sort((a, b) => (b[st.bSort] ?? -1e18) - (a[st.bSort] ?? -1e18));
+    const bt = brandRows.filter(r => (r.placed > 0 || r.aff_gmv > 0) && (!st.brand || r.brand === st.brand) && (!st.qb || r.brand.toLowerCase().includes(st.qb))).sort((a, b) => (b[st.bSort] ?? -1e18) - (a[st.bSort] ?? -1e18));
     fillTable('#tbl-brand', bt.slice(0, 250), [{ k: 'brand' }, { k: 'placed', f: vnd }, { k: 'share', f: pct }, { k: 'live', f: vnd }, { k: 'video', f: vnd }, { k: 'confirmed', f: vnd }, { k: 'prev_growth', f: sgn, cls: v => v == null ? '' : v >= 0 ? 'ok' : 'bad' }, { k: 'dd_share', f: pct }, { k: 'avg_normal', f: vnd }, { k: 'aff_gmv', f: affCov ? vnd : () => '—' }, { k: 'aff_commission', f: affCov ? vnd : () => '—' }, { k: 'skus', f: int }], r => r.brand, { onClick: pickBrand, selKey: st.brand });
-    document.getElementById('m-brand').textContent = int(bt.length) + ' brand' + (bt.length > 250 ? ' · hiện 250 dòng đầu' : '');
+    document.getElementById('m-brand').textContent = (st.brand ? 'Đang lọc: ' + st.brand + ' · bấm dòng để bỏ lọc' : int(bt.length) + ' brand') + (bt.length > 250 ? ' · hiện 250 dòng đầu' : '');
 
     // SKU aggregates
     const sm = new Map();

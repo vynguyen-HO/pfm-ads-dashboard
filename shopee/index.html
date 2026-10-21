@@ -290,7 +290,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
       <div class="tile"><div class="lb">GMV đơn đã đặt</div><div class="v dash-skeleton" id="k-placed">—</div><div class="n" id="k-placed-n">—</div></div>
       <div class="tile"><div class="lb">GMV đã xác nhận</div><div class="v dash-skeleton" id="k-conf">—</div><div class="n" id="k-conf-n">—</div></div>
       <div class="tile"><div class="lb">So kỳ trước</div><div class="v dash-skeleton" id="k-prev">—</div><div class="n" id="k-prev-n">—</div></div>
-      <div class="tile"><div class="lb">GMV qua Affiliate</div><div class="v dash-skeleton" id="k-aff">—</div><div class="n" id="k-aff-n">—</div></div>
+      <div class="tile"><div class="lb" title="NMV = giá trị đơn qua link Affiliate, đã trừ đơn huỷ / không hợp lệ">NMV qua Affiliate</div><div class="v dash-skeleton" id="k-aff">—</div><div class="n" id="k-aff-n">—</div></div>
       <div class="tile"><div class="lb">Brand · SKU có đơn</div><div class="v dash-skeleton" id="k-cnt">—</div><div class="n" id="k-cnt-n">—</div></div>
     </div>
 
@@ -313,7 +313,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
     <div class="card">
       <div class="bar"><p class="note" style="margin:0">Bấm một dòng để chọn brand. "Ngày đôi" = ngày trùng tháng (9/9, 10/10…) và ngày trước, sau; "TB ngày thường" là trung bình các ngày còn lại có bán. <span id="n-aff"></span></p><input class="search" id="q-brand" type="search" placeholder="Tìm brand…" aria-label="Tìm brand"></div>
       <div class="tbl"><table id="tbl-brand" data-source="sku_daily items aff_brand_daily">
-        <thead><tr><th>Brand</th><th data-k="placed" class="sort">GMV đặt</th><th>Tỷ trọng</th><th data-k="live" class="sort">Live</th><th data-k="video" class="sort">Video</th><th>Đã xác nhận</th><th data-k="prev_growth" class="sort">So kỳ trước</th><th>Ngày đôi</th><th data-k="avg_normal" class="sort">TB ngày thường</th><th data-k="aff_gmv" class="sort">Affiliate GMV</th><th data-k="aff_commission" class="sort">Hoa hồng</th><th data-k="skus" class="sort">SKU</th></tr></thead>
+        <thead><tr><th>Brand</th><th data-k="placed" class="sort">GMV đặt</th><th>Tỷ trọng</th><th data-k="live" class="sort">Live</th><th data-k="video" class="sort">Video</th><th>Đã xác nhận</th><th data-k="prev_growth" class="sort">So kỳ trước</th><th>Ngày đôi</th><th data-k="avg_normal" class="sort">TB ngày thường</th><th data-k="aff_gmv" class="sort" title="Đã trừ đơn huỷ / không hợp lệ">Affiliate NMV</th><th data-k="aff_commission" class="sort">Hoa hồng</th><th data-k="skus" class="sort">SKU</th></tr></thead>
         <tbody></tbody></table></div>
       <div class="more" id="m-brand"></div>
     </div>
@@ -344,7 +344,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 </div>
 </div>
 <script src="d3.min.js"></script>
-<script>window.SHP_VERSION="2026102101";</script>
+<script>window.SHP_VERSION="2026102118";</script>
 <script src="shim.js"></script>
 <script src="app.js"></script>
 <script src="brand.js"></script>

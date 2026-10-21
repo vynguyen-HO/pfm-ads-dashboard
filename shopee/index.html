@@ -23,7 +23,6 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .sr .page[hidden]{display:none}
 
-
 #dash-root { --dash-gutter: clamp(16px, 3vw, 32px); }
 .sr { font-family: var(--font-anthropic-sans); color: var(--color-fg); max-width: 1280px; margin-inline: auto; font-variant-numeric: tabular-nums; }
 .sr h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0 0 var(--cds-gap-xs); }
@@ -101,7 +100,6 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 </head>
 <body>
 <div id="dash-root">
-
 <div class="sr">
   <div class="tabs" role="tablist">
     <button role="tab" id="tab-overall" data-page="overall" aria-selected="true">Tổng quan YTD</button>
@@ -273,7 +271,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
   <div class="page" id="brand" hidden>
     <div class="head">
       <h1>Brand &amp; SKU</h1>
-      <div class="asof">Kênh chính HannahOlala · dữ liệu <b class="dash-skeleton" id="b-span" data-source="sku_daily">—</b></div>
+      <div class="asof">Kênh HO &amp; Hannah Team · dữ liệu <b class="dash-skeleton" id="b-span" data-source="sku_daily">—</b></div>
     </div>
     <div class="card filters" id="b-filters">
       <div class="ctl">
@@ -281,6 +279,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
         <label class="lb">Từ <input class="date" type="date" id="f-from" aria-label="Từ ngày"></label>
         <label class="lb">Đến <input class="date" type="date" id="f-to" aria-label="Đến ngày"></label>
         <label class="lb">Brand <select class="sel" id="f-brand" aria-label="Brand" data-source="items sku_daily"></select></label>
+        <div class="seg" id="seg-acc"></div>
         <div class="seg" id="seg-ch"></div>
         <button class="picked" id="f-reset">Đặt lại</button>
       </div>
@@ -342,11 +341,9 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 
   </div>
 </div>
-
-
 </div>
 <script src="d3.min.js"></script>
-<script>window.SHP_VERSION="20261020";</script>
+<script>window.SHP_VERSION="20261021";</script>
 <script src="shim.js"></script>
 <script src="app.js"></script>
 <script src="brand.js"></script>

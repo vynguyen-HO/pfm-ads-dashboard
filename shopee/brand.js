@@ -12,7 +12,7 @@
   const addDays = (d, k) => { const t = new Date(d + 'T00:00:00Z'); t.setUTCDate(t.getUTCDate() + k); return t.toISOString().slice(0, 10); };
   const diffDays = (a, b) => Math.round((new Date(b + 'T00:00:00Z') - new Date(a + 'T00:00:00Z')) / 864e5);
   const page = document.getElementById('brand');
-  const st = { range: '30', from: null, to: null, brand: '', ch: 'all', sku: null, qb: '', qs: '', bSort: 'placed', sSort: 'placed' };
+  const st = { range: '30', from: null, to: null, brand: '', ch: 'all', acc: 'all', sku: null, qb: '', qs: '', bSort: 'placed', sSort: 'placed' };
   let M = null, cacheKey = null;
 
   // ---------- model built once per data change ----------
@@ -22,11 +22,11 @@
     const key = sd.data.length + '|' + it.data.length + '|' + (af.status === 'ok' ? af.data.length : -1);
     if (M && cacheKey === key) return M;
     const item = new Map(); it.data.forEach(r => item.set(String(r.item_id), { title: r.title || String(r.item_id), brand: r.brand || 'Chưa xác định', category: r.category || '' }));
-    const rows = sd.data.map(r => ({ d: String(r.date).slice(0, 10), id: String(r.item_id), lp: n(r.lp), lc: n(r.lc), lo: n(r.lo), lk: n(r.lk), vp: n(r.vp), vc: n(r.vc) }));
+    const rows = sd.data.map(r => ({ d: String(r.date).slice(0, 10), id: String(r.item_id), lp: n(r.lp), lc: n(r.lc), lo: n(r.lo), lk: n(r.lk), vp: n(r.vp), vc: n(r.vc), a: r.acc || 'HO' }));
     rows.forEach(r => { const i = item.get(r.id); r.b = i ? i.brand : 'Chưa xác định'; });
     rows.sort((a, b) => a.d < b.d ? -1 : a.d > b.d ? 1 : 0);
     const days = [...new Set(rows.map(r => r.d))];
-    const aff = af.status === 'ok' ? af.data.map(r => ({ d: String(r.date).slice(0, 10), b: r.brand, g: n(r.aff_gmv), c: n(r.aff_commission), o: n(r.aff_orders) })) : [];
+    const aff = af.status === 'ok' ? af.data.map(r => ({ d: String(r.date).slice(0, 10), b: r.brand, g: n(r.aff_gmv), c: n(r.aff_commission), o: n(r.aff_orders), a: r.acc || 'HO' })) : [];
     const bt = new Map(); rows.forEach(r => bt.set(r.b, (bt.get(r.b) || 0) + r.lp + r.vp));
     const brands = [...bt.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]);
     const ad = aff.map(r => r.d).sort();
@@ -128,7 +128,7 @@
   fTo.addEventListener('change', () => { if (fTo.value && fTo.validity.valid) { st.range = 'custom'; st.to = fTo.value; st.from = st.from || fFrom.value; draw(); } });
   [fFrom, fTo].forEach(i => i.addEventListener('blur', () => { if (st.from) { fFrom.value = st.from; fTo.value = st.to; } }));
   fBrand.addEventListener('change', () => { st.brand = fBrand.value; st.sku = null; draw(); });
-  document.getElementById('f-reset').addEventListener('click', () => { Object.assign(st, { range: '30', from: null, to: null, brand: '', ch: 'all', sku: null, qb: '', qs: '' }); document.getElementById('q-brand').value = ''; document.getElementById('q-sku').value = ''; draw(); });
+  document.getElementById('f-reset').addEventListener('click', () => { Object.assign(st, { range: '30', from: null, to: null, brand: '', ch: 'all', acc: 'all', sku: null, qb: '', qs: '' }); document.getElementById('q-brand').value = ''; document.getElementById('q-sku').value = ''; draw(); });
   document.getElementById('q-brand').addEventListener('input', e => { st.qb = e.target.value.toLowerCase(); draw(); });
   document.getElementById('q-sku').addEventListener('input', e => { st.qs = e.target.value.toLowerCase(); draw(); });
   const pickBrand = b => { st.brand = st.brand === b ? '' : b; st.sku = null; draw(); };
@@ -138,6 +138,7 @@
     if (page.hidden) return;
     const m = model();
     seg('seg-range', [{ t: '7 ngày', v: '7' }, { t: '15 ngày', v: '15' }, { t: '30 ngày', v: '30' }, { t: 'Tháng này', v: 'mtd' }, { t: 'Tháng trước', v: 'lm' }, { t: 'Từ đầu năm', v: 'ytd' }, { t: 'Tất cả', v: 'all' }], () => st.range, v => { st.range = v; st.from = st.to = null; });
+    seg('seg-acc', [{ t: 'Tất cả kênh', v: 'all' }, { t: 'HO', v: 'HO' }, { t: 'Hannah Team', v: 'HT' }], () => st.acc, v => { st.acc = v; st.sku = null; });
     seg('seg-ch', [{ t: 'Live + Video', v: 'all' }, { t: 'Live', v: 'live' }, { t: 'Video', v: 'video' }], () => st.ch, v => { st.ch = v; });
     const charts = ['ch-top-brand', 'ch-brand-day', 'ch-sku-day', 'ch-sku-top'].map(id => document.getElementById(id));
     if (!m) { charts.forEach(el => prep(el, false)); return; }
@@ -149,18 +150,20 @@
     if (fBrand.dataset.n !== String(m.brands.length)) { fBrand.dataset.n = m.brands.length; fBrand.replaceChildren(new Option('Tất cả brand', ''), ...m.brands.map(b => new Option(b, b))); }
     fBrand.value = st.brand;
 
-    const cur = m.rows.filter(r => inRange(r, F, T)), prev = m.rows.filter(r => inRange(r, PF, PT));
+    const accOk = r => st.acc === 'all' || r.a === st.acc;
+    const cur = m.rows.filter(r => inRange(r, F, T) && accOk(r)), prev = m.rows.filter(r => inRange(r, PF, PT) && accOk(r));
     const curB = st.brand ? cur.filter(r => r.b === st.brand) : cur, prevB = st.brand ? prev.filter(r => r.b === st.brand) : prev;
     const affCov = m.affOk && F >= m.affMin && T <= m.affMax, prevOk = PF >= m.min;
-    const affCur = m.aff.filter(r => r.d >= F && r.d <= T && (!st.brand || r.b === st.brand));
+    const affCur = m.aff.filter(r => r.d >= F && r.d <= T && accOk(r) && (!st.brand || r.b === st.brand));
     const S = (rs, f) => rs.reduce((a, r) => a + f(r), 0);
     const placed = S(curB, val), confirmed = S(curB, conf), pPlaced = S(prevB, val), live = S(curB, r => r.lp), video = S(curB, r => r.vp);
     const affG = S(affCur, r => r.g), affC = S(affCur, r => r.c);
     const skuSet = new Set(curB.filter(r => val(r) > 0).map(r => r.id)), brandSet = new Set(curB.filter(r => val(r) > 0).map(r => r.b));
     const ddPlaced = S(curB.filter(r => isDD(r.d)), val);
     const setT = (id, t) => { const el = document.getElementById(id); el.textContent = t; el.classList.remove('dash-skeleton'); };
-    const chName = st.ch === 'live' ? 'Live' : st.ch === 'video' ? 'Video' : 'Live + Video';
-    setT('k-placed', vnd(placed)); setT('k-placed-n', st.ch === 'all' ? 'Live ' + vshort(live) + ' · Video ' + vshort(video) : chName);
+    const chName = (st.acc === 'HO' ? 'HO · ' : st.acc === 'HT' ? 'Hannah Team · ' : '') + (st.ch === 'live' ? 'Live' : st.ch === 'video' ? 'Video' : 'Live + Video');
+    setT('k-placed', vnd(placed)); const hoV = S(curB.filter(r => r.a === 'HO'), val), htV = S(curB.filter(r => r.a === 'HT'), val);
+    setT('k-placed-n', st.acc === 'all' ? 'HO ' + vshort(hoV) + ' · Hannah Team ' + vshort(htV) : (st.ch === 'all' ? 'Live ' + vshort(live) + ' · Video ' + vshort(video) : chName));
     setT('k-conf', vnd(confirmed)); setT('k-conf-n', pct(placed ? confirmed / placed : null) + ' đơn đã đặt');
     setT('k-prev', prevOk && pPlaced ? sgn(placed / pPlaced - 1) : '—'); setT('k-prev-n', prevOk ? 'Kỳ trước ' + dshort(PF) + '–' + dl(PT) + ': ' + vshort(pPlaced) : 'Kỳ trước (' + dl(PF) + '–' + dl(PT) + ') nằm ngoài vùng có dữ liệu');
     document.getElementById('k-prev').className = 'v ' + (prevOk && pPlaced ? (placed >= pPlaced ? 'ok' : 'bad') : '');
@@ -174,7 +177,7 @@
     const get = b => { let a = bm.get(b); if (!a) { a = { brand: b, placed: 0, live: 0, video: 0, confirmed: 0, prev: 0, dd: 0, normal: 0, nDays: new Set(), aff_gmv: 0, aff_commission: 0, skus: new Set() }; bm.set(b, a); } return a; };
     cur.forEach(r => { const v = val(r); if (!v && !conf(r)) return; const a = get(r.b); a.placed += v; a.live += r.lp; a.video += r.vp; a.confirmed += conf(r); if (v > 0) a.skus.add(r.id); if (isDD(r.d)) a.dd += v; else { a.normal += v; if (v > 0) a.nDays.add(r.d); } });
     if (prevOk) prev.forEach(r => { const a = bm.get(r.b); if (a) a.prev += val(r); });
-    if (affCov) m.aff.forEach(r => { if (r.d >= F && r.d <= T) { const a = bm.get(r.b) || (r.g ? get(r.b) : null); if (a) { a.aff_gmv += r.g; a.aff_commission += r.c; } } });
+    if (affCov) m.aff.forEach(r => { if (r.d >= F && r.d <= T && accOk(r)) { const a = bm.get(r.b) || (r.g ? get(r.b) : null); if (a) { a.aff_gmv += r.g; a.aff_commission += r.c; } } });
     const totAll = [...bm.values()].reduce((s, a) => s + a.placed, 0);
     const brandRows = [...bm.values()].map(a => ({ ...a, share: totAll ? a.placed / totAll : null, prev_growth: a.prev ? a.placed / a.prev - 1 : null, dd_share: a.placed ? a.dd / a.placed : null, avg_normal: a.nDays.size ? a.normal / a.nDays.size : null, skus: a.skus.size }));
     const top = brandRows.filter(r => r.placed > 0 && r.brand !== 'Chưa xác định').sort((a, b) => b.placed - a.placed);

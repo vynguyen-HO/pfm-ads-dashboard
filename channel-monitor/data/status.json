@@ -5,24 +5,32 @@
    "sev": "bad",
    "ch": "hannahteam.dep",
    "short": "6 link SP bị từ chối · 14 video không gắn giỏ",
-   "title": "dep: 6 link sản phẩm vẫn bị từ chối, 14 video 7 ngày qua không video nào gắn giỏ",
-   "detail": "Link La Roche-Posay, Vichy, YSL, Lancôme (video 13–15/10) vẫn CHECK_FAILED. Video mới 21–22/10 (Neutrogena, Obagi Nu-gen) vẫn không gắn giỏ; GMV 20/10 237 nghìn, 21/10 còn 210 nghìn. Kiểm tra quyền bán sản phẩm của kênh rồi gắn lại."
+   "title": "dep: 6 link sản phẩm vẫn bị từ chối, 15 video 7 ngày qua không video nào gắn giỏ",
+   "detail": "Link La Roche-Posay, Vichy, YSL, Lancôme (video 13–15/10) vẫn CHECK_FAILED. 10 video mới nhất 19–22/10 (Neutrogena, Obagi, L'Oréal, Torriden) đều không gắn giỏ; 7 ngày 2.956 view. GMV 20/10 237 nghìn, 21/10 210 nghìn. Kiểm tra quyền bán sản phẩm của kênh rồi gắn lại."
   },
   {
    "id": "chako_chotdon2",
    "sev": "warn",
    "ch": "hannah.team.chot.don",
    "short": "2 video viral không gắn giỏ",
-   "title": "chốt đơn: 2 video viral không gắn giỏ — Chako 80.792 view, serum PDRN 42.560 view",
-   "detail": "Serum PDRN L'Oréal (17/10) tăng từ 33.306 lên 42.560 view từ chiều 21/10, Chako (15/10) lên 80.792. Cả hai không có giỏ. Gắn giỏ PDRN ngay (link PDRN đang CHECK_SUCCESS ở kênh review); với Chako ghim comment dẫn sang sản phẩm thay thế."
+   "title": "chốt đơn: 2 video viral không gắn giỏ — Chako 80.909 view, serum PDRN 43.580 view",
+   "detail": "Serum PDRN L'Oréal (17/10) đạt 43.580 view, Chako (15/10) 80.909 view, cả hai vẫn không có giỏ. Gắn giỏ PDRN ngay (link PDRN đang CHECK_SUCCESS ở kênh review); với Chako ghim comment dẫn sang sản phẩm thay thế."
+  },
+  {
+   "id": "pc_login",
+   "sev": "warn",
+   "ch": "",
+   "short": "Partner Center đăng xuất",
+   "title": "Partner Center đã đăng xuất trên Chrome — GMV và followers chính xác kênh MCN chưa cập nhật lúc 12h",
+   "detail": "Trang partner.tiktokshop.com chuyển sang màn hình đăng nhập. GMV vẫn là số 21/10 từ lần cập nhật 10h45. Đăng nhập lại Partner Center trên Chrome để lần chạy sau lấy được GMV 22/10."
   },
   {
    "id": "hannaholala_shanghai_nocart",
    "sev": "warn",
    "ch": "hannaholala",
-   "short": "vlog 400k view không giỏ",
-   "title": "Kênh chính: 2 vlog Thượng Hải 258.400 và 146.000 view nhưng không gắn giỏ",
-   "detail": "'Đi chơi Thượng Hải ngày 2' (20/10) 258.400 view, 'Đồ ngủ lụa' (21/10) 146.000 view, 9.245 like. Ghim comment dẫn sang sản phẩm đang deal hoặc làm video ngắn nối tiếp có gắn giỏ khi lượt xem đang cao."
+   "short": "3 vlog 815k view không giỏ",
+   "title": "Kênh chính: 3 vlog Thượng Hải 407.400, 259.200 và 147.900 view nhưng không gắn giỏ",
+   "detail": "'Đi ăn cua lông' (18/10) 407.400 view, 'Đi chơi Thượng Hải ngày 2' (19/10) 259.200 view, 'Đồ ngủ lụa' (20/10) 147.900 view. Ghim comment dẫn sang sản phẩm đang deal hoặc làm video ngắn nối tiếp có gắn giỏ khi lượt xem đang cao."
   },
   {
    "id": "hannaholala_links",
@@ -44,8 +52,8 @@
    "id": "obagi_dup",
    "sev": "warn",
    "ch": "",
-   "title": "21–22/10: 7 kênh tiếp tục cùng đăng Obagi và Neutrogena",
-   "detail": "Sáng 22/10 review, chốt đơn, dep, medep, dangmua, its, cogu lại đăng Obagi (Retinol, BHA, Vitamin C, Nu-gen) hoặc kem Neutrogena. Nội dung trùng dễ bị TikTok giảm phân phối; chia sản phẩm riêng cho từng kênh."
+   "title": "Trưa 22/10: 6 kênh lại cùng đăng kem Neutrogena/Obagi",
+   "detail": "11h–12h 22/10 review, dep, medep, dangmua, cogu đăng kem Neutrogena, its đăng Retinol Obagi — cùng sản phẩm đã đăng sáng 21/10 và 22/10. Video mới ở dep/medep/dangmua/cogu/its đều dưới 5 view sau 1 giờ. Nội dung trùng dễ bị TikTok giảm phân phối; chia sản phẩm riêng cho từng kênh."
   },
   {
    "id": "new3_nocart",
@@ -53,14 +61,14 @@
    "ch": "its.hannah.team",
    "short": "0 video gắn giỏ",
    "title": "its, cogu, dangmua vẫn chưa gắn giỏ video nào; followers đi ngang/giảm nhẹ",
-   "detail": "its.hannah.team: 15 video 7 ngày, 8.298 view, 0 gắn giỏ, followers 973→970. hannahteam.cogu: 11 video, 1.848 view, 58→57. dangmua: 14 video, 3.663 view, 0 gắn giỏ, 1.288→1.285."
+   "detail": "its.hannah.team: 16 video 7 ngày, 8.329 view, 0 gắn giỏ, followers 973→970. hannahteam.cogu: 12 video, 1.863 view, 58→57. dangmua: 15 video, 3.674 view, 0 gắn giỏ, 1.288→1.285."
   },
   {
    "id": "low_comment",
    "sev": "warn",
    "ch": "",
-   "title": "9 kênh build chỉ có 26 comment trên ~372.000 view trong 7 ngày",
-   "detail": "review 11, chốt đơn 7, its 6, dep 1, mega.live 1; medep, dangmua, mall, cogu 0 comment. Thêm câu hỏi kêu gọi comment cuối video và ghim comment hỏi đáp."
+   "title": "9 kênh build chỉ có 27 comment trên ~593.000 view trong 7 ngày",
+   "detail": "review 12, chốt đơn 7, its 6, dep 1, mega.live 1; medep, dangmua, mall, cogu 0 comment. Thêm câu hỏi kêu gọi comment cuối video và ghim comment hỏi đáp."
   },
   {
    "id": "new3_setup",
@@ -74,7 +82,7 @@
    "id": "medep_nogmv",
    "sev": "info",
    "ch": "hannahteam.medep",
-   "title": "medep: 16 video 7 ngày, tổng 3.434 view, GMV vẫn 0",
+   "title": "medep: 17 video 7 ngày, tổng 3.445 view, GMV vẫn 0",
    "detail": "Trung bình ~215 view/video, chỉ 4 video gắn giỏ (đều đăng 15–16/10); video 20–22/10 không gắn giỏ. Followers đứng ở 1.494. Thử hook 3 giây đầu mạnh hơn và gắn giỏ sản phẩm đang chạy deal."
   },
   {
@@ -90,6 +98,14 @@
    "ch": "hannahteam.review",
    "title": "review +478 followers (54.149), GMV 21/10 đạt 219 tr",
    "detail": "Đợt săn sale L'Oréal 19–21/10: GMV 162 tr (20/10) → 219 tr (21/10), live 121 tr. Video kem Neutrogena 21/10 lên 10.700 view, xịt d'Alba 21.300 view. Tháng 10 review đạt ~2,99 tỷ GMV."
+  },
+  {
+   "id": "review_kcn_loreal",
+   "sev": "info",
+   "ch": "hannahteam.review",
+   "short": "KCN L'Oréal 187.800 view",
+   "title": "review: video Kem chống nắng L'Oréal (16/10) đạt 187.800 view, có gắn giỏ",
+   "detail": "Video top của kênh build 10 ngày qua (141 like, 20 lượt lưu). Serum PDRN L'Oréal 17/10 cũng lên 61.400 view. Dùng lại format này cho các kênh dep/medep thay vì đăng trùng Neutrogena/Obagi."
   }
  ],
  "vio": {
@@ -113,7 +129,7 @@
   ]
  },
  "vioOk": {
-  "hannah.team.chot.don": "TikTok Studio 10h45 22/10: 25 video đăng 13–22/10 đều công khai bình thường (status 102), không video nào đang xét duyệt hay bị hạn chế.",
+  "hannah.team.chot.don": "TikTok Studio 12h05 22/10: 25 video đăng 13–22/10 đều công khai bình thường (status 102), không video nào đang xét duyệt hay bị hạn chế.",
   "hannahteam.medep": "TikTok Studio 10h40 22/10: 21 video đăng 12–22/10 đều công khai bình thường, không video nào đang xét duyệt hay bị hạn chế; không có video hẹn giờ."
  },
  "tier": {

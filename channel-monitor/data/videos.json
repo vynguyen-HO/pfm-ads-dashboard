@@ -6,13 +6,13 @@
 "tag": true,
 "failed": false,
 "s": [
-5036,
-5,
+10700,
+7,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698591355961953544": {
 "h": "hannahteam.review",
@@ -21,13 +21,13 @@
 "tag": true,
 "failed": false,
 "s": [
-4017,
-7,
+5846,
+11,
 0,
 0,
-0
+1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698403125102955784": {
 "h": "hannahteam.review",
@@ -36,13 +36,13 @@
 "tag": true,
 "failed": false,
 "s": [
-13700,
-11,
+14000,
+12,
 0,
 2,
 8
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698265104571206928": {
 "h": "hannahteam.review",
@@ -51,13 +51,13 @@
 "tag": true,
 "failed": false,
 "s": [
-19100,
+21300,
+12,
 11,
-0,
 1,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698265894883003664": {
 "h": "hannahteam.review",
@@ -66,33 +66,33 @@
 "tag": true,
 "failed": false,
 "s": [
-825,
+912,
 4,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698263177368227079": {
 "h": "hannahteam.review",
 "ts": 1792391570,
-"title": "Serum Lancôme Génifique Ultimate",
+"title": "Serum Lancome Genefique Ultimate",
 "tag": true,
 "failed": false,
 "s": [
-3030,
+3635,
 5,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698252502013054226": {
 "h": "hannahteam.review",
 "ts": 1792389085,
-"title": "Kem chống nắng Anessa hồng",
+"title": "Kem Chống Nắng Anessa Hồng",
 "tag": true,
 "failed": false,
 "s": [
@@ -107,7 +107,7 @@
 "7698261847237086482": {
 "h": "hannahteam.review",
 "ts": 1792391260,
-"title": "Combo dưỡng sáng L'Oréal Paris",
+"title": "Combo Dưỡng Sáng L'Oreal Paris",
 "tag": true,
 "failed": false,
 "s": [
@@ -122,7 +122,7 @@
 "7698223165700394256": {
 "h": "hannahteam.review",
 "ts": 1792382254,
-"title": "Dầu gội L'Oréal Paris",
+"title": "Dầu gội L'Oreal Paris",
 "tag": true,
 "failed": false,
 "s": [
@@ -137,7 +137,7 @@
 "7698222366777740560": {
 "h": "hannahteam.review",
 "ts": 1792382068,
-"title": "Kem chống nắng L'Oréal Paris",
+"title": "Kem Chống Nắng L'Oreal Paris",
 "tag": true,
 "failed": false,
 "s": [
@@ -152,7 +152,7 @@
 "7697343060518112520": {
 "h": "hannahteam.review",
 "ts": 1792177339,
-"title": "Dầu gội Kérastase Genesis",
+"title": "Dầu gội Kerastase Genesis",
 "tag": true,
 "failed": false,
 "s": [
@@ -302,92 +302,92 @@
 "7698295135104240914": {
 "h": "hannah.team.chot.don",
 "ts": 1792407960,
-"title": "Xịt dưỡng Torriden",
+"title": "Xịt Dưỡng Torriden",
 "tag": true,
 "failed": false,
 "s": [
-1031,
+1059,
 5,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698294820283878674": {
 "h": "hannah.team.chot.don",
 "ts": 1792398951,
-"title": "Serum Melasyl L'Oréal Paris",
+"title": "Serum Melasyl L’Oreal Paris",
 "tag": true,
 "failed": false,
 "s": [
-852,
+980,
 2,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697855115717364999": {
 "h": "hannah.team.chot.don",
 "ts": 1792319940,
-"title": "Combo gội xả L'Oréal hạn chế rụng",
+"title": "Combo gội xả L’Oreal Paris hạn chế rụng",
 "tag": true,
 "failed": false,
 "s": [
-936,
+961,
 4,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697854334599499016": {
 "h": "hannah.team.chot.don",
 "ts": 1792308960,
-"title": "Combo Paula's Choice BHA + Niacinamide",
+"title": "Combo Paula’s Choice BHA 2% và Niacinamide 20%",
 "tag": true,
 "failed": false,
 "s": [
-207,
+219,
 2,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697852533506592007": {
 "h": "hannah.team.chot.don",
 "ts": 1792295965,
 "title": "Serum Torriden Cellmazing",
-"tag": false,
+"tag": true,
 "failed": false,
 "s": [
-683,
+701,
 5,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697299618199063824": {
 "h": "hannah.team.chot.don",
 "ts": 1792236000,
-"title": "Tinh chất peel Paula's Choice",
-"tag": false,
+"title": "Tinh Chất Peel Da Paula’s Choice",
+"tag": true,
 "failed": false,
 "s": [
-717,
-1,
+765,
+2,
 0,
 2,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697299005633547536": {
 "h": "hannah.team.chot.don",
@@ -396,73 +396,73 @@
 "tag": false,
 "failed": false,
 "s": [
-1568,
+1575,
 1,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697298540371954945": {
 "h": "hannah.team.chot.don",
 "ts": 1792221600,
-"title": "Serum L'Oréal HA PDRN",
+"title": "Serum L’Oreal Paris HA PDRN",
 "tag": false,
 "failed": false,
 "s": [
-33306,
-44,
-0,
-3,
-4
+42560,
+61,
+1,
+5,
+7
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697297997817924882": {
 "h": "hannah.team.chot.don",
 "ts": 1792206900,
-"title": "Sữa rửa mặt La Roche-Posay",
+"title": "Sữa rửa mặt La Roche Posay",
 "tag": false,
 "failed": false,
 "s": [
-763,
+775,
 3,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697208127816518928": {
 "h": "hannah.team.chot.don",
 "ts": 1792151400,
-"title": "AHA 10% Paula's Choice",
+"title": "AHA 10% Paula’s Choice",
 "tag": false,
 "failed": false,
 "s": [
-1862,
+1952,
 3,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697207296614485264": {
 "h": "hannah.team.chot.don",
 "ts": 1792148100,
-"title": "Kem dưỡng B5 La Roche-Posay",
+"title": "Kem dưỡng B5 La Roche Posay",
 "tag": false,
 "failed": false,
 "s": [
-5645,
+5651,
 14,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697206860897651975": {
 "h": "hannah.team.chot.don",
@@ -471,58 +471,58 @@
 "tag": false,
 "failed": false,
 "s": [
-2422,
+2503,
 4,
 0,
 0,
 2
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696814049065012487": {
 "h": "hannah.team.chot.don",
 "ts": 1792059540,
-"title": "KCN La Roche-Posay",
+"title": "KCN La Roche Posay",
 "tag": false,
 "failed": false,
 "s": [
-950,
+971,
 4,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696813792470076673": {
 "h": "hannah.team.chot.don",
 "ts": 1792055889,
-"title": "Ly giữ nhiệt Chako Lab",
+"title": "Ly Giữ Nhiệt Chako Lab",
 "tag": false,
 "failed": false,
 "s": [
-77374,
-47,
+80792,
+54,
 5,
 3,
-6
+7
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696805978024529158": {
 "h": "hannah.team.chot.don",
 "ts": 1792052296,
-"title": "Dầu gội Vichy",
+"title": "Dầu Gội Vichy",
 "tag": false,
 "failed": false,
 "s": [
-749,
+801,
 3,
 0,
 1,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696418828506418450": {
 "h": "hannah.team.chot.don",
@@ -531,13 +531,13 @@
 "tag": false,
 "failed": false,
 "s": [
-3935,
+4170,
 12,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696418268181056786": {
 "h": "hannah.team.chot.don",
@@ -546,18 +546,18 @@
 "tag": true,
 "failed": false,
 "s": [
-3504,
-12,
-0,
+3863,
+13,
+1,
 0,
 3
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698219271238847760": {
 "h": "hannahteam.dep",
 "ts": 1792381347,
-"title": "Combo sáng da L'Oréal Paris",
+"title": "Combo sáng da L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
@@ -572,7 +572,7 @@
 "7698218578847288592": {
 "h": "hannahteam.dep",
 "ts": 1792381186,
-"title": "Dầu gội L'Oréal Paris",
+"title": "Dầu gội L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
@@ -602,7 +602,7 @@
 "7697312554695232786": {
 "h": "hannahteam.dep",
 "ts": 1792170236,
-"title": "Serum L'Oréal Glycolic Bright",
+"title": "Serum dưỡng sáng L'Oreal Glycolic Bright",
 "tag": false,
 "failed": false,
 "s": [
@@ -861,18 +861,18 @@
 "tag": false,
 "failed": false,
 "s": [
-246,
-0,
+310,
+1,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698282122334752016": {
 "h": "hannahteam.medep",
 "ts": 1792414800,
-"title": "Kem L'Oréal Glycolic-Bright",
+"title": "L'Oreal Paris Glycolic-Bright Matte Luminizing Cream",
 "tag": false,
 "failed": false,
 "s": [
@@ -882,12 +882,12 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698281347210546440": {
 "h": "hannahteam.medep",
 "ts": 1792396800,
-"title": "Kem chống nắng L'Oréal Paris",
+"title": "Kem chống nắng L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
@@ -897,28 +897,28 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697694743609888016": {
 "h": "hannahteam.medep",
 "ts": 1792328400,
 "title": "Xịt dưỡng Torriden",
-"tag": false,
+"tag": true,
 "failed": false,
 "s": [
-158,
+160,
 1,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697694271071145232": {
 "h": "hannahteam.medep",
 "ts": 1792310400,
-"title": "Kem dưỡng Paula's Choice Peptide",
-"tag": false,
+"title": "Paula's Choice Pro-Collagen Peptide Plumping Face Moisturize",
+"tag": true,
 "failed": false,
 "s": [
 107,
@@ -927,37 +927,37 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697693905151675656": {
 "h": "hannahteam.medep",
 "ts": 1792292400,
-"title": "Serum + kem dưỡng L'Oréal",
-"tag": false,
+"title": "Serum+Kem dưỡng L'Oreal Paris",
+"tag": true,
 "failed": false,
 "s": [
-183,
+187,
 1,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697321443071233288": {
 "h": "hannahteam.medep",
 "ts": 1792242000,
 "title": "Serum HA Torriden",
-"tag": false,
+"tag": true,
 "failed": false,
 "s": [
-210,
+212,
 3,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697320876319968519": {
 "h": "hannahteam.medep",
@@ -972,12 +972,12 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697320206938426676": {
 "h": "hannahteam.medep",
 "ts": 1792206000,
-"title": "Bộ gội xả L'Oréal Paris",
+"title": "Bộ gội xả L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
@@ -987,7 +987,7 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697170709725875476": {
 "h": "hannahteam.medep",
@@ -1002,42 +1002,42 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697169941631618324": {
 "h": "hannahteam.medep",
 "ts": 1792137039,
-"title": "Kem body BHA Paula's Choice",
+"title": "Kem body BHA 2% Paula's Choice",
 "tag": false,
 "failed": false,
 "s": [
-374,
+375,
 6,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696771890483973383": {
 "h": "hannahteam.medep",
 "ts": 1792069200,
-"title": "Nước tẩy trang La Roche-Posay",
+"title": "Nước tẩy trang La Roche-Posay cho mọi loại da",
 "tag": false,
 "failed": false,
 "s": [
-136,
+144,
 2,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696767490923187464": {
 "h": "hannahteam.medep",
 "ts": 1792051200,
-"title": "Dầu gội Dercos giảm rụng",
+"title": "Dầu gội giảm rụng tóc Dercos",
 "tag": false,
 "failed": false,
 "s": [
@@ -1047,12 +1047,12 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696382939843546386": {
 "h": "hannahteam.medep",
 "ts": 1791982800,
-"title": "Lancôme Rénergie Triple Serum",
+"title": "Lancôme Renergie H.C.F Triple Serum",
 "tag": true,
 "failed": false,
 "s": [
@@ -1062,57 +1062,57 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696382208499584263": {
 "h": "hannahteam.medep",
 "ts": 1791964800,
-"title": "Serum Lancôme Génifique Ultimate",
+"title": "Serum Lancome Genifique Ultimate",
 "tag": true,
 "failed": false,
 "s": [
-544,
+547,
 3,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698642613330660615": {
 "h": "hannahteam.dangmua",
 "ts": 1792479914,
-"title": "Bộ gội xả L'Oréal Paris",
+"title": "Bộ gội xả L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
-359,
+361,
 6,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698283359935466770": {
 "h": "hannahteam.dangmua",
 "ts": 1792396269,
-"title": "Serum L'Oréal Glycolic Melasyl",
+"title": "Serum L'Oreal Paris Glycolic Melasyl 8%",
 "tag": false,
 "failed": false,
 "s": [
-367,
+370,
 4,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698009706731719952": {
 "h": "hannahteam.dangmua",
 "ts": 1792332554,
-"title": "Kem dưỡng Paula's Choice Peptide",
+"title": "Paula's Choice Pro-Collagen Peptide Plumping Face Moisturi",
 "tag": false,
 "failed": false,
 "s": [
@@ -1127,7 +1127,7 @@
 "7697915051247701255": {
 "h": "hannahteam.dangmua",
 "ts": 1792310516,
-"title": "Serum L'Oréal Glycolic Melasyl",
+"title": "Serum L'Oreal Paris Glycolic Melasyl 8%",
 "tag": false,
 "failed": false,
 "s": [
@@ -1157,7 +1157,7 @@
 "7697558021886446866": {
 "h": "hannahteam.dangmua",
 "ts": 1792227388,
-"title": "Kem chống nắng L'Oréal Paris",
+"title": "Kem chống nắng L'oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
@@ -1171,7 +1171,7 @@
 },
 "7697543873987415312": {
 "h": "hannahteam.dangmua",
-"ts": 1792224060,
+"ts": 1792224094,
 "title": "Serum HA Torriden",
 "tag": false,
 "failed": false,
@@ -1311,34 +1311,34 @@
 "tag": false,
 "failed": false,
 "s": [
-11,
+13,
 0,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698269636290153780": {
 "h": "hannaholala.mall",
 "ts": 1792393074,
 "title": "Cushion The Whoo",
-"tag": false,
+"tag": true,
 "failed": false,
 "s": [
-20,
+48,
 0,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698221317669014791": {
 "h": "hannaholala.mall",
 "ts": 1792381824,
 "title": "Nước dưỡng keo ong CNP",
-"tag": false,
+"tag": true,
 "failed": false,
 "s": [
 15,
@@ -1352,8 +1352,8 @@
 "7697344985699503378": {
 "h": "hannaholala.mall",
 "ts": 1792177787,
-"title": "Son dưỡng The Whoo",
-"tag": false,
+"title": "Son Dưỡng The Whoo",
+"tag": true,
 "failed": false,
 "s": [
 16,
@@ -1368,7 +1368,7 @@
 "h": "hannaholala.mall",
 "ts": 1792177696,
 "title": "Nước dưỡng Sum:37",
-"tag": false,
+"tag": true,
 "failed": false,
 "s": [
 16,
@@ -1382,7 +1382,7 @@
 "7697296336403647752": {
 "h": "hannaholala.mall",
 "ts": 1792166460,
-"title": "Dầu hoa anh thảo David Health",
+"title": "Tinh Dầu Hoa Anh Thảo Chiều David Health",
 "tag": true,
 "failed": false,
 "s": [
@@ -1532,37 +1532,37 @@
 "7698346883051244806": {
 "h": "hannaholala",
 "ts": 1792411059,
-"title": "Đi chơi Thượng Hải ngày 2",
+"title": "Đi chơi Thượng Hải ngày 2.",
 "tag": false,
 "failed": false,
 "s": [
-247500,
-17900,
+258400,
+18100,
 40,
-165,
-310
+178,
+322
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698297304582999317": {
 "h": "hannaholala",
 "ts": 1792399516,
-"title": "Bộ gội xả L'Oréal giá mềm",
+"title": "Bộ gội xả này giá mềm mà dùng rất tốt nhaaa",
 "tag": true,
 "failed": false,
 "s": [
-1027,
+1034,
 3,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697939798903901456": {
 "h": "hannaholala",
 "ts": 1792316278,
-"title": "Ăn cua lông ở Thượng Hải",
+"title": "Đi ăn cua lông ở Thượng Hải",
 "tag": false,
 "failed": false,
 "s": [
@@ -1577,7 +1577,7 @@
 "7697484551823691015": {
 "h": "hannaholala",
 "ts": 1792210282,
-"title": "Giận chồng ra khách sạn",
+"title": "Giận chồng bỏ nhà ra khách sạn và cái kết",
 "tag": true,
 "failed": false,
 "s": [
@@ -1591,8 +1591,8 @@
 },
 "7696514255343897877": {
 "h": "hannaholala",
-"ts": 1791984360,
-"title": "Event Paula's Choice tại nhà Na",
+"ts": 1791984367,
+"title": "Event của Paula's Choice tại nhà Na nè.",
 "tag": true,
 "failed": false,
 "s": [
@@ -1606,8 +1606,8 @@
 },
 "7696162622055517461": {
 "h": "hannaholala",
-"ts": 1791902460,
-"title": "Vali Na bị bể",
+"ts": 1791902496,
+"title": "Vali Na bị bể và cái kếtttt.",
 "tag": false,
 "failed": false,
 "s": [
@@ -1621,8 +1621,8 @@
 },
 "7695756414341385493": {
 "h": "hannaholala",
-"ts": 1791807900,
-"title": "Ăn Omakase với Na",
+"ts": 1791807919,
+"title": "Đi ăn Omakase với Na nhaaa.",
 "tag": true,
 "failed": false,
 "s": [
@@ -1636,8 +1636,8 @@
 },
 "7695393535197007125": {
 "h": "hannaholala",
-"ts": 1791723420,
-"title": "Tem phụ ở đây nè",
+"ts": 1791723429,
+"title": "Tem phụ ở đây nè mọi người.",
 "tag": false,
 "failed": false,
 "s": [
@@ -1742,7 +1742,7 @@
 "7698594339160624405": {
 "h": "its.hannah.team",
 "ts": 1792468675,
-"title": "Nước tẩy trang L'Oréal Paris",
+"title": "Nước tẩy trang L’Oreal Paris ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -1752,12 +1752,12 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698261913729273108": {
 "h": "its.hannah.team",
 "ts": 1792391276,
-"title": "Bộ gội xả L'Oréal Paris",
+"title": "Bộ gội xả L’Oreal Paris ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -1767,12 +1767,12 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698261600951602484": {
 "h": "its.hannah.team",
 "ts": 1792391203,
-"title": "Nước tẩy trang L'Oréal Paris",
+"title": "Nước tẩy trang L’Oreal Paris ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -1787,7 +1787,7 @@
 "7697478864078933254": {
 "h": "its.hannah.team",
 "ts": 1792208958,
-"title": "Dưỡng cơ thể AHA Paula Choice’s",
+"title": "Dưỡng cơ thể AHA Paula Choice’s ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -1801,8 +1801,8 @@
 },
 "7697479907252784404": {
 "h": "its.hannah.team",
-"ts": 1792209180,
-"title": "Serum L'Oréal Paris",
+"ts": 1792209201,
+"title": "Serum L’Oreal Paris ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -1816,8 +1816,8 @@
 },
 "7697478257087679764": {
 "h": "its.hannah.team",
-"ts": 1792208760,
-"title": "Sữa rửa mặt Laroche Posay",
+"ts": 1792208817,
+"title": "Sữa rửa mặt Laroche Posay ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -1831,8 +1831,8 @@
 },
 "7697478739780766997": {
 "h": "its.hannah.team",
-"ts": 1792208880,
-"title": "Serum Torriden",
+"ts": 1792208929,
+"title": "Serum Torriden ✨",
 "tag": false,
 "failed": false,
 "s": [
@@ -2028,27 +2028,27 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698424717237046549": {
 "h": "hannahteam.cogu",
 "ts": 1792429182,
-"title": "Bộ gội xả L'Oréal Paris",
+"title": "Bộ gội xả L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
-268,
+269,
 1,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698230382105349396": {
 "h": "hannahteam.cogu",
 "ts": 1792383934,
-"title": "Serum PDRN L'Oréal Paris",
+"title": "Serum PDRN L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
@@ -2063,7 +2063,7 @@
 "7698073795701116181": {
 "h": "hannahteam.cogu",
 "ts": 1792347476,
-"title": "Bộ gội xả hồng L'Oréal",
+"title": "Bộ gội xả hồng L'Oreal",
 "tag": false,
 "failed": false,
 "s": [
@@ -2077,7 +2077,7 @@
 },
 "7697989165069225217": {
 "h": "hannahteam.cogu",
-"ts": 1792327740,
+"ts": 1792327772,
 "title": "Kem dưỡng Peptide Paula's Choice",
 "tag": false,
 "failed": false,
@@ -2092,8 +2092,8 @@
 },
 "7697833053757951252": {
 "h": "hannahteam.cogu",
-"ts": 1792291380,
-"title": "Serum Melasyl L'Oréal",
+"ts": 1792291424,
+"title": "Serum Melasyl L'Oreal",
 "tag": false,
 "failed": false,
 "s": [
@@ -2268,13 +2268,13 @@
 "tag": true,
 "failed": false,
 "s": [
-249,
+258,
 6,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698366582858321153": {
 "h": "hannah.mega.live",
@@ -2283,13 +2283,13 @@
 "tag": true,
 "failed": false,
 "s": [
-337,
+339,
 5,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698285007831436564": {
 "h": "hannah.mega.live",
@@ -2304,7 +2304,7 @@
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7697998180910107924": {
 "h": "hannah.mega.live",
@@ -2447,17 +2447,29 @@
 "title": "Kem dưỡng Neutrogena",
 "tag": true,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+1822,
+3,
+0,
+1,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698960094075063559": {
 "h": "hannahteam.review",
 "ts": 1792553834,
-"title": "Pad peel Obagi",
+"title": "Peel Pad Obagi",
 "tag": true,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+1457,
+3,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698599810512915720": {
 "h": "hannahteam.review",
@@ -2465,17 +2477,29 @@
 "title": "Kem dưỡng Peptide Paula's Choice",
 "tag": true,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+1834,
+2,
+0,
+0,
+1
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698601261519686930": {
 "h": "hannahteam.review",
 "ts": 1792470286,
-"title": "Dầu dưỡng tóc Mise en scène",
+"title": "Dầu dưỡng tóc Mise en scene",
 "tag": true,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+1838,
+2,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698598423779347720": {
 "h": "hannahteam.review",
@@ -2483,8 +2507,14 @@
 "title": "Kem dưỡng nhân sâm Sulwhasoo",
 "tag": true,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+3132,
+4,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698592521827486983": {
 "h": "hannahteam.review",
@@ -2492,8 +2522,14 @@
 "title": "Kem dưỡng Retinol Obagi",
 "tag": true,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+2319,
+1,
+0,
+0,
+1
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698967410690280722": {
 "h": "hannahteam.dep",
@@ -2502,13 +2538,13 @@
 "tag": false,
 "failed": false,
 "s": [
-57,
-2,
+212,
+3,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698669112792190215": {
 "h": "hannahteam.dep",
@@ -2516,8 +2552,14 @@
 "title": "Retinol Obagi",
 "tag": false,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+207,
+2,
+1,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698593432129850632": {
 "h": "hannahteam.dep",
@@ -2525,8 +2567,14 @@
 "title": "Kem dưỡng Neutrogena",
 "tag": false,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+180,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698987521413221640": {
 "h": "hannahteam.dangmua",
@@ -2535,13 +2583,13 @@
 "tag": false,
 "failed": false,
 "s": [
-55,
-1,
+381,
+3,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698720662164196626": {
 "h": "hannahteam.dangmua",
@@ -2550,13 +2598,13 @@
 "tag": false,
 "failed": false,
 "s": [
-358,
+367,
 3,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698594700265131282": {
 "h": "hannaholala.mall",
@@ -2565,67 +2613,73 @@
 "tag": false,
 "failed": false,
 "s": [
-25,
+29,
 0,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698766969473879317": {
 "h": "hannaholala",
 "ts": 1792508868,
-"title": "Đồ ngủ lụa mua ở Thượng Hải",
+"title": "Đồ ngủ lụa Na mua ở Thượng Hải nè.",
 "tag": false,
 "failed": false,
-"s": null,
-"s_at": null
+"s": [
+146000,
+9245,
+46,
+199,
+361
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698594573345393926": {
 "h": "its.hannah.team",
 "ts": 1792468729,
-"title": "Kem dưỡng Obagi",
+"title": "Kem dưỡng Obagi ✨",
 "tag": false,
 "failed": false,
 "s": [
-207,
+248,
 0,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698964522714860820": {
 "h": "hannahteam.cogu",
 "ts": 1792554865,
-"title": "Bộ gội xả L'Oréal Paris",
+"title": "Bộ gội xả L'Oreal Paris",
 "tag": false,
 "failed": false,
 "s": [
-74,
+119,
 0,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698675687451938056": {
 "h": "hannah.team.chot.don",
 "ts": 1792496580,
-"title": "Gội xả L'Oréal Paris vàng",
+"title": "Gội Xả L’Oreal Paris vàng",
 "tag": false,
 "failed": false,
 "s": [
-559,
+808,
 2,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698675432291372296": {
 "h": "hannah.team.chot.don",
@@ -2634,13 +2688,13 @@
 "tag": true,
 "failed": false,
 "s": [
-485,
+608,
 3,
 1,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698980144379546901": {
 "h": "hannahteam.medep",
@@ -2649,13 +2703,13 @@
 "tag": false,
 "failed": false,
 "s": [
-3,
+177,
 0,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698978555614563605": {
 "h": "hannahteam.medep",
@@ -2664,13 +2718,13 @@
 "tag": false,
 "failed": false,
 "s": [
-27,
-0,
+218,
+1,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698642600928038151": {
 "h": "hannahteam.medep",
@@ -2679,13 +2733,13 @@
 "tag": false,
 "failed": false,
 "s": [
-167,
+170,
 1,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698988398031260949": {
 "h": "hannah.mega.live",
@@ -2694,13 +2748,13 @@
 "tag": true,
 "failed": false,
 "s": [
-51,
-1,
+171,
+2,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7698720814887177493": {
 "h": "hannah.mega.live",
@@ -2709,73 +2763,73 @@
 "tag": true,
 "failed": false,
 "s": [
-197,
+236,
 4,
 1,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7696005160333495570": {
 "h": "hannah.team.chot.don",
 "ts": 1791885600,
-"title": "Lancôme Rénergie Triple Serum",
+"title": "Lancôme Rénergie H.C.F. Triple Serum",
 "tag": false,
 "failed": false,
 "s": [
-1551,
-4,
-0,
-0,
-1
-],
-"s_at": "2026-10-21T15:20+07:00"
-},
-"7696003803459357960": {
-"h": "hannah.team.chot.don",
-"ts": 1791865530,
-"title": "Cushion YSL đen",
-"tag": false,
-"failed": false,
-"s": [
-1580,
+1678,
 5,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7696003803459357960": {
+"h": "hannah.team.chot.don",
+"ts": 1791865530,
+"title": "Cushion YSL Đen",
+"tag": false,
+"failed": false,
+"s": [
+1634,
+5,
+0,
+0,
+1
+],
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7695710798458555656": {
 "h": "hannah.team.chot.don",
 "ts": 1791806280,
-"title": "Serum tươi 3 lõi Lancôme",
+"title": "Serum tươi 3 lõi Lancome",
 "tag": false,
 "failed": false,
 "s": [
-7121,
+7303,
 24,
 0,
 1,
 2
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7695710288766684434": {
 "h": "hannah.team.chot.don",
 "ts": 1791797195,
-"title": "Serum tươi 3 lõi Lancôme",
+"title": "Serum tươi 3 lõi Lancome",
 "tag": false,
 "failed": false,
 "s": [
-2129,
-3,
+2292,
+4,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7695417335552724231": {
 "h": "hannah.team.chot.don",
@@ -2990,37 +3044,37 @@
 "7696044967206194439": {
 "h": "hannahteam.medep",
 "ts": 1791896400,
-"title": "Serum Lancôme Génifique Ultimate",
+"title": "Serum Lancome Genifique Ultimate",
 "tag": false,
 "failed": false,
 "s": [
-1540,
+1541,
 5,
 0,
 0,
 0
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7695630096090107144": {
 "h": "hannahteam.medep",
 "ts": 1791810000,
-"title": "Lancôme Absolue Longevity MD",
+"title": "Lancome Absolue Longevity MD Intercept The Serum 50ML",
 "tag": false,
 "failed": false,
 "s": [
-678,
+679,
 2,
 0,
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7695629103776402706": {
 "h": "hannahteam.medep",
 "ts": 1791792000,
-"title": "Lancôme Rénergie Triple Serum",
+"title": "Lancôme Renergie H.C.F Triple Serum 50ml",
 "tag": false,
 "failed": false,
 "s": [
@@ -3030,7 +3084,7 @@
 0,
 1
 ],
-"s_at": "2026-10-21T15:20+07:00"
+"s_at": "2026-10-22T11:11+07:00"
 },
 "7695119750183062791": {
 "h": "hannahteam.medep",
@@ -3076,5 +3130,200 @@
 0
 ],
 "s_at": "2026-10-21T15:20+07:00"
+},
+"7698963942852267282": {
+"h": "hannahteam.review",
+"ts": 1792554730,
+"title": "Nước Tẩy Trang Bioderma",
+"tag": true,
+"failed": false,
+"s": [
+1056,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7698962027041000722": {
+"h": "hannahteam.review",
+"ts": 1792554284,
+"title": "Kem Dưỡng Retinol Obagi",
+"tag": true,
+"failed": false,
+"s": [
+1332,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7698966557325544722": {
+"h": "hannahteam.review",
+"ts": 1792555339,
+"title": "Nước hoa Lancome",
+"tag": true,
+"failed": false,
+"s": [
+520,
+3,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699027126015626503": {
+"h": "hannah.team.chot.don",
+"ts": 1792578420,
+"title": "Kem dưỡng Obagi Medical Retinol +PHA",
+"tag": false,
+"failed": false,
+"s": [
+287,
+2,
+0,
+0,
+1
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699026435331099922": {
+"h": "hannah.team.chot.don",
+"ts": 1792569286,
+"title": "KCN Nâng tone The Whoo",
+"tag": false,
+"failed": false,
+"s": [
+373,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7698967781185686791": {
+"h": "hannahteam.dep",
+"ts": 1792555623,
+"title": "Kem dưỡng Neutrogena",
+"tag": false,
+"failed": false,
+"s": [
+95,
+2,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699010119014583570": {
+"h": "hannahteam.dangmua",
+"ts": 1792565481,
+"title": "Kem dưỡng Neutrogena",
+"tag": false,
+"failed": false,
+"s": [
+346,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7698971353180851474": {
+"h": "hannaholala.mall",
+"ts": 1792556455,
+"title": "Cushion The Whoo",
+"tag": false,
+"failed": false,
+"s": [
+12,
+0,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7698971035135249682": {
+"h": "hannaholala.mall",
+"ts": 1792556381,
+"title": "Toner Keo Ong CNP",
+"tag": false,
+"failed": false,
+"s": [
+11,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699018052100181268": {
+"h": "its.hannah.team",
+"ts": 1792567328,
+"title": "BHA Obagi ✨",
+"tag": false,
+"failed": false,
+"s": [
+131,
+2,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699017753637719317": {
+"h": "its.hannah.team",
+"ts": 1792567259,
+"title": "Kem dưỡng Nutrogena ✨",
+"tag": false,
+"failed": false,
+"s": [
+174,
+0,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699153998271515925": {
+"h": "hannahteam.cogu",
+"ts": 1792598981,
+"title": "Kem dưỡng Retinol 0.3%",
+"tag": false,
+"failed": false,
+"s": [
+99,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
+},
+"7699064696405511444": {
+"h": "hannahteam.cogu",
+"ts": 1792578188,
+"title": "Kem dưỡng Neutrogena",
+"tag": false,
+"failed": false,
+"s": [
+108,
+1,
+0,
+0,
+0
+],
+"s_at": "2026-10-22T11:11+07:00"
 }
 }

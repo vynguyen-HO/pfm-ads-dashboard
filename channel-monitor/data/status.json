@@ -20,9 +20,9 @@
    "id": "chako_chotdon2",
    "sev": "warn",
    "ch": "hannah.team.chot.don",
-   "short": "PDRN 48k view, Chako 83k view không giỏ",
-   "title": "chốt đơn: 2 video viral không gắn giỏ — Chako 83.110 view, serum PDRN 48.213 view; 2 video mới 22/10 cũng chưa giỏ",
-   "detail": "Serum PDRN L'Oréal (17/10) lên 48.213 view, Chako (15/10) 83.110 view, vẫn không có giỏ. 2 video 22/10 (kem tay L'Occitane, Obagi Retinol+PHA) chưa gắn giỏ. Gắn giỏ PDRN ngay (link PDRN CHECK_SUCCESS ở kênh review); với Chako ghim comment dẫn sang sản phẩm thay thế."
+   "short": "PDRN 48,6k, Chako 83,5k view không giỏ",
+   "title": "chốt đơn: 2 video viral không gắn giỏ — Chako 83.469 view, serum PDRN 48.635 view; 2 video mới 22/10 cũng chưa giỏ",
+   "detail": "Studio 12h 23/10: serum PDRN L'Oréal (17/10) 48.635 view, Chako (15/10) 83.469 view, vẫn không có giỏ. Kem tay L'Occitane (480 view) và Obagi Retinol+PHA (442 view) đăng 22/10 chưa gắn giỏ. Gắn giỏ PDRN ngay (link PDRN CHECK_SUCCESS ở kênh review); với Chako ghim comment dẫn sang sản phẩm thay thế."
   },
   {
    "id": "hannaholala_shanghai_nocart",
@@ -45,7 +45,7 @@
    "sev": "warn",
    "ch": "",
    "title": "22–23/10: 7 kênh vẫn xoay vòng cùng kem Neutrogena/Obagi",
-   "detail": "22/10 review, dep, medep, dangmua, cogu, its, chốt đơn và mega.live đều đăng Neutrogena hoặc Obagi; cogu tiếp tục Obagi 1h18 sáng 23/10. Video mới ở dep/medep/dangmua/cogu/its dừng ở 100–170 view. Nội dung trùng dễ bị TikTok giảm phân phối; chia sản phẩm riêng cho từng kênh."
+   "detail": "22/10 review, dep, medep, dangmua, cogu, its, chốt đơn và mega.live đều đăng Neutrogena hoặc Obagi; sáng 23/10 cogu tiếp tục Obagi + KCN AHC. Video mới ở dep/medep/dangmua dừng ở 100–230 view (Studio medep: 122–226 view). Nội dung trùng dễ bị TikTok giảm phân phối; chia sản phẩm riêng cho từng kênh."
   },
   {
    "id": "new3_nocart",
@@ -88,7 +88,7 @@
    "id": "review_growth",
    "sev": "info",
    "ch": "hannahteam.review",
-   "title": "review +664 followers (54.813); GMV 22/10 giảm còn 94,7 tr sau đỉnh 219 tr",
+   "title": "review +720 followers so với hôm qua (54.869); GMV 22/10 giảm còn 94,7 tr sau đỉnh 219 tr",
    "detail": "Hết đợt săn sale L'Oréal 19–21/10: GMV 21/10 219 tr → 22/10 94,7 tr (video 25,4 tr, live 41 tr). Tháng 10 review đạt ~3,09 tỷ GMV. Video kem Neutrogena 21/10 lên 17.800 view, xịt d'Alba 24.900 view."
   },
   {
@@ -121,8 +121,8 @@
   ]
  },
  "vioOk": {
-  "hannah.team.chot.don": "TikTok Studio 10h45 23/10: 25 video đăng 13–22/10 đều công khai bình thường (status 102), không video nào đang xét duyệt hay bị hạn chế.",
-  "hannahteam.medep": "TikTok Studio 10h45 23/10: 21 video đăng 13–22/10 đều công khai bình thường, không video nào đang xét duyệt hay bị hạn chế; không có video hẹn giờ."
+  "hannah.team.chot.don": "TikTok Studio 12h 23/10: 24 video đăng 13–22/10 đều công khai bình thường (status 102), không video nào đang xét duyệt hay bị hạn chế.",
+  "hannahteam.medep": "TikTok Studio 12h 23/10: 21 video đăng 13–22/10 đều công khai bình thường, không video nào đang xét duyệt hay bị hạn chế; không có video hẹn giờ."
  },
  "tier": {
   "hannahteam.review": "L7",

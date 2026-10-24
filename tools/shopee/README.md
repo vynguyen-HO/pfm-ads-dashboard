@@ -29,3 +29,6 @@ Sheet: `GMV_Historical_HannahOlala` (id `1tQYA095MUFr8uRLVg2mt-F2EDqdzDV1IE2vIDk
 - Creator Center trả tối đa 1.000 SKU/ngày; script lấy theo GMV giảm dần.
 - Affiliate tự chia nhỏ khung giờ khi một ngày có hơn 9.500 checkout (ngày Mega).
 - Tổng Live tháng phải gần bằng HO Live (Mega + BAU) đơn đã đặt trong sheet; Hannah Team gần bằng các dòng [MCN].
+
+## Code trang dashboard claude.ai
+files/app.js, files/brand.js, files/index.html trên dashboard claude.ai là bản đã làm rối (từ 24/10/2026). Bản đọc được = shopee/app.js, shopee/brand.js và phần body của shopee/index.html. Sửa giao diện thì sửa bản đọc được, chạy tools/shopee/obfuscate.js rồi ghi bản đã làm rối vào dashboard. Tác vụ cập nhật hằng ngày không đụng các file này.
